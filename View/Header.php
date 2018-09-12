@@ -10,3 +10,24 @@
         <p class="align-middle text-danger h1" id="title">Climbers News</p>
     </div>
 </div>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary ">
+    <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav1">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav1">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Recent Articles</a>
+                </li>
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Evaluations</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Week 1</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
