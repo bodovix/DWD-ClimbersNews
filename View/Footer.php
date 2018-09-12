@@ -3,8 +3,8 @@
 require_once 'Control/FooterControl.php';
 $myTest = new FooterControl();
 ?>
-<div class=" row bg-green " style="height:50px;">
-    <div class="bg-secondary col ">
+<div class="row bg-secondary" style="height:50px;">
+    <div class=" col ">
         <p class="mb-0">Gwydion Saxelby</p>
         <p class="mb-0">1701267@uad.ac.uk</p>
     </div>
