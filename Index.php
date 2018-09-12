@@ -9,7 +9,7 @@ include 'View/Header.php';
 </body>
 <footer>
 <?php
-$pathToPage = 'test';
+$pathToPage = 'TODO: CREATE PAGE';
 include 'View/Footer.php';
 
 ?>

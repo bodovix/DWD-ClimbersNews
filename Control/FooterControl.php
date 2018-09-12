@@ -4,13 +4,13 @@ class FooterControl
 {
     function loadRelatedPageLink($pathToPage)
     {
-        if ($pathToPage != "") {
+        if (isset($pathToPage) && $pathToPage != "") {
             $display = 'Related Page';
         } else {
-            $display = "No Page Linked";
-            $pathToPage = '#';
+             $display = "<p>No Page Linked</p>";
+             return $display;
         }
-        $return = '<a class="btn btn-primary " href="' . $pathToPage . '">' . $display . '</a>';
+        $return = '<a class="btn btn-primary " target="_blank" href="' . $pathToPage . '">' . $display . '</a>';
         return $return;
     }
 }
