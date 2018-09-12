@@ -8,8 +8,6 @@
 <div class="container">
     <div class="row" style="height: 250px;">
         <div class="col-md-4 bg-info"></div>
-        <div class="col-md-4 bg-dark"></div>
-        <div class="col-md-4 bg-danger"></div>
     </div>
 </div>
 </body>
