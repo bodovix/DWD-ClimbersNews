@@ -1,3 +1,8 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,11 +11,11 @@
           crossorigin="anonymous">
 </head>
 <div>
-    <div id="banner" class="col-12 bg-dark" style="height: 100px;">
+    <div id="banner" class="col-12 bg-dark" style="height: 100px">
         <p class="align-middle text-danger h1" id="title">Climbers News</p>
     </div>
 </div>
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary ">
+<nav class="navbar navbar-expand-sm  navbar-dark bg-primary ">
     <div class="container">
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav1">
             <span class="navbar-toggler-icon"></span>
@@ -29,5 +34,4 @@
             </ul>
         </div>
     </div>
-
 </nav>

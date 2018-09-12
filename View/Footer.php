@@ -1,6 +1,17 @@
-<div class="row ">
+<?php
 
+require_once 'Control/FooterControl.php';
+$myTest = new FooterControl();
+?>
+<div class=" row bg-green " style="height:50px;">
+    <div class="bg-secondary col ">
+        <p class="mb-0">Gwydion Saxelby</p>
+        <p class="mb-0">1701267@uad.ac.uk</p>
+    </div>
 
+    <did class=" bg-secondary col offset-md-6 offset-sm-0">
+       <?php   echo $myTest->loadRelatedPageLink($pathToPage) ?>
+    </did>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
