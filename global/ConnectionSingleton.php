@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Gwydion
- * Date: 13/09/2018
- * Time: 15:04
- */
 
 /**
  * Singleton class
