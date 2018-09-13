@@ -4,13 +4,13 @@
 class IndexControl
 {
     private $con;
-    public function __construct($conection)
+    public function __construct($connection)
     {
-        $this->con = $conection;
+        $this->con = $connection;
     }
 
     public function GetArticles(){
-        $query = $this->con-> prepare("select * from sql1701267.article ORDER BY createdOn DESC ");
+        $query = $this->con-> prepare("select * from sql1701267.article ORDER BY createdOn desc ");
 
         $success = $query -> execute();
         if ($success){
@@ -26,7 +26,7 @@ class IndexControl
                     <img class="card-img-top img-fluid " src="{$item["imageUrl"]}" style="height: 200px;width: auto; overflow: hidden" >
                     <div class="card-body">
                         <h4 class="card-title my-1">{$item["headline"]}"</h4>
-                        <p class="card-text mb-1">{$item["description"]}</p>
+                        <p class="card-text mb-1 text-muted" style="overflow:hidden;height: 50px ">{$item["description"]}</p>
                     </div>
                 </div>
             </div>
@@ -34,6 +34,8 @@ class IndexControl
 EOT;
             }
             return $html;
+        } else{
+            return "";
         }
     }
 }

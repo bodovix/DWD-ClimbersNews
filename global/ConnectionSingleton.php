@@ -45,5 +45,4 @@ final class ConnectionSingleton
             die("Connectoin Failed");
         }
     }
-
 }
