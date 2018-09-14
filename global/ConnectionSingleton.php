@@ -29,10 +29,10 @@ final class ConnectionSingleton
     private function __construct()
     {
         try{
-            $host = 'lochnagar.abertay.ac.uk';
-            $dbname = 'sql1701267';
-            $username = 'sql1701267';
-            $password = '93dkgPgqqHNP';
+            $host = DB_HOST;
+            $dbname = DB_NAME;
+            $username = DB_USER;
+            $password = DB_PASS;
 
             $this->con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$username,$password);
         }catch(PDOException $e){
