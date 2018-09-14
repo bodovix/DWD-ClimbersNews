@@ -36,7 +36,7 @@ final class ConnectionSingleton
 
             $this->con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$username,$password);
         }catch(PDOException $e){
-            die("Connectoin Failed");
+            die("Connectoin Failed" . $e->getMessage());
         }
     }
 }

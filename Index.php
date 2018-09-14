@@ -8,7 +8,6 @@ $indexControl = new IndexControl(ConnectionSingleton::Instance()->GetCon());
 ?>
 <?php
     include 'View/Header.php';
-    //include_once 'global/dbConnect.php';
 ?>
 
 <body class="">
