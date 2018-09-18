@@ -24,7 +24,7 @@ class IndexControl
     public function DisplayArticlesAsCards(){
             $result = $this->GetArticleDetails();
             $html ="";
-            $lastRowCreated ;
+            $lastRowCreated =0;
             foreach ($result as $key => $item) {
                 if($key ==0){
                     //first row setup
