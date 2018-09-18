@@ -28,12 +28,12 @@ class IndexControl
             foreach ($result as $key => $item) {
                 if($key ==0){
                     //first row setup
-                    $html .= '<div class="row h-auto" style="height: 300px;">';
+                    $html .= '<div class="row">';
                     $lastRowCreated = $key;
                 }
                 if(($key- 3) == $lastRowCreated){
                     //Add another Row
-                    $html .= '<div class="row h-auto" style="height: 300px;">';
+                    $html .= '<div class="row">';
                     $lastRowCreated = $key;
                 }
 
@@ -42,7 +42,7 @@ class IndexControl
         <div class="col-md-4 bg-info">
             <div class="container mt-3">
                 <div class="card" >
-                    <img class="card-img-top img-fluid " src="{$item->imageUrl}" style="height: 200px;width: auto; overflow: hidden" >
+                    <img class="card-img-top img-fluid " src="{$item->imageUrl}" >
                     <div class="card-body">
                         <h4 class="card-title my-1">{$item->headline}"</h4>
                         <p class="card-text mb-1 text-muted" style="overflow:hidden;height: 50px ">{$item->description}</p>
