@@ -12,9 +12,9 @@ $indexControl = new IndexControl(ConnectionSingleton::Instance()->GetCon());
 
 <body class="">
 <div class="container  ">
-    <div class="row h-auto" style="height: 300px;">
+
        <?php echo $indexControl->DisplayArticlesAsCards(); ?>
-    </div>
+
 </div>
 </body>
 

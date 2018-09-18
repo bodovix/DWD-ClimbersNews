@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e66f6cc8-e71e-48d2-ae93-7ffa62581a5f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Control/IndexControl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/IndexControl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Index.php" afterDir="false" />
     </list>
@@ -62,14 +61,14 @@
           <entry key="css" value="65" />
           <entry key="dummy" value="3" />
           <entry key="html" value="6" />
-          <entry key="php" value="6579" />
+          <entry key="php" value="6843" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="65" />
           <entry key="HTML" value="10" />
-          <entry key="PHP" value="6575" />
+          <entry key="PHP" value="6839" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
@@ -85,8 +84,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Control/IndexControl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+            <state relative-caret-position="510">
+              <caret line="51" column="14" lean-forward="true" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="55" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="55" />
+            <state relative-caret-position="357">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -243,16 +248,16 @@
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Gwydion\PhpstormProjects\DWD-ClimbersNews\uploads\articles" />
+      <recent name="C:\Users\Gwydion\PhpstormProjects\DWD-ClimbersNews\Resources\js" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Gwydion\PhpstormProjects\DWD-ClimbersNews\uploads\Evaluations\Week-1" />
       <recent name="C:\Users\Gwydion\PhpstormProjects\DWD-ClimbersNews\Resources\css" />
       <recent name="C:\Users\Gwydion\PhpstormProjects\DWD-ClimbersNews\Resources\js" />
       <recent name="C:\Users\Gwydion\PhpstormProjects\DWD-ClimbersNews\Resources" />
       <recent name="C:\Users\Gwydion\PhpstormProjects\DWD-ClimbersNews\View" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Gwydion\PhpstormProjects\DWD-ClimbersNews\uploads\articles" />
-      <recent name="C:\Users\Gwydion\PhpstormProjects\DWD-ClimbersNews\Resources\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -318,7 +323,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55247000" />
+    <option name="totallyTimeSpent" value="55746000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2968" y="33" width="1696" height="1026" extended-state="6" />
@@ -438,15 +443,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="55" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="55" />
+        <state relative-caret-position="357">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Control/IndexControl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+        <state relative-caret-position="510">
+          <caret line="51" column="14" lean-forward="true" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -24,10 +24,21 @@ class IndexControl
     public function DisplayArticlesAsCards(){
             $result = $this->GetArticleDetails();
             $html ="";
-            foreach ($result as $item) {
+            $lastRowCreated ;
+            foreach ($result as $key => $item) {
+                if($key ==0){
+                    //first row setup
+                    $html .= '<div class="row h-auto" style="height: 300px;">';
+                    $lastRowCreated = $key;
+                }
+                if(($key- 3) == $lastRowCreated){
+                    //Add another Row
+                    $html .= '<div class="row h-auto" style="height: 300px;">';
+                    $lastRowCreated = $key;
+                }
+
                 $html .=
                     <<<EOT
-
         <div class="col-md-4 bg-info">
             <div class="container mt-3">
                 <div class="card" >
@@ -40,6 +51,13 @@ class IndexControl
             </div>
         </div>
 EOT;
+                if(($key- 2) == $lastRowCreated){
+                    //close row
+                    $html .= '</div>';
+                }elseif(($key+1) == count($result)){
+                    //otherwise check if exiting loop
+                    $html .= '</div>';
+                }
             }
             return $html;
 
