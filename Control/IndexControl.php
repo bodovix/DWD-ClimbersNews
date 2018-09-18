@@ -28,9 +28,36 @@ class IndexControl
             $result = $query -> fetchAll(PDO::FETCH_OBJ);
             return $result;
         } else{
-            print_r($this->con->errorInfo());
             return null;
         }
+    }
+    private function DisplayPaging(){
+        $query = $this->con-> prepare("select id from sql1701267.article");
+
+        $success = $query -> execute();
+
+        if ($success){
+            $count = $query -> rowCount();
+            $pagesRequired = $count / $this->articlesPerPage;
+            $paginate = '<nav>';
+            $paginate .= '<ul class="pagination pagination-lg>';
+            for($i =0; $i <= $pagesRequired; $i++){
+                $index = $i + 1;
+                $paginate .= <<<EOT
+                <li class="page-item">
+                    <button class="page-link" onclick="">{$index}</button>
+                </li>
+EOT;
+            }
+            $paginate .= '</ul>';
+            $paginate .= '</nav>';
+
+            return $paginate;
+        }else{
+            return null;
+        }
+
+
     }
 
     public function DisplayArticlesAsCards($pageNumber){
@@ -73,6 +100,7 @@ EOT;
                     $html .= '</div>';
                 }
             }
+            $html .= $this->DisplayPaging($result);
         }else{
             echo 'Failed to Load Articles. Pleas try again later.';
         }
