@@ -9,12 +9,20 @@ class IndexControl
         $this->con = $connection;
     }
 
-    public function GetArticles(){
-        $query = $this->con-> prepare("select * from sql1701267.article ORDER BY createdOn desc ");
-
+    private function GetArticleDetails (){
+        $query = $this->con-> prepare("select imageUrl,headline,description from sql1701267.article ORDER BY createdOn desc ");
         $success = $query -> execute();
         if ($success){
             $result = $query -> fetchAll(PDO::FETCH_OBJ);
+
+            return $result;
+        } else{
+            return "";
+        }
+    }
+
+    public function DisplayArticlesAsCards(){
+            $result = $this->GetArticleDetails();
             $html ="";
             foreach ($result as $item) {
                 $html .=
@@ -34,9 +42,7 @@ class IndexControl
 EOT;
             }
             return $html;
-        } else{
-            return "";
-        }
+
     }
 }
 
