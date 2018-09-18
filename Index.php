@@ -13,7 +13,7 @@ $indexControl = new IndexControl(ConnectionSingleton::Instance()->GetCon());
 <body class="">
 <div class="container  ">
 
-       <?php echo $indexControl->DisplayArticlesAsCards(); ?>
+       <?php echo $indexControl->DisplayArticlesAsCards(1); ?>
 
 </div>
 </body>

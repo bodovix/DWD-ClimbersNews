@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e66f6cc8-e71e-48d2-ae93-7ffa62581a5f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Control/IndexControl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/IndexControl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +43,7 @@
           <entry key="css" value="2" />
           <entry key="html" value="1" />
           <entry key="js" value="4" />
-          <entry key="php" value="16" />
+          <entry key="php" value="17" />
           <entry key="png" value="1" />
         </counts>
       </usages-collector>
@@ -52,7 +53,7 @@
           <entry key="HTML" value="1" />
           <entry key="Image" value="1" />
           <entry key="JavaScript" value="4" />
-          <entry key="PHP" value="16" />
+          <entry key="PHP" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -60,15 +61,16 @@
           <entry key="css" value="65" />
           <entry key="dummy" value="3" />
           <entry key="html" value="6" />
-          <entry key="php" value="6845" />
+          <entry key="php" value="7591" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="65" />
           <entry key="HTML" value="10" />
-          <entry key="PHP" value="6841" />
+          <entry key="PHP" value="7562" />
           <entry key="PLAIN_TEXT" value="3" />
+          <entry key="SQL" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -83,11 +85,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Control/IndexControl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+            <state relative-caret-position="408">
+              <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
               <folding>
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#986#2286#0#PHP" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global/ConnectionSingleton.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -95,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="340">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -319,7 +330,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55980000" />
+    <option name="totallyTimeSpent" value="59299000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2968" y="33" width="1696" height="1026" extended-state="6" />
@@ -416,13 +427,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global/ConnectionSingleton.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Evaluation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -439,17 +443,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global/ConnectionSingleton.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Control/IndexControl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+        <state relative-caret-position="408">
+          <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#986#2286#0#PHP" />
           </folding>
         </state>
       </provider>

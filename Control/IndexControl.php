@@ -4,34 +4,48 @@
 class IndexControl
 {
     private $con;
+    private $articlesPerPage;
     public function __construct($connection)
     {
         $this->con = $connection;
+        $this->articlesPerPage = 6;
     }
 
-    private function GetArticleDetails (){
-        $query = $this->con-> prepare("select imageUrl,headline,description from sql1701267.article ORDER BY createdOn desc ");
-        $success = $query -> execute();
-        if ($success){
-            $result = $query -> fetchAll(PDO::FETCH_OBJ);
+    private function GetArticleDetails ($pageNumber){
+//TODO: sort out proper prepared statements
+        $pageOffsetStart = ($this->articlesPerPage * $pageNumber)- $this->articlesPerPage;
+        $query = $this->con-> prepare("select imageUrl,headline,description 
+                                        from sql1701267.article  
+                                        ORDER BY createdOn 
+                                        desc 
+                                        LIMIT ".$this->articlesPerPage." 
+                                        OFFSET ".$pageOffsetStart);
 
+        $success = $query -> execute();
+
+        if ($success){
+
+            $result = $query -> fetchAll(PDO::FETCH_OBJ);
             return $result;
         } else{
-            return "";
+            print_r($this->con->errorInfo());
+            return null;
         }
     }
 
-    public function DisplayArticlesAsCards(){
-            $result = $this->GetArticleDetails();
+    public function DisplayArticlesAsCards($pageNumber){
+            $result = $this->GetArticleDetails($pageNumber);
+
             $html ="";
             $lastRowCreated =0;
+        if (is_array($result) || is_object($result)) {
             foreach ($result as $key => $item) {
-                if($key ==0){
+                if ($key == 0) {
                     //first row setup
                     $html .= '<div class="row">';
                     $lastRowCreated = $key;
                 }
-                if(($key- 3) == $lastRowCreated){
+                if (($key - 3) == $lastRowCreated) {
                     //Add another Row
                     $html .= '<div class="row">';
                     $lastRowCreated = $key;
@@ -51,14 +65,17 @@ class IndexControl
             </div>
         </div>
 EOT;
-                if(($key- 2) == $lastRowCreated){
+                if (($key - 2) == $lastRowCreated) {
                     //close row
                     $html .= '</div>';
-                }elseif(($key+1) == count($result)){
+                } elseif (($key + 1) == count($result)) {
                     //otherwise check if exiting loop
                     $html .= '</div>';
                 }
             }
+        }else{
+            echo 'Failed to Load Articles. Pleas try again later.';
+        }
             return $html;
 
     }
