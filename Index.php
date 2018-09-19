@@ -3,7 +3,7 @@
 include_once  'global/ConnectionSingleton.php';
 include_once  'Control/IndexControl.php';
 include_once  'config/config.php';
-$indexControl = new IndexControl(ConnectionSingleton::Instance()->GetCon());
+$indexControl = new IndexControl();
 
 ?>
 <?php

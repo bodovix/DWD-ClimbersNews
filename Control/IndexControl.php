@@ -1,13 +1,12 @@
 <?php
 
-
 class IndexControl
 {
     private $con;
     private $articlesPerPage;
     public function __construct($connection)
     {
-        $this->con = $connection;
+        $this->con = ConnectionSingleton::Instance()->GetCon();
         $this->articlesPerPage = 6;
     }
 
