@@ -16,7 +16,7 @@ class IndexControl
         $query = $this->con-> prepare("select imageUrl,headline,description 
                                         from sql1701267.article  
                                         ORDER BY createdOn 
-                                        desc 
+                                        desc
                                         LIMIT ".$this->articlesPerPage." 
                                         OFFSET ".$pageOffsetStart);
 
