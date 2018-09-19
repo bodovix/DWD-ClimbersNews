@@ -1,7 +1,7 @@
 <?php
     include 'View/Header.php';
     require_once  'global/ConnectionSingleton.php';
-    require_once  'Control/IndexControl.php';
+    require_once 'ViewModels/IndexControl.php';
     require_once  'config/config.php';
 ?>
 

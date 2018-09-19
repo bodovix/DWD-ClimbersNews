@@ -1,10 +1,11 @@
 <?php
 
+
 class IndexControl
 {
     private $con;
     private $articlesPerPage;
-    public function __construct($connection)
+    public function __construct()
     {
         $this->con = ConnectionSingleton::Instance()->GetCon();
         $this->articlesPerPage = 6;
@@ -30,7 +31,7 @@ class IndexControl
             return null;
         }
     }
-    private function DisplayPaging(){
+    public function DisplayPaging(){
         $query = $this->con-> prepare("select id from sql1701267.article");
 
         $success = $query -> execute();
@@ -38,18 +39,20 @@ class IndexControl
         if ($success){
             $count = $query -> rowCount();
             $pagesRequired = $count / $this->articlesPerPage;
-            $paginate = '<nav>';
+            $paginate = '<div class="container">';
+            $paginate .= '<nav>';
             $paginate .= '<ul class="pagination pagination-lg>';
             for($i =0; $i <= $pagesRequired; $i++){
                 $index = $i + 1;
                 $paginate .= <<<EOT
                 <li class="page-item">
-                    <button class="page-link" onclick="">{$index}</button>
+                    <button class="page-link articlePager" onclick="" value="{$index}">{$index}</button>
                 </li>
 EOT;
             }
             $paginate .= '</ul>';
             $paginate .= '</nav>';
+            $paginate .= '</div>';
 
             return $paginate;
         }else{
@@ -99,12 +102,12 @@ EOT;
                     $html .= '</div>';
                 }
             }
-            $html .= $this->DisplayPaging($result);
         }else{
             echo 'Failed to Load Articles. Pleas try again later.';
         }
             return $html;
 
     }
+
 }
 
