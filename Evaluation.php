@@ -26,7 +26,7 @@ switch($urlQueries["week"]){
         if(file_exists(APPROOT.'/View/Evaluation-Week-2.php'))
         {
             include_once('View/Evaluation-Week-2.php');
-            $pathToPage = URLROOT.'Index.php';
+            $pathToPage = URLROOT.'ReadArticles.php';
         }else{
             echo 'File Not found';
         }
