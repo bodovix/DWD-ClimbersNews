@@ -22,6 +22,15 @@ switch($urlQueries["week"]){
             echo 'File Not found';
         }
         break;
+    case '2':
+        if(file_exists(APPROOT.'/View/Evaluation-Week-2.php'))
+        {
+            include_once('View/Evaluation-Week-2.php');
+            $pathToPage = URLROOT.'Index.php';
+        }else{
+            echo 'File Not found';
+        }
+        break;
 
     default:
         echo 'No evaluation found for week: ' . $urlQueries["week"];

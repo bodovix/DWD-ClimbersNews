@@ -826,199 +826,274 @@
     </collation>
     <table id="206" parent="3" name="article"/>
     <table id="207" parent="3" name="articleCategory"/>
-    <table id="208" parent="3" name="feedback"/>
-    <table id="209" parent="3" name="rating"/>
-    <table id="210" parent="3" name="user"/>
-    <column id="211" parent="206" name="id">
+    <table id="208" parent="3" name="articleSection"/>
+    <table id="209" parent="3" name="feedback"/>
+    <table id="210" parent="3" name="rating"/>
+    <table id="211" parent="3" name="user"/>
+    <column id="212" parent="206" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="212" parent="206" name="headline">
+    <column id="213" parent="206" name="headline">
       <Position>2</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="213" parent="206" name="category">
+    <column id="214" parent="206" name="category">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="214" parent="206" name="description">
+    <column id="215" parent="206" name="description">
       <Position>4</Position>
       <DataType>varchar(70)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="215" parent="206" name="body">
+    <column id="216" parent="206" name="primaryText">
       <Position>5</Position>
       <DataType>varchar(4000)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="216" parent="206" name="imageUrl">
+    <column id="217" parent="206" name="primaryMediaUrl">
       <Position>6</Position>
-      <DataType>varchar(150)|0s</DataType>
+      <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="217" parent="206" name="createdOn">
+    <column id="218" parent="206" name="primaryImageCaption">
       <Position>7</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="219" parent="206" name="createdOn">
+      <Position>8</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="218" parent="206" name="statusCode">
-      <Position>8</Position>
+    <column id="220" parent="206" name="statusCode">
+      <Position>9</Position>
       <DataType>set(&apos;active&apos;, &apos;inactive&apos;)|0e</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="219" parent="206" name="author">
-      <Position>9</Position>
+    <column id="221" parent="206" name="author">
+      <Position>10</Position>
       <DataType>int(7)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="220" parent="206" name="PRIMARY">
+    <key id="222" parent="206" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="221" parent="207" name="id">
+    <column id="223" parent="207" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="222" parent="207" name="category">
+    <column id="224" parent="207" name="category">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="223" parent="207" name="PRIMARY">
+    <column id="225" parent="207" name="createdOn">
+      <Position>3</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="226" parent="207" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="224" parent="208" name="id">
+    <column id="227" parent="208" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="225" parent="208" name="createdOn">
+    <column id="228" parent="208" name="createdOn">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="226" parent="208" name="feedback">
+    <column id="229" parent="208" name="mediaType">
+      <Position>3</Position>
+      <DataType>set(&apos;image&apos;, &apos;video&apos;, &apos;audio&apos;)|0e</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="230" parent="208" name="statusCode">
+      <Position>4</Position>
+      <DataType>set(&apos;active&apos;, &apos;inactive&apos;)|0e</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="231" parent="208" name="mediaUrl">
+      <Position>5</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="232" parent="208" name="mediaCaption">
+      <Position>6</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="233" parent="208" name="sectionHeading">
+      <Position>7</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="234" parent="208" name="sectionText">
+      <Position>8</Position>
+      <DataType>varchar(4000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="235" parent="208" name="sectionOrder">
+      <Position>9</Position>
+      <DataType>int(2)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="236" parent="208" name="article">
+      <Position>10</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="237" parent="208" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="238" parent="209" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="239" parent="209" name="createdOn">
+      <Position>2</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="240" parent="209" name="feedback">
       <Position>3</Position>
       <DataType>varchar(150)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="227" parent="208" name="showOnSite">
+    <column id="241" parent="209" name="showOnSite">
       <Position>4</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="228" parent="208" name="PRIMARY">
+    <key id="242" parent="209" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="229" parent="209" name="id">
+    <column id="243" parent="210" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="230" parent="209" name="createdOn">
+    <column id="244" parent="210" name="createdOn">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="231" parent="209" name="rating">
+    <column id="245" parent="210" name="rating">
       <Position>3</Position>
       <DataType>int(3)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="232" parent="209" name="article">
+    <column id="246" parent="210" name="article">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="233" parent="209" name="PRIMARY">
+    <key id="247" parent="210" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="234" parent="210" name="id">
+    <column id="248" parent="211" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="210" name="userStatus">
+    <column id="249" parent="211" name="userStatus">
       <Position>2</Position>
       <DataType>set(&apos;active&apos;, &apos;inactive&apos;)|0e</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="236" parent="210" name="userRole">
+    <column id="250" parent="211" name="userRole">
       <Position>3</Position>
       <DataType>set(&apos;user&apos;, &apos;author&apos;, &apos;admin&apos;)|0e</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="237" parent="210" name="email">
+    <column id="251" parent="211" name="email">
       <Position>4</Position>
       <DataType>varchar(70)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="238" parent="210" name="forename">
+    <column id="252" parent="211" name="forename">
       <Position>5</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="239" parent="210" name="surname">
+    <column id="253" parent="211" name="surname">
       <Position>6</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="210" name="createdOn">
+    <column id="254" parent="211" name="createdOn">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="210" name="imageUrl">
+    <column id="255" parent="211" name="imageUrl">
       <Position>8</Position>
-      <DataType>varchar(150)|0s</DataType>
+      <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="242" parent="210" name="PRIMARY">
+    <key id="256" parent="211" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

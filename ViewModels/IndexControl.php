@@ -14,7 +14,7 @@ class IndexControl
     private function GetArticleDetails ($pageNumber){
 //TODO: sort out proper prepared statements
         $pageOffsetStart = ($this->articlesPerPage * $pageNumber)- $this->articlesPerPage;
-        $query = $this->con-> prepare("select id,primaryImageUrl,headline,description 
+        $query = $this->con-> prepare("select id,primaryMediaUrl,headline,description 
                                         from sql1701267.article  
                                         ORDER BY createdOn 
                                         desc
@@ -88,7 +88,7 @@ EOT;
             <div class="container mt-3">
             <a href="ReadArticles.php?article={$item->id}">
                 <div class="card" >
-                    <img class="card-img-top img-fluid " src="{$item->primaryImageUrl}" >
+                    <img class="card-img-top img-fluid " src="{$item->primaryMediaUrl}" >
                     <div class="card-body">
                         <h4 class="card-title my-1">{$item->headline}"</h4>
                         <p class="card-text mb-1 text-muted" style="overflow:hidden;max-height: 50px ">{$item->description}</p>
