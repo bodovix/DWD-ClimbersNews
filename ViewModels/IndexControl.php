@@ -47,7 +47,7 @@ class IndexControl
                 $index = $i + 1;
                 $paginate .= <<<EOT
                 <li class="page-item">
-                    <button class="page-link articlePager" onclick="" value="{$index}">{$index}</button>
+                    <button class="page-link articlePager" value="{$index}">{$index}</button>
                 </li>
 EOT;
             }

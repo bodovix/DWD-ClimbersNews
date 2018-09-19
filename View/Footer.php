@@ -3,7 +3,7 @@
 require_once 'ViewModels/FooterControl.php';
 $myTest = new FooterControl();
 ?>
-<footer class="">
+<footer class="align-bottom">
     <div class="row bg-secondary" >
         <div class=" col ">
             <p class="mb-0">Gwydion Saxelby</p>

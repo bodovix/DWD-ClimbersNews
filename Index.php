@@ -12,8 +12,8 @@ $indexControl = new IndexControl();
 ?>
 <script src="ViewModels/JSHandlers/IndexJS.js"></script>
 
-<body class="">
-<div id="recentArticleContainer">
+<body class="" >
+<div id="recentArticleContainer" >
     <?php echo $indexControl->DisplayArticlesAsCards(1); ?>
 </div>
 <div id="paginator">

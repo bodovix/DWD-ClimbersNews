@@ -15,7 +15,7 @@ $('.articlePager').on('click',function () {
       //  async: true,
         success: function(data) {
             $('#recentArticleContainer').html(data);
-            selectedPageItem.addClass('active').siblings().removeClass('active');
+           // selectedPageItem.addClass('active').siblings().removeClass('active');
         },
         error: (error) => {
             console.log(JSON.stringify(error));
