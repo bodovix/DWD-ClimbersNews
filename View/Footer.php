@@ -4,7 +4,7 @@ require_once 'ViewModels/FooterControl.php';
 $myTest = new FooterControl();
 ?>
 <footer class="">
-    <div class="row bg-secondary" style="height:50px;">
+    <div class="row bg-secondary" >
         <div class=" col ">
             <p class="mb-0">Gwydion Saxelby</p>
             <p class="mb-0">1701267@uad.ac.uk</p>

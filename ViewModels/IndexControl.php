@@ -39,7 +39,8 @@ class IndexControl
         if ($success){
             $count = $query -> rowCount();
             $pagesRequired = $count / $this->articlesPerPage;
-            $paginate = '<div class="container">';
+            $paginate = '<div class="row">';
+            $paginate .= '<div class="container">';
             $paginate .= '<nav>';
             $paginate .= '<ul class="pagination pagination-lg>';
             for($i =0; $i <= $pagesRequired; $i++){
@@ -52,6 +53,7 @@ EOT;
             }
             $paginate .= '</ul>';
             $paginate .= '</nav>';
+            $paginate .= '</div>';
             $paginate .= '</div>';
 
             return $paginate;
@@ -88,7 +90,7 @@ EOT;
                     <img class="card-img-top img-fluid " src="{$item->imageUrl}" >
                     <div class="card-body">
                         <h4 class="card-title my-1">{$item->headline}"</h4>
-                        <p class="card-text mb-1 text-muted" style="overflow:hidden;height: 50px ">{$item->description}</p>
+                        <p class="card-text mb-1 text-muted" style="overflow:hidden;max-height: 50px ">{$item->description}</p>
                     </div>
                 </div>
             </div>
