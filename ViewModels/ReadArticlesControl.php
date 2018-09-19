@@ -33,7 +33,7 @@ class ReadArticlesControl
             <h1 id="title" class="text-center">{$articleToFormat->headline}</h1>
             <div class="col-md-10 offset-md-1">
                 <div class="thumbnail ">
-                    <img src="{$articleToFormat->primaryImageUrl}" alt="Image not found." style="width:100%">
+                    <img src="{$articleToFormat->primaryMediaUrl}" alt="Image not found." style="width:100%">
                     <div class="caption">
                         <p class="text-center">{$articleToFormat->primaryImageCaption}</p>
                     </div>
