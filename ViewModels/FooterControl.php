@@ -10,7 +10,7 @@ class FooterControl
              $display = "<p>No Page Linked</p>";
              return $display;
         }
-        $return = '<a class="btn btn-primary " target="_blank" href="' . $pathToPage . '">' . $display . '</a>';
+        $return = '<a class="btn btn-primary "  href="' . $pathToPage . '">' . $display . '</a>';
         return $return;
     }
 }
