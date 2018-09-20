@@ -25,7 +25,7 @@ class ReadArticlesControl
         $output = '';
         switch ($mediaType){
             case 'none':
-
+                    //render nothing as section is just text
                 break;
             case 'image':
                 $output = <<<EOT
@@ -41,7 +41,8 @@ EOT;
                 break;
             case 'video':
                 $output = <<<EOT
-
+                    <video class="col-md-10 offset-md-1" controls>
+                        <source src="{$mediaUrl}" type="video/mp4"/>Video not supported.</video>
 EOT;
                 break;
             case 'audio':

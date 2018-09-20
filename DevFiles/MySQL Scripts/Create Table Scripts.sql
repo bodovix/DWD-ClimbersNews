@@ -21,11 +21,12 @@ CREATE TABLE IF NOT EXISTS articleCategory (
 CREATE TABLE IF NOT EXISTS article (
 	id int auto_increment,
 	headline varchar(60) not null,
+    coverImage varchar(200) not null,
     category int REFERENCES articleCategory(id),
 	description varchar(70) not null,
     
     primaryText varchar(4000) not null,
-    primaryMediaUrl varchar(200) not null,
+    primaryMediaUrl varchar(200) ,
     primaryMediaType set('none','image','video','audio') DEFAULT 'none',
     primaryMediaCaption varchar(200),
     
