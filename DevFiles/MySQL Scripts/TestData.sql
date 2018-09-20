@@ -26,7 +26,7 @@ insert into article (headline,category,description,primaryText,coverImage,primar
 DO SLEEP(0.1);
 #=================
 insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,statusCode,author) 
-		values('Visit Gogarth!','3','Impressive North Wales Sea Clifs','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer','uploads/articles/images/Gogarth.jpg','uploads/articles/videos/SampleVideo.mp4.jpg','video','active','1');
+		values('Visit Gogarth!','3','Impressive North Wales Sea Clifs','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer','uploads/articles/images/Gogarth.jpg','uploads/articles/videos/SampleVideo.mp4','video','active','1');
 DO SLEEP(0.1);
 #=================
 insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,statusCode,author) 
@@ -38,7 +38,7 @@ insert into article (headline,category,description,primaryText,coverImage,primar
 DO SLEEP(0.1);
 #=================
 insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,statusCode,author) 
-		values('Visit Kalymnos!','3','too much bolt clipping','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mass quam felis, ultricies nec, pellentesque eu, pretium quis, sem. , mperdiet a, venenatis s pretium. Integer','uploads/articles/images/Gogarth.jpg',,'uploads/articles/images/Gogarth.jpg','image','active','1');
+		values('Visit Kalymnos!','3','too much bolt clipping','Lorem ipsum dolor sit amet, consectetuer adipiscing e','uploads/articles/images/Gogarth.jpg','uploads/articles/images/Gogarth.jpg','image','active','1');
 DO SLEEP(0.1);
 #=================
 
