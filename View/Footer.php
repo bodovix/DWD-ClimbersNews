@@ -3,7 +3,7 @@
 require_once 'ViewModels/FooterControl.php';
 $myTest = new FooterControl();
 ?>
-<footer class="align-bottom">
+<footer class="position-sticky " style="position: absolute;bottom: 0;">
     <div class="row bg-secondary" >
         <div class=" col ">
             <p class="mb-0">Gwydion Saxelby</p>

@@ -23,9 +23,19 @@ CREATE TABLE IF NOT EXISTS article (
 	headline varchar(60) not null,
     category int REFERENCES articleCategory(id),
 	description varchar(70) not null,
+    
     primaryText varchar(4000) not null,
-    primaryImageUrl varchar(200) not null,
-    primaryImageCaption varchar(200),
+    primaryMediaUrl varchar(200) not null,
+    primaryMediaCaption varchar(200),
+    
+    secondaryText varchar(4000) ,
+    secondaryMediaUrl varchar(200),
+    secondaryMediaCaption varchar(200),
+    
+    conclusionText varchar(4000),
+    conclusionMediaUrl varchar(200),
+    conclusionMediaCaption varchar(200),
+    
     createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     statusCode set('active','inactive') not null,
     author int (7) References user(id),
@@ -33,20 +43,6 @@ CREATE TABLE IF NOT EXISTS article (
     primary key(id)
 );
 
-CREATE TABLE IF NOT EXISTS articleSection(
-	id int auto_increment,
-    createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    mediaType set('image','video','audio'),
-	statusCode set('active','inactive') not null,
-    mediaUrl varchar(200),
-    mediaCaption varchar(200),
-    sectionHeading varchar(200),
-    sectionText varchar(4000),
-    sectionOrder int (2) not null,
-    article int not null REFERENCES article(id),
-    
-    primary key (id)
-);
 
 CREATE TABLE IF NOT EXISTS rating(
 	id int auto_increment, 

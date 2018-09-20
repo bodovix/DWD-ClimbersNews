@@ -17,8 +17,6 @@ DO SLEEP(0.1);
 #=================
 insert into article (headline,category,description,primaryText,primaryMediaUrl,statusCode,author) 
 		values('New Stacks discovered on Northern Islands','2','Chossy Stack climbed in Shetland!','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean massa. vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer','uploads/articles/images/killika.jpg','active','1');
-		
-
 
 DO SLEEP(0.1);
 #=================
