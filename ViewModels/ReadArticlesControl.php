@@ -21,24 +21,48 @@ class ReadArticlesControl
             return null;
         }
     }
+    private  function  addMedia($mediaUrl,$mediaCaption,$mediaType){
+        $output = '';
+        switch ($mediaType){
+            case 'none':
 
+                break;
+            case 'image':
+                $output = <<<EOT
+<div class="col-md-10 offset-md-1">
+                <div class="thumbnail ">
+                    <img src="{$mediaUrl}" alt="Image not found." style="width:100%">
+                    <div class="caption">
+                        <p class="text-center">{$mediaCaption}</p>
+                    </div>
+                </div>
+            </div>
+EOT;
+                break;
+            case 'video':
+                $output = <<<EOT
+
+EOT;
+                break;
+            case 'audio':
+                $output = <<<EOT
+
+EOT;
+                break;
+        }
+
+            return $output;
+    }
     public function formatArticle($id){
         $articleToFormat = $this->getArticleById($id);
-        if (isset($articleToFormat) > 0) {
+        if (isset($articleToFormat)) {
             $html ="";
                     //first loop
                     $html .= <<<EOT
             <div class="row">
             <div class="col">
             <h1 id="title" class="text-center">{$articleToFormat->headline}</h1>
-            <div class="col-md-10 offset-md-1">
-                <div class="thumbnail ">
-                    <img src="{$articleToFormat->primaryMediaUrl}" alt="Image not found." style="width:100%">
-                    <div class="caption">
-                        <p class="text-center">{$articleToFormat->primaryImageCaption}</p>
-                    </div>
-                </div>
-            </div>
+            {$this->addMedia($articleToFormat->primaryMediaUrl,$articleToFormat->primaryMediaCaption,$articleToFormat->primaryMediaType)}
             <h3 class="text-muted text-center">{$articleToFormat->description}</h3>
             <p class="text-center  text-justify">{$articleToFormat->primaryText}</p>
         

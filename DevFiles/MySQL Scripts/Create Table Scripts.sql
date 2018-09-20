@@ -26,14 +26,17 @@ CREATE TABLE IF NOT EXISTS article (
     
     primaryText varchar(4000) not null,
     primaryMediaUrl varchar(200) not null,
+    primaryMediaType set('none','image','video','audio') DEFAULT 'none',
     primaryMediaCaption varchar(200),
     
     secondaryText varchar(4000) ,
     secondaryMediaUrl varchar(200),
+    secondaryMediaType set('none','image','video','audio') DEFAULT 'none',
     secondaryMediaCaption varchar(200),
     
     conclusionText varchar(4000),
     conclusionMediaUrl varchar(200),
+    conclusionMediaType set('none','image','video','audio') DEFAULT 'none',
     conclusionMediaCaption varchar(200),
     
     createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

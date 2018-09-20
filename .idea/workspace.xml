@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e66f6cc8-e71e-48d2-ae93-7ffa62581a5f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadArticles.php" beforeDir="false" afterPath="$PROJECT_DIR$/ReadArticles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevFiles/MySQL Scripts/Create Table Scripts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DevFiles/MySQL Scripts/Create Table Scripts.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevFiles/MySQL Scripts/TestData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DevFiles/MySQL Scripts/TestData.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/ReadArticlesControl.php" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/ReadArticlesControl.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,15 +67,15 @@
           <entry key="dummy" value="3" />
           <entry key="html" value="6" />
           <entry key="js" value="843" />
-          <entry key="php" value="9724" />
+          <entry key="php" value="10187" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="65" />
-          <entry key="HTML" value="27" />
+          <entry key="HTML" value="30" />
           <entry key="JavaScript" value="843" />
-          <entry key="PHP" value="9678" />
+          <entry key="PHP" value="10138" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="SQL" value="25" />
         </counts>
@@ -88,20 +89,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ViewModels/IndexControl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="504">
+              <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ViewModels/ReadArticlesControl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="37" column="85" selection-start-line="37" selection-start-column="66" selection-end-line="37" selection-end-column="85" />
+            <state relative-caret-position="362">
+              <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ReadArticles.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            <state relative-caret-position="340">
+              <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -187,12 +191,12 @@
         <option value="$PROJECT_DIR$/Index.php" />
         <option value="$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js" />
         <option value="$PROJECT_DIR$/ViewModels/FooterControl.php" />
-        <option value="$PROJECT_DIR$/ViewModels/ReadArticlesControl.php" />
         <option value="$PROJECT_DIR$/View/Evaluation-Week-2.php" />
         <option value="$PROJECT_DIR$/ViewModels/IndexControl.php" />
         <option value="$PROJECT_DIR$/Evaluation.php" />
         <option value="$PROJECT_DIR$/ReadArticles.php" />
         <option value="$PROJECT_DIR$/View/Footer.php" />
+        <option value="$PROJECT_DIR$/ViewModels/ReadArticlesControl.php" />
       </list>
     </option>
   </component>
@@ -203,11 +207,11 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-1355" />
-    <option name="y" value="45" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1190" />
+    <option name="y" value="52" />
+    <option name="width" value="1292" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -382,12 +386,12 @@
       <workItem from="1537205904362" duration="1360000" />
       <workItem from="1537283912221" duration="872000" />
       <workItem from="1537297438544" duration="4360000" />
-      <workItem from="1537448867737" duration="1164000" />
+      <workItem from="1537448867737" duration="3500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82106000" />
+    <option name="totallyTimeSpent" value="84442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1288" y="52" width="1296" height="1000" extended-state="6" />
@@ -541,13 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReadArticles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/Footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -558,17 +555,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ViewModels/ReadArticlesControl.php">
+    <entry file="file://$PROJECT_DIR$/ViewModels/IndexControl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="85" selection-start-line="37" selection-start-column="66" selection-end-line="37" selection-end-column="85" />
+        <state relative-caret-position="504">
+          <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ViewModels/IndexControl.php">
+    <entry file="file://$PROJECT_DIR$/ReadArticles.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="340">
+          <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewModels/ReadArticlesControl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
