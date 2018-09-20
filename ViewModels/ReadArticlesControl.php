@@ -50,7 +50,12 @@ EOT;
                 break;
             case 'audio':
                 $output = <<<EOT
-
+                    <audio class="col-md-10 offset-md-1" controls>
+                      <source src="{$mediaUrl}" type="audio/ogg">
+                      <source src="{$mediaUrl}" type="audio/mpeg">
+                      <source src="{$mediaUrl}" type="audio/wav">
+                      Your browser does not support the audio element.
+                    </audio>
 EOT;
                 break;
         }
@@ -64,13 +69,15 @@ EOT;
                     //first loop
                     $html .= <<<EOT
             <div class="row">
-            <div class="col">
-            <h1 id="title" class="text-center">{$articleToFormat->headline}</h1>
-            {$this->addMedia($articleToFormat->primaryMediaUrl,$articleToFormat->primaryMediaCaption,$articleToFormat->primaryMediaType)}
-            <h3 class="text-muted text-center">{$articleToFormat->description}</h3>
-            <p class="text-center  text-justify">{$articleToFormat->primaryText}</p>
-        
-           </div>
+                <div class="col">
+                    <h1 id="title" class="text-center">{$articleToFormat->headline}</h1>
+                    <h3 class="text-muted text-center">{$articleToFormat->description}</h3>
+                    {$this->addMedia($articleToFormat->primaryMediaUrl,$articleToFormat->primaryMediaCaption,$articleToFormat->primaryMediaType)}
+                    <p class="text-center  text-justify">{$articleToFormat->primaryText}</p>
+                
+                     {$this->addMedia($articleToFormat->secondaryMediaUrl,$articleToFormat->secondaryMediaCaption,$articleToFormat->secondaryMediaType)}
+                    <p class="text-center  text-justify">{$articleToFormat->secondaryText}</p>
+               </div>
            </div>
 EOT;
 

@@ -13,13 +13,16 @@ $relatedArticlesControl = new ReadArticlesControl($urlQueries['article']);
 <?php
 include 'View/Header.php';
 ?>
-<div id="articleDisplayArea" class="mx-auto">
-    <?php
-    if (isset($urlQueries['article'])) {
-        echo $relatedArticlesControl->formatArticle($urlQueries['article']);
-    }
-    ?>
+<div class="container">
+    <div id="articleDisplayArea" class="mx-auto">
+        <?php
+        if (isset($urlQueries['article'])) {
+            echo $relatedArticlesControl->formatArticle($urlQueries['article']);
+        }
+        ?>
+    </div>
 </div>
+
 
 
 <?php

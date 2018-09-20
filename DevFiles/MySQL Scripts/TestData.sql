@@ -10,8 +10,14 @@ DO SLEEP(0.1);
 insert into articleCategory  (category) value('Education');
 DO SLEEP(0.1);
 #=================
-insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,statusCode,author) 
-		values('Welcome To Climbing News!!!','1','New site for all your Climbing News','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoquesem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer','uploads/articles/images/welcome.jpg','uploads/articles/images/welcome.jpg','none','active','1');
+insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,secondaryText,secondaryMediaUrl,secondaryMediaType,secondaryMediaCaption,statusCode,author) 
+		values('Welcome To Climbing News!!!','1','New site for all your Climbing News','Lorem ipet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer','uploads/articles/images/welcome.jpg','uploads/articles/images/welcome.jpg','none','Secondary meda sound text, isnt it amazin','uploads/articles/audio/SoundTest.wav','audio','Its a sound Test','active','1');
+
+
+ 
+    
+    
+    
 
 DO SLEEP(0.1);
 #=================

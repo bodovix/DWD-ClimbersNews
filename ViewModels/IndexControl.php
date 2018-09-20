@@ -1,6 +1,5 @@
 <?php
 
-
 class IndexControl
 {
     private $con;
