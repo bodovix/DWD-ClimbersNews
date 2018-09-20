@@ -11,7 +11,8 @@ parse_str($_SERVER['QUERY_STRING'], $urlQueries);
 $relatedArticlesControl = new ReadArticlesControl($urlQueries['article']);
 ?>
 <?php
-include 'View/Header.php';
+include_once 'View/Header.php';
+
 ?>
 <div class="container">
     <div id="articleDisplayArea" class="mx-auto">

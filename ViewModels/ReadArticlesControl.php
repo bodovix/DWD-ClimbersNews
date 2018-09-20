@@ -62,6 +62,7 @@ EOT;
 
             return $output;
     }
+
     public function formatArticle($id){
         $articleToFormat = $this->getArticleById($id);
         if (isset($articleToFormat)) {
@@ -77,6 +78,9 @@ EOT;
                 
                      {$this->addMedia($articleToFormat->secondaryMediaUrl,$articleToFormat->secondaryMediaCaption,$articleToFormat->secondaryMediaType)}
                     <p class="text-center  text-justify">{$articleToFormat->secondaryText}</p>
+                    
+                     {$this->addMedia($articleToFormat->conclusionMediaUrl,$articleToFormat->conclusionMediaCaption,$articleToFormat->conclusionMediaType)}
+                    <p class="text-center  text-justify">{$articleToFormat->conclusionText}</p>
                </div>
            </div>
 EOT;
