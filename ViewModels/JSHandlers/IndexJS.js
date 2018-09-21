@@ -1,13 +1,14 @@
 //Document Ready
 
 $(function() {
+    //
     $(document).on('click','.articlePager',function () {
             var selectedPageItem = $(this).parent();
         $.ajax({
             type: "POST",
             data: {
                 class:'IndexControl',
-                function:'DisplayPageChangeArticles',
+                function:'DisplayPageChangeArticlesAll',
                 param:this.value
             },
             url: "global/ClassCaller.php",
@@ -30,8 +31,10 @@ $(function() {
             type: "POST",
             data: {
                 class:'IndexControl',
-                function:'findArticleByDateCreated',
-                param:createdOnInput.val()
+                function:'DisplayPageChangeArticlesFiltered',
+                param:1,
+                param2:createdOnInput.val()
+
             },
             url: "global/ClassCaller.php",
             //  dataType: "html",
@@ -50,5 +53,5 @@ $(function() {
                 console.log(JSON.stringify(error));
             }
         });
-    })
+    });
 });

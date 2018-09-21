@@ -32,7 +32,7 @@ class IndexControl
         }
     }
 
-    public function findArticleByDateCreated ($createdOn){
+    private function findArticleByDateCreated ($createdOn){
     //TODO: sort out proper prepared statements
         if (is_null($createdOn) || !isset($createdOn)){
             return null;
@@ -59,10 +59,14 @@ class IndexControl
     }
 
 
-    public function DisplayPageChangeArticles($pageNumber, $isFilter){
+    public function DisplayPageChangeArticlesAll($pageNumber){
 
             return $this->DisplayArticlesAsCards($pageNumber);
+    }
 
+    public function DisplayPageChangeArticlesFiltered($pageNumber,$dateCreated){
+        $this->loadedArticles = $this->findArticleByDateCreated($dateCreated);
+        return $this->DisplayArticlesAsCards($pageNumber);
     }
 
     private function DisplayArticlesAsCards($pageNumber){

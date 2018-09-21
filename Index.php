@@ -15,7 +15,7 @@ $indexControl = new IndexControl();
 
 <body class="" >
 <div id="recentArticleContainer" >
-    <?php echo $indexControl->DisplayPageChangeArticles(1); ?>
+    <?php echo $indexControl->DisplayPageChangeArticlesAll(1); ?>
 </div>
 
 </body>
