@@ -1,7 +1,7 @@
 //Document Ready
 
 $(function() {
-$('.articlePager').on('click',function () {
+$(document).on('click','.articlePager',function () {
         var selectedPageItem = $(this).parent();
     $.ajax({
         type: "POST",

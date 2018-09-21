@@ -112,7 +112,31 @@ EOT;
                     }
                 }
             }
+            //--------------------Add Pagination
+            $count = count($result);
+            $pagesRequired = $count / $this->articlesPerPage;
+            $paginate = '<div id="paginator">';
+            $paginate .= '<div class="row mt-3">';
+            $paginate .= '<div class="container">';
+            $paginate .= '<nav>';
+            $paginate .= '<ul class="pagination pagination-lg>';
+            for($i =0; $i <= $pagesRequired; $i++){
+                $index = $i + 1;
+                $paginate .= <<<EOT
+                <li class="page-item">
+                    <button class="page-link articlePager" value="{$index}">{$index}</button>
+                </li>
+EOT;
+            }
+            $paginate .= '</ul>';
+            $paginate .= '</nav>';
+            $paginate .= '</div>';
+            $paginate .= '</div>';
 
+                    $html .= $paginate;
+
+
+            //=================
         }else{
             echo 'Failed to Load Articles. Pleas try again later.';
         }
