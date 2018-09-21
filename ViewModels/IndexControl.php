@@ -32,33 +32,45 @@ class IndexControl
         }
     }
 
-    public function findArticleByDateCreated ($CreateOn){
+    public function findArticleByDateCreated ($createdOn){
     //TODO: sort out proper prepared statements
+        if (is_null($createdOn) || !isset($createdOn)){
+            return null;
+        }
+        $createdOnDate = date('Y-m-d',strtotime($createdOn));
+
         $query = $this->con-> prepare("select id,coverImage,headline,description 
                                         from sql1701267.article
-                                        WHERE article.createdOn = .$CreateOn
-                                        ORDER BY createdOn desc");
+                                        WHERE article.createdOn = '".$createdOnDate."'
+                                        ORDER BY article.createdOn desc");
+
 
         $success = $query -> execute();
 
         if ($success) {
+            if ($query->rowCount() > 0){
 
-            $this->loadedArticles = $query->fetchAll(PDO::FETCH_OBJ);
-            return $this->DisplayArticlesAsCards(1);
+                $this->loadedArticles = $query->fetchAll(PDO::FETCH_OBJ);
+                    echo $this->DisplayArticlesAsCards(1);
+            }else{
+                echo null;
+            }
         }
     }
 
 
-    public function DisplayPageChangeArticles($pageNumber){
-        return $this->DisplayArticlesAsCards($pageNumber);
+    public function DisplayPageChangeArticles($pageNumber, $isFilter){
+
+            return $this->DisplayArticlesAsCards($pageNumber);
+
     }
 
     private function DisplayArticlesAsCards($pageNumber){
             $result = $this->loadedArticles;
-            $html ="";
+            $html = null;
             $lastRowCreated =0;
-        if (is_array($result) || is_object($result)) {
 
+        if ((is_array($result) || is_object($result)) && !is_null($result)) {
             $pageOffsetStart = ($this->articlesPerPage * $pageNumber)- $this->articlesPerPage;
             //Display Article Cards
             for($i = $pageOffsetStart ; $i < ($pageOffsetStart + $this->articlesPerPage); $i++){
@@ -66,7 +78,7 @@ class IndexControl
                 if (isset($result[$i]->id)) {
                     if ($i == 0) {
                         //first row setup
-                        $html .= '<div class="row">';
+                        $html = '<div class="row">';
                         $lastRowCreated = $i;
                     }
                     if (($i - 3) == $lastRowCreated) {
@@ -99,14 +111,14 @@ EOT;
                     }
                 }
             }
-            //--------------------Add Pagination
+            //----------Add Pagination
             $count = count($result);
             $pagesRequired = $count / $this->articlesPerPage;
             $paginate = '<div id="paginator">';
             $paginate .= '<div class="row mt-3">';
             $paginate .= '<div class="container">';
             $paginate .= '<nav>';
-            $paginate .= '<ul class="pagination pagination-lg>';
+            $paginate .= '<ul class="pagination pagination-lg">';
             for($i =0; $i <= $pagesRequired; $i++){
                 $index = $i + 1;
                 $paginate .= <<<EOT
@@ -119,15 +131,17 @@ EOT;
             $paginate .= '</nav>';
             $paginate .= '</div>';
             $paginate .= '</div>';
+            $paginate .= '</div>';
 
                     $html .= $paginate;
 
 
             //=================
-        }else{
-            echo 'Failed to Load Articles. Pleas try again later.';
-        }
             return $html;
+        }else{
+            return null;
+        }
+
 
     }
 

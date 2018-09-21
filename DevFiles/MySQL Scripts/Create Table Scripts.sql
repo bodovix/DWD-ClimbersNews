@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS user (
     email varchar(70) not null,
     forename varchar(60) not null,
     surname varchar(60) not null,
-	createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	createdOn date,
     imageUrl varchar(200) not null,
 
     primary key(id)
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS user (
 CREATE TABLE IF NOT EXISTS articleCategory (
 	id int auto_increment,
 	category varchar(20) not null,
-	createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	createdOn date ,
     primary key(id)
 );
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS article (
     conclusionMediaType set('none','image','video','audio') DEFAULT 'none',
     conclusionMediaCaption varchar(200),
     
-    createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    createdOn date,
     statusCode set('active','inactive') not null,
     author int (7) References user(id),
     
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS article (
 
 CREATE TABLE IF NOT EXISTS rating(
 	id int auto_increment, 
-	createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	createdOn date,
 	rating INT(3) NOT NULL,
     article int not null REFERENCES article(id),
     
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS rating(
 
 CREATE TABLE IF NOT EXISTS feedback(
 	id int auto_increment,
-    createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    createdOn date ,
     feedback varchar(150) not null,
     showOnSite bool not null DEFAULT true,
     primary key(id)
