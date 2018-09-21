@@ -11,15 +11,13 @@ class IndexControl
         $this->articlesPerPage = 6;
     }
 
-    private function GetArticleDetails ($pageNumber){
+    private function GetArticleDetails (){
 //TODO: sort out proper prepared statements
-        $pageOffsetStart = ($this->articlesPerPage * $pageNumber)- $this->articlesPerPage;
         $query = $this->con-> prepare("select id,coverImage,headline,description 
                                         from sql1701267.article  
                                         ORDER BY createdOn 
                                         desc
-                                        LIMIT ".$this->articlesPerPage." 
-                                        OFFSET ".$pageOffsetStart);
+                                        ");
 
         $success = $query -> execute();
 
@@ -64,52 +62,57 @@ EOT;
 
     }
     public function DisplayPageChangeArticles($pageNumber){
-        $ArticlesToDisplay = $this->GetArticleDetails($pageNumber);
-        return $this->DisplayArticlesAsCards($ArticlesToDisplay);
+        $ArticlesToDisplay = $this->GetArticleDetails();
+        return $this->DisplayArticlesAsCards($pageNumber, $ArticlesToDisplay);
     }
 
-    private function DisplayArticlesAsCards($articlesToDisplay){
+    private function DisplayArticlesAsCards($pageNumber, $articlesToDisplay){
             $result = $articlesToDisplay;
-
             $html ="";
             $lastRowCreated =0;
         if (is_array($result) || is_object($result)) {
-            foreach ($result as $key => $item) {
-                if ($key == 0) {
-                    //first row setup
-                    $html .= '<div class="row">';
-                    $lastRowCreated = $key;
-                }
-                if (($key - 3) == $lastRowCreated) {
-                    //Add another Row
-                    $html .= '<div class="row">';
-                    $lastRowCreated = $key;
-                }
 
-                $html .=
-                    <<<EOT
+            $pageOffsetStart = ($this->articlesPerPage * $pageNumber)- $this->articlesPerPage;
+            //Display Article Cards
+            for($i = $pageOffsetStart ; $i < ($pageOffsetStart + $this->articlesPerPage); $i++){
+
+                if (isset($result[$i]->id)) {
+                    if ($i == 0) {
+                        //first row setup
+                        $html .= '<div class="row">';
+                        $lastRowCreated = $i;
+                    }
+                    if (($i - 3) == $lastRowCreated) {
+                        //Add another Row
+                        $html .= '<div class="row">';
+                        $lastRowCreated = $i;
+                    }
+                    $html .=
+                        <<<EOT
         <div class="col-md-4 bg-info">
             <div class="container mt-3">
-            <a href="ReadArticles.php?article={$item->id}">
+            <a href="ReadArticles.php?article={$result[$i]->id}">
                 <div class="card" >
-                    <img class="card-img-top img-fluid " src="{$item->coverImage}" >
+                    <img class="card-img-top img-fluid " src="{$result[$i]->coverImage}" >
                     <div class="card-body">
-                        <h4 class="card-title my-1">{$item->headline}"</h4>
-                        <p class="card-text mb-1 text-muted" style="overflow:hidden;max-height: 50px ">{$item->description}</p>
+                        <h4 class="card-title my-1">{$result[$i]->headline}"</h4>
+                        <p class="card-text mb-1 text-muted" style="overflow:hidden;max-height: 50px ">{$result[$i]->description}</p>
                     </div>
                 </div>
              </a>   
             </div>
         </div>
 EOT;
-                if (($key - 2) == $lastRowCreated) {
-                    //close row
-                    $html .= '</div>';
-                } elseif (($key + 1) == count($result)) {
-                    //otherwise check if exiting loop
-                    $html .= '</div>';
+                    if (($i - 2) == $lastRowCreated) {
+                        //close row
+                        $html .= '</div>';
+                    } elseif (($i + 1) == count($result)) {
+                        //otherwise check if exiting loop
+                        $html .= '</div>';
+                    }
                 }
             }
+
         }else{
             echo 'Failed to Load Articles. Pleas try again later.';
         }
