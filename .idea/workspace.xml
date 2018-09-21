@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e66f6cc8-e71e-48d2-ae93-7ffa62581a5f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadArticles.php" beforeDir="false" afterPath="$PROJECT_DIR$/ReadArticles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/SearchBar.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/SearchBar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/IndexControl.php" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/IndexControl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +45,7 @@
         <counts>
           <entry key="css" value="2" />
           <entry key="html" value="1" />
-          <entry key="js" value="6" />
+          <entry key="js" value="7" />
           <entry key="php" value="46" />
           <entry key="png" value="1" />
           <entry key="sql" value="2" />
@@ -57,7 +56,7 @@
           <entry key="CSS" value="2" />
           <entry key="HTML" value="1" />
           <entry key="Image" value="1" />
-          <entry key="JavaScript" value="6" />
+          <entry key="JavaScript" value="7" />
           <entry key="PHP" value="46" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="1" />
@@ -69,7 +68,7 @@
           <entry key="dummy" value="3" />
           <entry key="html" value="6" />
           <entry key="js" value="843" />
-          <entry key="php" value="11729" />
+          <entry key="php" value="11907" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -77,7 +76,7 @@
           <entry key="CSS" value="65" />
           <entry key="HTML" value="56" />
           <entry key="JavaScript" value="843" />
-          <entry key="PHP" value="11653" />
+          <entry key="PHP" value="11831" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="SQL" value="26" />
         </counts>
@@ -94,8 +93,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ViewModels/IndexControl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="65" column="54" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
+            <state relative-caret-position="102">
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -130,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/global/ClassCaller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+            <state relative-caret-position="153">
+              <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -146,19 +154,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/global/ConnectionSingleton.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="11" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+            <state relative-caret-position="323">
+              <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -219,7 +218,6 @@
         <option value="$PROJECT_DIR$/global/ajaxTest.php" />
         <option value="$PROJECT_DIR$/global/ModelBootstrap.php" />
         <option value="$PROJECT_DIR$/global/ClassCaller.php" />
-        <option value="$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js" />
         <option value="$PROJECT_DIR$/ViewModels/FooterControl.php" />
         <option value="$PROJECT_DIR$/View/Evaluation-Week-2.php" />
         <option value="$PROJECT_DIR$/Evaluation.php" />
@@ -229,8 +227,9 @@
         <option value="$PROJECT_DIR$/ViewModels/ReadArticlesControl.php" />
         <option value="$PROJECT_DIR$/View/SearchBar.php" />
         <option value="$PROJECT_DIR$/ReadArticles.php" />
-        <option value="$PROJECT_DIR$/Index.php" />
         <option value="$PROJECT_DIR$/ViewModels/SearchBarControl.php" />
+        <option value="$PROJECT_DIR$/Index.php" />
+        <option value="$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js" />
         <option value="$PROJECT_DIR$/ViewModels/IndexControl.php" />
       </list>
     </option>
@@ -313,6 +312,17 @@
               <item name="uploads" type="462c0819:PsiDirectoryNode" />
               <item name="articles" type="462c0819:PsiDirectoryNode" />
               <item name="audio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DWD-ClimbersNews" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DWD-ClimbersNews" type="462c0819:PsiDirectoryNode" />
+              <item name="ViewModels" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DWD-ClimbersNews" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DWD-ClimbersNews" type="462c0819:PsiDirectoryNode" />
+              <item name="ViewModels" type="462c0819:PsiDirectoryNode" />
+              <item name="JSHandlers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -407,12 +417,12 @@
       <workItem from="1537297438544" duration="4360000" />
       <workItem from="1537448867737" duration="5374000" />
       <workItem from="1537458268310" duration="5232000" />
-      <workItem from="1537522443967" duration="5226000" />
+      <workItem from="1537522443967" duration="5841000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96777000" />
+    <option name="totallyTimeSpent" value="97392000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2968" y="33" width="1696" height="1026" extended-state="6" />
@@ -493,13 +503,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/global/ModelBootstrap.php" />
     <entry file="file://$PROJECT_DIR$/global/ajaxTest.php" />
-    <entry file="file://$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="3" lean-forward="true" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ViewModels/FooterControl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -570,31 +573,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global/ClassCaller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ReadArticles.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/SearchBar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -605,6 +587,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/View/SearchBar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ViewModels/SearchBarControl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
@@ -612,10 +601,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global/ClassCaller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ViewModels/IndexControl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="65" column="54" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
+        <state relative-caret-position="102">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
     </entry>

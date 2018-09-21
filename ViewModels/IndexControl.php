@@ -4,6 +4,7 @@ class IndexControl
 {
     private $con;
     private $articlesPerPage;
+
     public function __construct()
     {
         $this->con = ConnectionSingleton::Instance()->GetCon();
@@ -62,9 +63,13 @@ EOT;
 
 
     }
+    public function DisplayPageChangeArticles($pageNumber){
+        $ArticlesToDisplay = $this->GetArticleDetails($pageNumber);
+        return $this->DisplayArticlesAsCards($ArticlesToDisplay);
+    }
 
-    public function DisplayArticlesAsCards($pageNumber){
-            $result = $this->GetArticleDetails($pageNumber);
+    private function DisplayArticlesAsCards($articlesToDisplay){
+            $result = $articlesToDisplay;
 
             $html ="";
             $lastRowCreated =0;

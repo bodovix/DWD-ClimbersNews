@@ -7,7 +7,7 @@ $('.articlePager').on('click',function () {
         type: "POST",
         data: {
             class:'IndexControl',
-            function:'DisplayArticlesAsCards',
+            function:'DisplayPageChangeArticles',
             param:this.value
         },
         url: "global/ClassCaller.php",

@@ -15,7 +15,7 @@ $indexControl = new IndexControl();
 
 <body class="" >
 <div id="recentArticleContainer" >
-    <?php echo $indexControl->DisplayArticlesAsCards(1); ?>
+    <?php echo $indexControl->DisplayPageChangeArticles(1); ?>
 </div>
 <div id="paginator">
     <?php echo $indexControl->DisplayPaging(); ?>
