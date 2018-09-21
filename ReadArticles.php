@@ -12,8 +12,8 @@ $relatedArticlesControl = new ReadArticlesControl($urlQueries['article']);
 ?>
 <?php
 include_once 'View/Header.php';
-include_once 'View/SearchBar.php';
-include_once 'View/SearchBar.php';
+
+
 
 ?>
 <div class="container">

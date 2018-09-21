@@ -1,4 +1,5 @@
 <?php
+include_once 'ViewModels/SearchBarControl.php'
 ?>
 <nav class="navbar navbar-expand-sm  navbar-dark bg-info ">
     <div class="container">

@@ -8,7 +8,8 @@ $indexControl = new IndexControl();
 
 ?>
 <?php
-    include 'View/Header.php';
+    include_once 'View/Header.php';
+    include_once 'View/SearchBar.php';
 ?>
 <script src="ViewModels/JSHandlers/IndexJS.js"></script>
 
