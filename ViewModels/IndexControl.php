@@ -4,14 +4,16 @@ class IndexControl
 {
     private $con;
     private $articlesPerPage;
+    private $loadedArticles;
 
     public function __construct()
     {
         $this->con = ConnectionSingleton::Instance()->GetCon();
         $this->articlesPerPage = 6;
+        $this->loadedArticles = $this->GetAllArticleDetails();
     }
 
-    private function GetArticleDetails (){
+    private function GetAllArticleDetails (){
 //TODO: sort out proper prepared statements
         $query = $this->con-> prepare("select id,coverImage,headline,description 
                                         from sql1701267.article  
@@ -29,45 +31,30 @@ class IndexControl
             return null;
         }
     }
-    public function DisplayPaging(){
-        $query = $this->con-> prepare("select id from sql1701267.article");
+
+    public function findArticleByDateCreated ($CreateOn){
+    //TODO: sort out proper prepared statements
+        $query = $this->con-> prepare("select id,coverImage,headline,description 
+                                        from sql1701267.article
+                                        WHERE article.createdOn = .$CreateOn
+                                        ORDER BY createdOn desc");
 
         $success = $query -> execute();
 
-        if ($success){
-            $count = $query -> rowCount();
-            $pagesRequired = $count / $this->articlesPerPage;
-            $paginate = '<div class="row mt-3">';
-            $paginate .= '<div class="container">';
-            $paginate .= '<nav>';
-            $paginate .= '<ul class="pagination pagination-lg>';
-            for($i =0; $i <= $pagesRequired; $i++){
-                $index = $i + 1;
-                $paginate .= <<<EOT
-                <li class="page-item">
-                    <button class="page-link articlePager" value="{$index}">{$index}</button>
-                </li>
-EOT;
-            }
-            $paginate .= '</ul>';
-            $paginate .= '</nav>';
-            $paginate .= '</div>';
-            $paginate .= '</div>';
+        if ($success) {
 
-            return $paginate;
-        }else{
-            return null;
+            $this->loadedArticles = $query->fetchAll(PDO::FETCH_OBJ);
+            return $this->DisplayArticlesAsCards(1);
         }
-
-
     }
+
+
     public function DisplayPageChangeArticles($pageNumber){
-        $ArticlesToDisplay = $this->GetArticleDetails();
-        return $this->DisplayArticlesAsCards($pageNumber, $ArticlesToDisplay);
+        return $this->DisplayArticlesAsCards($pageNumber);
     }
 
-    private function DisplayArticlesAsCards($pageNumber, $articlesToDisplay){
-            $result = $articlesToDisplay;
+    private function DisplayArticlesAsCards($pageNumber){
+            $result = $this->loadedArticles;
             $html ="";
             $lastRowCreated =0;
         if (is_array($result) || is_object($result)) {

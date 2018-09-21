@@ -11,9 +11,11 @@ include_once 'ViewModels/SearchBarControl.php'
                 <p class="navbar-brand d-none d-sm-inline-block">Search:</p>
                 <li class="nav-item">
                     <form class="form-inline ml-auto">
-                        <input id="titleSearch" class="form-control mr-2 mt-2" type="text" placeholder="Article Name">
-                        <input id="categorySearch" class="form-control mr-2 mt-2" type="text" placeholder="Category">
+<!--                        <input id="titleSearch" class="form-control mr-2 mt-2" type="text" placeholder="Article Name">-->
+<!--                        <input id="categorySearch" class="form-control mr-2 mt-2" type="text" placeholder="Category">-->
                         <input id="createdOnSearch" class="form-control mr-2 mt-2" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Created On">
+                        <input id="searchBtn" class="btn btn-success" type="button" value="go">
+
                     </form>
                 </li>
             </ul>
