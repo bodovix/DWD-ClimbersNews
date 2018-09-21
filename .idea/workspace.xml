@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e66f6cc8-e71e-48d2-ae93-7ffa62581a5f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/IndexControl.php" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/IndexControl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js" afterDir="false" />
     </list>
@@ -67,16 +66,16 @@
           <entry key="css" value="65" />
           <entry key="dummy" value="3" />
           <entry key="html" value="6" />
-          <entry key="js" value="1263" />
-          <entry key="php" value="12962" />
+          <entry key="js" value="1377" />
+          <entry key="php" value="13028" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="65" />
           <entry key="HTML" value="56" />
-          <entry key="JavaScript" value="1263" />
-          <entry key="PHP" value="12886" />
+          <entry key="JavaScript" value="1377" />
+          <entry key="PHP" value="12952" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="SQL" value="26" />
         </counts>
@@ -93,7 +92,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ViewModels/IndexControl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
+            <state relative-caret-position="402">
               <caret line="66" column="53" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="53" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -105,8 +104,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+            <state relative-caret-position="459">
+              <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -401,7 +400,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107838000" />
+    <option name="totallyTimeSpent" value="108392000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2968" y="33" width="1696" height="1026" extended-state="6" />
@@ -593,7 +592,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ViewModels/IndexControl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
+        <state relative-caret-position="402">
           <caret line="66" column="53" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="53" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -603,8 +602,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ViewModels/JSHandlers/IndexJS.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+        <state relative-caret-position="459">
+          <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
         </state>
       </provider>
     </entry>

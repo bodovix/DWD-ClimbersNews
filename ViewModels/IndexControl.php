@@ -61,15 +61,15 @@ class IndexControl
 
     public function DisplayPageChangeArticlesAll($pageNumber){
 
-            return $this->DisplayArticlesAsCards($pageNumber);
+            return $this->DisplayArticlesAsCards($pageNumber,FALSE);
     }
 
     public function DisplayPageChangeArticlesFiltered($pageNumber,$dateCreated){
         $this->loadedArticles = $this->findArticleByDateCreated($dateCreated);
-        return $this->DisplayArticlesAsCards($pageNumber);
+        return $this->DisplayArticlesAsCards($pageNumber,TRUE);
     }
 
-    private function DisplayArticlesAsCards($pageNumber){
+    private function DisplayArticlesAsCards($pageNumber,$isFiltered){
             $result = $this->loadedArticles;
             $html = null;
             $lastRowCreated =0;
@@ -125,11 +125,19 @@ EOT;
             $paginate .= '<ul class="pagination pagination-lg">';
             for($i =0; $i <= $pagesRequired; $i++){
                 $index = $i + 1;
-                $paginate .= <<<EOT
+                if ($isFiltered === FALSE) {
+                    $paginate .= <<<EOT
                 <li class="page-item">
                     <button class="page-link articlePager" value="{$index}">{$index}</button>
                 </li>
 EOT;
+                }else{
+                    $paginate .= <<<EOT
+                <li class="page-item">
+                    <button class="page-link articlePagerFiltered" value="{$index}">{$index}</button>
+                </li>
+EOT;
+                }
             }
             $paginate .= '</ul>';
             $paginate .= '</nav>';

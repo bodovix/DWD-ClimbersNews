@@ -1,7 +1,7 @@
 //Document Ready
 
 $(function() {
-    //
+    //non filtered pager
     $(document).on('click','.articlePager',function () {
             var selectedPageItem = $(this).parent();
         $.ajax({
@@ -24,6 +24,31 @@ $(function() {
         });
     });
 
+    //FILTERED PAGER
+    $(document).on('click','.articlePagerFiltered',function () {
+        var dateCreatedFilter = $('#createdOnSearch').val();
+        $.ajax({
+            type: "POST",
+            data: {
+                class:'IndexControl',
+                function:'DisplayPageChangeArticlesFiltered',
+                param:this.value,
+                param2:dateCreatedFilter
+            },
+            url: "global/ClassCaller.php",
+            //  dataType: "html",
+            //  async: true,
+            success: function(data) {
+                $('#recentArticleContainer').html(data);
+                // selectedPageItem.addClass('active').siblings().removeClass('active');
+            },
+            error: (error) => {
+                console.log(JSON.stringify(error));
+            }
+        });
+    });
+
+    //Search by Date Created
     $(document).on('click','#searchBtn',function () {
         var createdOnInput = $(this).siblings('#createdOnSearch');
 
