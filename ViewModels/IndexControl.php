@@ -105,12 +105,14 @@ class IndexControl
             </div>
         </div>
 EOT;
-                    echo "i=".$i ."pageOffsetStart=".$pageOffsetStart." app=".$this->articlesPerPage."</br>";
                     if (($i - 2) == $lastRowCreated) {
                         //close row
                         $html .= '</div>';
-                    } elseif ($i === (($pageOffsetStart + $this->articlesPerPage)-1)) {
-                        //otherwise check if exiting loop
+                    }elseif (($i + 1) == count($result)){
+                        //end of results, close row
+                        $html .= '</div>';
+                    } elseif ($i == (($pageOffsetStart + $this->articlesPerPage)-1)) {
+                        //otherwise check if exiting loop because of 6 reached
                         $html .= '</div>';
                     }
                 }
