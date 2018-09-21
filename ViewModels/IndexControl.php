@@ -50,10 +50,9 @@ class IndexControl
         if ($success) {
             if ($query->rowCount() > 0){
 
-                $this->loadedArticles = $query->fetchAll(PDO::FETCH_OBJ);
-                    echo $this->DisplayArticlesAsCards(1);
+                return $query->fetchAll(PDO::FETCH_OBJ);
             }else{
-                echo null;
+                return null;
             }
         }
     }
@@ -80,7 +79,7 @@ class IndexControl
             for($i = $pageOffsetStart ; $i < ($pageOffsetStart + $this->articlesPerPage); $i++){
 
                 if (isset($result[$i]->id)) {
-                    if ($i == 0) {
+                    if ($i == $pageOffsetStart) {
                         //first row setup
                         $html = '<div class="row">';
                         $lastRowCreated = $i;
@@ -109,7 +108,7 @@ EOT;
                     if (($i - 2) == $lastRowCreated) {
                         //close row
                         $html .= '</div>';
-                    } elseif (($i + 1) == count($result)) {
+                    } elseif (($i + 1) == ($pageOffsetStart + $this->articlesPerPage)) {
                         //otherwise check if exiting loop
                         $html .= '</div>';
                     }
@@ -123,7 +122,7 @@ EOT;
             $paginate .= '<div class="container">';
             $paginate .= '<nav>';
             $paginate .= '<ul class="pagination pagination-lg">';
-            for($i =0; $i <= $pagesRequired; $i++){
+            for($i =0; $i < $pagesRequired; $i++){
                 $index = $i + 1;
                 if ($isFiltered === FALSE) {
                     $paginate .= <<<EOT

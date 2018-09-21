@@ -27,18 +27,23 @@ $(function() {
     //FILTERED PAGER
     $(document).on('click','.articlePagerFiltered',function () {
         var dateCreatedFilter = $('#createdOnSearch').val();
+        var pageValue = this.value;
+        alert(pageValue);
+
         $.ajax({
             type: "POST",
             data: {
                 class:'IndexControl',
                 function:'DisplayPageChangeArticlesFiltered',
-                param:this.value,
+                param:pageValue,
                 param2:dateCreatedFilter
             },
             url: "global/ClassCaller.php",
             //  dataType: "html",
             //  async: true,
             success: function(data) {
+                alert(dateCreatedFilter + "   " +  pageValue + "    " + data);
+
                 $('#recentArticleContainer').html(data);
                 // selectedPageItem.addClass('active').siblings().removeClass('active');
             },
