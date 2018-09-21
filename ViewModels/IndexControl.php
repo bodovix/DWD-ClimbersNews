@@ -105,20 +105,22 @@ class IndexControl
             </div>
         </div>
 EOT;
+                    echo "i=".$i ."pageOffsetStart=".$pageOffsetStart." app=".$this->articlesPerPage."</br>";
                     if (($i - 2) == $lastRowCreated) {
                         //close row
                         $html .= '</div>';
-                    } elseif (($i + 1) == ($pageOffsetStart + $this->articlesPerPage)) {
+                    } elseif ($i === (($pageOffsetStart + $this->articlesPerPage)-1)) {
                         //otherwise check if exiting loop
                         $html .= '</div>';
                     }
                 }
             }
+
             //----------Add Pagination
             $count = count($result);
             $pagesRequired = $count / $this->articlesPerPage;
-            $paginate = '<div id="paginator">';
-            $paginate .= '<div class="row mt-3">';
+            $paginate = '<div class="row mt-3">';
+            $paginate .= '<div id="paginator">';
             $paginate .= '<div class="container">';
             $paginate .= '<nav>';
             $paginate .= '<ul class="pagination pagination-lg">';
