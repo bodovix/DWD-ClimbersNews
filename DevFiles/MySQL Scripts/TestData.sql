@@ -36,7 +36,8 @@ insert into article (headline,category,description,primaryText,coverImage,primar
 		values('Welcome To Climbing News10','1','New site for all your Climbing News','Lorem ipet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer','uploads/articles/images/welcome.jpg','uploads/articles/images/welcome.jpg','none','Secondary meda sound text, isnt it amazin','uploads/articles/audio/SoundTest.wav','audio','Its a sound Test','active','1','2017-09-01');
 insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,secondaryText,secondaryMediaUrl,secondaryMediaType,secondaryMediaCaption,statusCode,author,createdOn) 
 		values('Welcome To Climbing News11','1','New site for all your Climbing News','Lorem ipet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer','uploads/articles/images/welcome.jpg','uploads/articles/images/welcome.jpg','none','Secondary meda sound text, isnt it amazin','uploads/articles/audio/SoundTest.wav','audio','Its a sound Test','active','1','2017-09-01');
-
+insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,secondaryText,secondaryMediaUrl,secondaryMediaType,secondaryMediaCaption,statusCode,author,createdOn) 
+		values('Welcome To Climbing News12','1','New site for all your Climbing News','Lorem ipet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer','uploads/articles/images/welcome.jpg','uploads/articles/images/welcome.jpg','none','Secondary meda sound text, isnt it amazin','uploads/articles/audio/SoundTest.wav','audio','Its a sound Test','active','1','2017-09-01');
     
     
     

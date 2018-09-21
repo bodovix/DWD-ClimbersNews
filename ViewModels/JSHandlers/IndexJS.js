@@ -28,7 +28,6 @@ $(function() {
     $(document).on('click','.articlePagerFiltered',function () {
         var dateCreatedFilter = $('#createdOnSearch').val();
         var pageValue = this.value;
-        alert(pageValue);
 
         $.ajax({
             type: "POST",
@@ -42,7 +41,6 @@ $(function() {
             //  dataType: "html",
             //  async: true,
             success: function(data) {
-                alert(dateCreatedFilter + "   " +  pageValue + "    " + data);
 
                 $('#recentArticleContainer').html(data);
                 // selectedPageItem.addClass('active').siblings().removeClass('active');
@@ -72,7 +70,6 @@ $(function() {
             success: function(data) {
 
                 if (data !== null || data !== '' || data === false){
-                    alert(data);
                     $('#recentArticleContainer').html(data);
                 // selectedPageItem.addClass('active').siblings().removeClass('active');
                 }else{
