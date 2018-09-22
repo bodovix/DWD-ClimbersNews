@@ -76,7 +76,7 @@ Describing the line, Anna told UKC: The bottom section is almost misleadingly ea
 /*coverImage*/				,'uploads/articles/images/317081.jpg'
 /*primaryMediaUrl*/			,'uploads/articles/images/317081.jpg'
 /*primaryMediaType*/		,'image'
-/*primaryMediaCaption*/		,'DWS.'
+/*primaryMediaCaption*/		,'Committing to the moves'
 /*secondaryText*/			,'On the day, Anna had two attempts at the solo. On her first attempt, she reached the rest footholds and couldnt make herself commit to the crux section due to the injury potential. After getting rescued, I took about 40 minutes to clear my head and tried again, she explained. It was still pretty scary, but I knew as long as I kept my head together it was unlikely Id fall off, and I really didnt want to walk away having not tried.
 Anna summed up:Im really happy to have got the route done, as it feels like a step forward from routes Ive done before, and its definitely got me psyched for the grit season!'
 /*secondaryMediaUrl*/		,'uploads/articles/audio/SoundTest.wav'

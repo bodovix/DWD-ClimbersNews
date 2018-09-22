@@ -67,15 +67,15 @@
           <entry key="dummy" value="3" />
           <entry key="html" value="6" />
           <entry key="js" value="1481" />
-          <entry key="php" value="13279" />
+          <entry key="php" value="13299" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="65" />
-          <entry key="HTML" value="57" />
+          <entry key="HTML" value="58" />
           <entry key="JavaScript" value="1481" />
-          <entry key="PHP" value="13202" />
+          <entry key="PHP" value="13221" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="SQL" value="26" />
         </counts>
@@ -93,9 +93,10 @@
         <entry file="file://$PROJECT_DIR$/ViewModels/IndexControl.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="88" column="62" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -406,12 +407,12 @@
       <workItem from="1537522443967" duration="5841000" />
       <workItem from="1537538705511" duration="7626000" />
       <workItem from="1537555319840" duration="2215000" />
-      <workItem from="1537605680349" duration="642000" />
+      <workItem from="1537605680349" duration="1139000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114675000" />
+    <option name="totallyTimeSpent" value="115172000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2968" y="33" width="1696" height="1026" extended-state="6" />
@@ -611,9 +612,10 @@
     <entry file="file://$PROJECT_DIR$/ViewModels/IndexControl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="88" column="62" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

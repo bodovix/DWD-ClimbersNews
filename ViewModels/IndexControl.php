@@ -15,7 +15,7 @@ class IndexControl
 
     private function GetAllArticleDetails (){
 //TODO: sort out proper prepared statements
-        $query = $this->con-> prepare("select id,coverImage,headline,description 
+        $query = $this->con-> prepare("select id,coverImage,headline,description,createdOn 
                                         from sql1701267.article  
                                         ORDER BY createdOn 
                                         desc
@@ -99,6 +99,8 @@ class IndexControl
                     <div class="card-body">
                         <h4 class="card-title my-1">{$result[$i]->headline}"</h4>
                         <p class="card-text mb-1 text-muted" style="overflow:hidden;max-height: 50px ">{$result[$i]->description}</p>
+                        <p class="card-text mb-1 text-muted float-right" style="overflow:hidden;max-height: 50px ">{$result[$i]->createdOn}</p>
+
                     </div>
                 </div>
              </a>   
