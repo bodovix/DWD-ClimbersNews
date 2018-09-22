@@ -14,19 +14,19 @@
 switch($urlQueries["week"]){
 
     case '1':
-        if(file_exists(APPROOT.'/View/Evaluation-Week-1.php'))
+        if(file_exists(APPROOT.'/View/Evaluations/Evaluation-Week-1.php'))
         {
-            include_once('View/Evaluation-Week-1.php');
+            include_once('View/Evaluations/Evaluation-Week-1.php');
             $pathToPage = URLROOT.'Index.php';
         }else{
             echo 'File Not found';
         }
         break;
     case '2':
-        if(file_exists(APPROOT.'/View/Evaluation-Week-2.php'))
+        if(file_exists(APPROOT.'/View/Evaluations/Evaluation-Week-2.php'))
         {
-            include_once('View/Evaluation-Week-2.php');
-            $pathToPage = URLROOT.'ReadArticles.php';
+            include_once('View/Evaluations/Evaluation-Week-2.php');
+            $pathToPage = URLROOT.'Index.php';
         }else{
             echo 'File Not found';
         }

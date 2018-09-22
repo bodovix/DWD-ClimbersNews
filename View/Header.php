@@ -34,6 +34,7 @@ error_reporting(E_ALL);
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Evaluations</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=1'?>">Week 1</a>
+                        <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=2'?>">Week 2</a>
                     </div>
                 </li>
             </ul>

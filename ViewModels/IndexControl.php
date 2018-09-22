@@ -54,6 +54,8 @@ class IndexControl
             }else{
                 return null;
             }
+        }else{
+            return null;
         }
     }
 
