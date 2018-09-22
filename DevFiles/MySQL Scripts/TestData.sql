@@ -122,7 +122,7 @@ insert into article (headline,category,description,primaryText,coverImage,primar
         ,'image'
         ,'active'
         ,'1'
-        ,'2018-10-01'
+        ,'2018-3-01'
 );
 
 DO SLEEP(0.1);
@@ -169,13 +169,20 @@ insert into article (headline,category,description,primaryText,coverImage,primar
 /*primaryMediaUrl*/        	,'uploads/articles/images/Bowline.jpg'
 /*primaryMediaType*/        ,'image'
 /*primaryMediaCaption*/     ,'The Best knot'
-/*secondaryText*/        	,'How to tie the Bowline Knot. One of the most useful knots you can know. The Bowline forms a secure loop that will not jam and is easy to tie and untie. The Bowline is most commonly used for forming a fixed loop, large or small at the end of a line. Tried and tested over centuries, this knot is reliable, strong and stable. Even after severe tension is applied it is easy to untie. However, because it does untie so easily it should not be trusted in a life or death situation such as mountain climbing. It is said to retain 60% of the strength of the line in which it is tied.'
+/*secondaryText*/        	,'* Lay the rope across your left hand with the free end hanging down. Form a small loop in the line in your hand.
+
+* Bring the free end up to and pass through the eye from the under side (the rabbit comes out of the hole).
+
+* Wrap the line around the standing line and back down through the loop (around the tree and back down the hole).
+
+* Tighten the knot by pulling on free end while holding standing line
+'
 /*secondaryMediaUrl*/		,'uploads/articles/images/bowline2.jpg'
 /*secondaryMediaType*/		,'image'
 /*secondaryMediaCaption*/	,'Do Yun'
 /*status*/					,'active'
 /*author*/       			,'1'
-/*createdOn*/        		,'2018-12-01'
+/*createdOn*/        		,'2018-4-01'
 );
 DO SLEEP(0.1);
 #=================
@@ -184,9 +191,9 @@ insert into article (headline,category,description,primaryText,coverImage,primar
         'Visit Kalymnos!'
         ,'3'
         ,'too much bolt clipping'
-        ,'Lorem ipsum dolor sit amet, consectetuer adipiscing e'
-        ,'uploads/articles/images/Gogarth.jpg'
-        ,'uploads/articles/images/Gogarth.jpg'
+        ,'Ocean Dream is a massive cliff in a mountainous landscape, with very high quality rock and plenty of new route potential. Some of the longest, most demanding and adventurous multi-pitch routes are found here. This sector is worth a visit for the view alone.'
+        ,'uploads/articles/images/187392.jpg'
+        ,'uploads/articles/images/187392.jpg'
         ,'image'
         ,'active'
         ,'1'
@@ -195,5 +202,65 @@ insert into article (headline,category,description,primaryText,coverImage,primar
 DO SLEEP(0.1);
 #=================
 
-#=
+insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,primaryMediaCaption,secondaryText,secondaryMediaUrl,secondaryMediaType,secondaryMediaCaption,conclusionText,conclusionMediaUrl,conclusionMediaType,conclusionMediaCaption,statusCode,author,createdOn) 
+		values(
+/*headline*/        		'Eshaness Lighthouse'
+/*category*/        		,'3'
+/*description*/        		,'Northernly Islands Climbing'
+/*primaryText*/       		,'<strong>Crag features</strong>
+Stunning lines breaching this 50m steep cliffs give some superb climbing. Known as "Esha Ness" on OS maps.
+<br>
+The rock here is a mixture of lavas, tuff (volcanic ash) and agglomerate. Mainly andesite, with mugearite around the Stuvva Cave routes.
+<br>
+<strong>Approach notes</strong>
+Abseil descent for most routes. The cliffs drop straight into the sea; some routes require hanging belays.'
+/*coverImage*/				,'uploads/articles/images/47983.jpg'
+/*primaryMediaUrl*/			,'uploads/articles/images/47983.jpg'
+/*primaryMediaType*/		,'image'
+/*primaryMediaCaption*/		,'Main Cliff'
+/*secondaryText*/			,null
+/*secondaryMediaUrl*/		,null
+/*secondaryMediaType*/		,null
+/*secondaryMediaCaption*/	,null
+/*conclusionText*/ 			,null
+/*conclusionMediaUrl*/ 		,null
+/*conclusionMediaType*/ 	,null
+/*conclusionMediaCaption*/ 	,null
+/*statusCode*/				,'active'
+/*author*/					,'1'
+/*createdOn*/				,'2017-06-01'
+);
+DO SLEEP (0.1);
 
+
+#=================
+
+insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,primaryMediaCaption,secondaryText,secondaryMediaUrl,secondaryMediaType,secondaryMediaCaption,conclusionText,conclusionMediaUrl,conclusionMediaType,conclusionMediaCaption,statusCode,author,createdOn) 
+		values(
+/*headline*/        		'Polney Crag (Craig a Barns)'
+/*category*/        		,'3'
+/*description*/        		,'Scotlands most over rated crag'
+/*primaryText*/       		,'Craig a Barns and Polney Crag offer some accessible one and two-pitch routes covering all grades, in a weather oasis that seems to stay dry even when the rest of Scotland is wet! However, tree cover can make Polney slow to dry and the rock is slippery when damp so care is required after rain.
+
+The outlook is pleasing, making this a popular venue. There are some bolted routes located at the W end of Polney on Myopics Buttress. Dedicated sport climbers should also head to Cave Crag (listed separately).
+<br>
+Safety note: The top of the crag has a fair amount of loose, steep ground and a slip can have (and has had) unfortunate consequences. A popular descent route is to ab down Hairy Gully - provided, of course, that the route is not being climbed. Slings and a maillon will generally be found in place round the most convenient tree at the top of the gully. In winter pine needles can cover many of the holds and ledges on the easier routes.
+<br>
+Note for logbooks: According to the SMC guidebook the Craig a Barns "area" covers three crags: Polney Crag, Lover''s Leap and Cave Crags. Cave Crag (sp) is listed separately in the database so I''ve put the routes on Upper Cave Crag, Lower Cave Crag and Even Lower Cave Crag under that name. Lover''s Leap only has a few routes and access is from the same point as Cave Crags, so I''ve included the Lover''s Leap routes under Cave Crag.'
+/*coverImage*/				,'uploads/articles/images/178866.jpg'
+/*primaryMediaUrl*/			,'uploads/articles/images/178866.jpg'
+/*primaryMediaType*/		,'image'
+/*primaryMediaCaption*/		,''
+/*secondaryText*/			,null
+/*secondaryMediaUrl*/		,null
+/*secondaryMediaType*/		,null
+/*secondaryMediaCaption*/	,null
+/*conclusionText*/ 			,null
+/*conclusionMediaUrl*/ 		,null
+/*conclusionMediaType*/ 	,null
+/*conclusionMediaCaption*/ 	,null
+/*statusCode*/				,'active'
+/*author*/					,'1'
+/*createdOn*/				,'2017-12-01'
+);
+DO SLEEP (0.1);
