@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS rating(
 	id int auto_increment, 
 	createdOn date,
 	rating INT(3) NOT NULL,
-    user_id int not null REFERENCES article(id),
+    userId int not null REFERENCES article(id),
     article int not null REFERENCES article(id),
     
     primary key(id)
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS feedback(
     createdOn date ,
     feedback varchar(150) not null,
     showOnSite bool not null DEFAULT true,
-    user_id int not null REFERENCES article(id),
+    userId int not null REFERENCES article(id),
     article int not null REFERENCES article(id),
     
     primary key(id)

@@ -81,17 +81,17 @@ class IndexControl
                 if (isset($result[$i]->id)) {
                     if ($i == $pageOffsetStart) {
                         //first row setup
-                        $html = '<div class="row">';
+                        $html = '<div class="row bg-info pb-2">';
                         $lastRowCreated = $i;
                     }
                     if (($i - 3) == $lastRowCreated) {
                         //Add another Row
-                        $html .= '<div class="row">';
+                        $html .= '<div class="row bg-info pb-2">';
                         $lastRowCreated = $i;
                     }
                     $html .=
                         <<<EOT
-        <div class="col-md-4 bg-info">
+        <div class="col-md-4">
             <div class="container mt-3">
             <a href="ReadArticles.php?article={$result[$i]->id}">
                 <div class="card" >
