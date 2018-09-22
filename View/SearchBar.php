@@ -1,5 +1,6 @@
 <?php
-include_once 'ViewModels/SearchBarControl.php'
+include_once 'ViewModels/SearchBarControl.php';
+$searchBar = new SearchBarControl();
 ?>
 <nav class="navbar navbar-expand-sm  navbar-dark bg-info ">
     <div class="container">
@@ -8,13 +9,13 @@ include_once 'ViewModels/SearchBarControl.php'
         </button>
         <div class="collapse navbar-collapse" id="searchBar">
             <ul class="navbar-nav m-auto">
-                <p class="navbar-brand d-none d-sm-inline-block">Created On:</p>
                 <li class="nav-item">
                     <form class="form-inline ml-auto">
 <!--                        <input id="titleSearch" class="form-control mr-2 mt-2" type="text" placeholder="Article Name">-->
 <!--                        <input id="categorySearch" class="form-control mr-2 mt-2" type="text" placeholder="Category">-->
-                        <input id="createdOnSearch" class="form-control mr-2 mt-2" type="date" value="2018-10-1" placeholder="Created On">
-                        <input id="searchBtn" class="btn btn-success" type="button" value="go">
+                        <input id="createdOnSearch" class="form-control mr-2" type="text"  onblur="(this.type = 'text')" onfocus="(this.type = 'date')" placeholder="Created On">
+                        <input id="searchBtn" class="btn btn-success mr-2 d-inline-block my-auto" type="button" value="go">
+                        <input id="clearSearchBtn" class="btn btn-success mr-2 d-inline-block my-auto"  type="button" value="Clear">
 
                     </form>
                 </li>
@@ -22,3 +23,9 @@ include_once 'ViewModels/SearchBarControl.php'
         </div>
     </div>
 </nav>
+<div class="row" id="noResultsFoundWarning" style="display: none;">
+    <div class="col">
+        <div class="col bg-warning text-center">No Articles Found</div>
+    </div>
+</div>
+

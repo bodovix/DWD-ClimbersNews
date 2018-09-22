@@ -156,9 +156,13 @@ EOT;
 
 
             //=================
-            return $html;
+            if (!is_null($html)){
+                return $html;
+            }else{
+                return 0;
+            }
         }else{
-            return null;
+            return 0;
         }
 
 

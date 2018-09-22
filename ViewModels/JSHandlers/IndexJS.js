@@ -1,6 +1,32 @@
 //Document Ready
 
 $(function() {
+    //Clear Search
+    $(document).on('click','#clearSearchBtn',function () {
+        $.ajax({
+            type: "POST",
+            data: {
+                class:'IndexControl',
+                function:'DisplayPageChangeArticlesAll',
+                param:1
+            },
+            url: "global/ClassCaller.php",
+            //  dataType: "html",
+            //  async: true,
+            success: function(data) {
+                $('#recentArticleContainer').html(data);
+                $('#createdOnSearch').val('');
+                if ($('#noResultsFoundWarning').is(":visible")){
+                    $('#noResultsFoundWarning').hide();
+                }
+                // selectedPageItem.addClass('active').siblings().removeClass('active');
+            },
+            error: (error) => {
+                console.log(JSON.stringify(error));
+            }
+        });
+    });
+
     //non filtered pager
     $(document).on('click','.articlePager',function () {
             var selectedPageItem = $(this).parent();
@@ -54,7 +80,10 @@ $(function() {
     //Search by Date Created
     $(document).on('click','#searchBtn',function () {
         var createdOnInput = $(this).siblings('#createdOnSearch');
+            if(!Date.parse(createdOnInput.val())){
+                return;
 
+            }
         $.ajax({
             type: "POST",
             data: {
@@ -68,12 +97,15 @@ $(function() {
             //  dataType: "html",
             //  async: true,
             success: function(data) {
+                if (data === 0 || data === '0' ){
+                    //No Results
+                    $('#noResultsFoundWarning').show();
+                    $('#recentArticleContainer').html('');
 
-                if (data !== null || data !== '' || data === false){
-                    $('#recentArticleContainer').html(data);
-                // selectedPageItem.addClass('active').siblings().removeClass('active');
                 }else{
-                    alert("No articles found");
+                    //Found Data
+                    $('#noResultsFoundWarning').hide();
+                    $('#recentArticleContainer').html(data);
                 }
             },
             error: (error) => {
