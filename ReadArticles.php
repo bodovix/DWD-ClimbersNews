@@ -8,7 +8,7 @@ require_once  'config/config.php';
 $urlQueries = array();
 parse_str($_SERVER['QUERY_STRING'], $urlQueries);
 
-$relatedArticlesControl = new ReadArticlesControl($urlQueries['article']);
+$relatedArticlesControl = new ReadArticlesControl();
 ?>
 <?php
 include_once 'View/Header.php';

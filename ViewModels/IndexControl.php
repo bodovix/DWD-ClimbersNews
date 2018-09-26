@@ -14,7 +14,7 @@ class IndexControl
     }
 
     private function GetAllArticleDetails (){
-//TODO: sort out proper prepared statements
+
         $query = $this->con-> prepare("select id,coverImage,headline,description,createdOn 
                                         from sql1701267.article  
                                         ORDER BY createdOn 
@@ -33,7 +33,7 @@ class IndexControl
     }
 
     private function findArticleByDateCreated ($createdOn){
-    //TODO: sort out proper prepared statements
+
         if (is_null($createdOn) || !isset($createdOn)){
             return null;
         }
@@ -41,11 +41,11 @@ class IndexControl
 
         $query = $this->con-> prepare("select id,coverImage,headline,description 
                                         from sql1701267.article
-                                        WHERE article.createdOn = '".$createdOnDate."'
+                                        WHERE article.createdOn = :createdOn
                                         ORDER BY article.createdOn desc");
 
 
-        $success = $query -> execute();
+        $success = $query -> execute(['createdOn' => $createdOnDate]);
 
         if ($success) {
             if ($query->rowCount() > 0){

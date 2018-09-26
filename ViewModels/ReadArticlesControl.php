@@ -3,17 +3,16 @@
 class ReadArticlesControl
 {
     private $con;
-    private $articleID;
-    public function __construct($articleID)
+
+    public function __construct()
     {
-        $this->articleID = $articleID;
         $this->con = ConnectionSingleton::Instance()->GetCon();
     }
 
     public function getArticleById($id){
-        $query = $this->con-> prepare("select * from article where id =".$this->articleID);
+        $query = $this->con-> prepare("select * from article where id = :articleId");
+        $success = $query -> execute(['articleId' => $id]);
 
-        $success = $query -> execute();
         if ($success && $query -> rowCount() > 0){
             $result = $query -> fetch(PDO::FETCH_OBJ);
             return $result;
