@@ -1,25 +1,17 @@
 <?php
-
+    include_once 'Model/Article.php';
 class ReadArticlesControl
 {
     private $con;
+    private $articleModel;
 
     public function __construct()
     {
         $this->con = ConnectionSingleton::Instance()->GetCon();
+        $this->articleModel = new Article();
     }
 
-    public function getArticleById($id){
-        $query = $this->con-> prepare("select * from article where id = :articleId");
-        $success = $query -> execute(['articleId' => $id]);
 
-        if ($success && $query -> rowCount() > 0){
-            $result = $query -> fetch(PDO::FETCH_OBJ);
-            return $result;
-        }else{
-            return null;
-        }
-    }
     private  function  addMedia($mediaUrl,$mediaCaption,$mediaType){
         $output = '';
         switch ($mediaType){
@@ -63,7 +55,7 @@ EOT;
     }
 
     public function formatArticle($id){
-        $articleToFormat = $this->getArticleById($id);
+        $articleToFormat = json_decode($this->articleModel->getArticleById($id));
         if (isset($articleToFormat)) {
             $html ="";
                     //first loop
