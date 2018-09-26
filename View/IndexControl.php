@@ -16,42 +16,14 @@ class IndexControl
         $this->loadedArticles = json_decode($articleJSon);
     }
 
-
-    private function findArticleByDateCreated ($createdOn){
-
-        if (is_null($createdOn) || !isset($createdOn)){
-            return null;
-        }
-        $createdOnDate = date('Y-m-d',strtotime($createdOn));
-
-        $query = $this->con-> prepare("select id,coverImage,headline,description ,createdOn
-                                        from sql1701267.article
-                                        WHERE article.createdOn = :createdOn
-                                        ORDER BY article.createdOn desc");
-
-
-        $success = $query -> execute(['createdOn' => $createdOnDate]);
-
-        if ($success) {
-            if ($query->rowCount() > 0){
-
-                return $query->fetchAll(PDO::FETCH_OBJ);
-            }else{
-                return null;
-            }
-        }else{
-            return null;
-        }
-    }
-
-
     public function DisplayPageChangeArticlesAll($pageNumber){
 
             return $this->DisplayArticlesAsCards($pageNumber,FALSE);
     }
 
     public function DisplayPageChangeArticlesFiltered($pageNumber,$dateCreated){
-        $this->loadedArticles = $this->findArticleByDateCreated($dateCreated);
+        $result =  $this->articleModel->findArticleByDateCreated($dateCreated);
+        $this->loadedArticles = json_decode($result);
         return $this->DisplayArticlesAsCards($pageNumber,TRUE);
     }
 
@@ -138,9 +110,7 @@ EOT;
             $paginate .= '</div>';
 
                     $html .= $paginate;
-
-
-            //=================
+            //--------------------
             if (!is_null($html)){
                 return $html;
             }else{

@@ -6,7 +6,7 @@ require_once  '../config/config.php';
 
 $function = $_POST['function'];
 $className = $_POST['class'];
-$class;
+
 //Initialize Objects
 switch ($className){
     case 'IndexControl':
@@ -14,6 +14,7 @@ switch ($className){
         break;
 }
 
+//Execute requested method
 if (isset($_POST['param3'])){
     $result = $class->{$function}($_POST['param'],$_POST['param2'],$_POST['param3']);
     echo $result;

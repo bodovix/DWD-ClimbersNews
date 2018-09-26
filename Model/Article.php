@@ -10,31 +10,6 @@ class Article
 {
     private $con;
 
-    public $id;
-    public $headline;
-    public $coverImage;
-    public $category;
-    public $description;
-
-    public $primaryText;
-    public $primaryMediaUrl;
-    public $primaryMediaType;
-    public $primaryMediaCaption;
-
-    public $secondaryText;
-    public $secondaryMediaUrl;
-    public $secondaryMediaType;
-    public $secondaryMediaCaption;
-
-    public $conclusionText;
-    public $conclusionMediaUrl;
-    public $conclusionMediaType;
-    public $conclusionMediaCaption;
-
-    public $createdOn;
-    public $statusCode;
-    public $author;
-
      public function __construct()
      {
          $this->con = ConnectionSingleton::Instance()->GetCon();
@@ -78,10 +53,36 @@ class Article
             return null;
         }
     }
+
     //TODO: delete
     //TODO: update
 
 
-    //TODO: not sure about filtered methods, feel like web api should only have the 4 cruds
+    //TODO: not sure about filtered methods, feel like  api should be kept simple only have the 4 crud's. maybe this should be a string query to filter GetAll
+    public function findArticleByDateCreated ($createdOn){
 
+        if (is_null($createdOn) || !isset($createdOn)){
+            return null;
+        }
+        $createdOnDate = date('Y-m-d',strtotime($createdOn));
+
+        $query = $this->con-> prepare("select id,coverImage,headline,description ,createdOn
+                                        from sql1701267.article
+                                        WHERE article.createdOn = :createdOn
+                                        ORDER BY article.createdOn desc");
+
+        $success = $query -> execute(['createdOn' => $createdOnDate]);
+
+        if ($success) {
+            if ($query->rowCount() > 0){
+                $result = $query->fetchAll(PDO::FETCH_OBJ);
+                $json = json_encode($result);
+                return $json;
+            }else{
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
 }
