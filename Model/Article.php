@@ -58,7 +58,22 @@ class Article
     }
 
     //TODO: get all
+    public function GetAllArticleDetails (){
 
+        $query = $this->con-> prepare("select id,coverImage,headline,description,createdOn 
+                                        from sql1701267.article  
+                                        ORDER BY createdOn 
+                                        desc
+                                        ");
+
+        $success = $query -> execute();
+        if ($success){
+            $result = $query -> fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        } else{
+            return null;
+        }
+    }
     //TODO: delete
     //TODO: update
 

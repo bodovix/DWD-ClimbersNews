@@ -1,36 +1,20 @@
 <?php
-
+ include_once 'Model/Article.php';
 class IndexControl
 {
     private $con;
     private $articlesPerPage;
+    private $articleModel;
     private $loadedArticles;
 
     public function __construct()
     {
         $this->con = ConnectionSingleton::Instance()->GetCon();
         $this->articlesPerPage = 6;
-        $this->loadedArticles = $this->GetAllArticleDetails();
+        $this->articleModel = new Article();
+        $this->loadedArticles = $this->articleModel->GetAllArticleDetails();
     }
 
-    private function GetAllArticleDetails (){
-
-        $query = $this->con-> prepare("select id,coverImage,headline,description,createdOn 
-                                        from sql1701267.article  
-                                        ORDER BY createdOn 
-                                        desc
-                                        ");
-
-        $success = $query -> execute();
-
-        if ($success){
-
-            $result = $query -> fetchAll(PDO::FETCH_OBJ);
-            return $result;
-        } else{
-            return null;
-        }
-    }
 
     private function findArticleByDateCreated ($createdOn){
 
