@@ -118,7 +118,7 @@ insert into article (headline,category,description,primaryText,coverImage,primar
         ,'3'
         ,'New Guidebook Published Today'
         ,'Along with its neighbouring islands, this is one of the best rock climbing destinations in Britain, as well as one of the most remote. Big, steep cliffs of beautiful gneiss in a stunning location, with some convenient smaller crags as well. World class.'
-        ,'uploads/articles/images/killika.jpg','uploads/articles/images/SMCbook.jpg'
+        ,'uploads/articles/images/SMCbook.jpg','uploads/articles/images/SMCbook.jpg'
         ,'image'
         ,'active'
         ,'1'
