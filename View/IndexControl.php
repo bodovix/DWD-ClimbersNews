@@ -12,7 +12,8 @@ class IndexControl
         $this->con = ConnectionSingleton::Instance()->GetCon();
         $this->articlesPerPage = 6;
         $this->articleModel = new Article();
-        $this->loadedArticles = $this->articleModel->GetAllArticleDetails();
+        $articleJSon = $this->articleModel->GetAllArticleDetails();
+        $this->loadedArticles = json_decode($articleJSon);
     }
 
 
@@ -23,7 +24,7 @@ class IndexControl
         }
         $createdOnDate = date('Y-m-d',strtotime($createdOn));
 
-        $query = $this->con-> prepare("select id,coverImage,headline,description 
+        $query = $this->con-> prepare("select id,coverImage,headline,description ,createdOn
                                         from sql1701267.article
                                         WHERE article.createdOn = :createdOn
                                         ORDER BY article.createdOn desc");

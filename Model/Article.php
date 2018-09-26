@@ -69,7 +69,11 @@ class Article
         $success = $query -> execute();
         if ($success){
             $result = $query -> fetchAll(PDO::FETCH_OBJ);
-            return $result;
+            if (count($result) ==0){
+                return null;
+            }
+            $json = json_encode($result);
+            return $json;
         } else{
             return null;
         }
