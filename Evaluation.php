@@ -1,7 +1,7 @@
 <?php
-    include 'View/Header.php';
+    include 'Includes/Header.php';
     require_once  'global/ConnectionSingleton.php';
-    require_once 'ViewModels/IndexControl.php';
+    require_once 'View/IndexControl.php';
     require_once  'config/config.php';
 ?>
 
@@ -14,18 +14,18 @@
 switch($urlQueries["week"]){
 
     case '1':
-        if(file_exists(APPROOT.'/View/Evaluations/Evaluation-Week-1.php'))
+        if(file_exists(APPROOT.'/Includes/Evaluations/Evaluation-Week-1.php'))
         {
-            include_once('View/Evaluations/Evaluation-Week-1.php');
+            include_once('Includes/Evaluations/Evaluation-Week-1.php');
             $pathToPage = URLROOT.'Index.php';
         }else{
             echo 'File Not found';
         }
         break;
     case '2':
-        if(file_exists(APPROOT.'/View/Evaluations/Evaluation-Week-2.php'))
+        if(file_exists(APPROOT.'/Includes/Evaluations/Evaluation-Week-2.php'))
         {
-            include_once('View/Evaluations/Evaluation-Week-2.php');
+            include_once('Includes/Evaluations/Evaluation-Week-2.php');
             $pathToPage = URLROOT.'Index.php';
         }else{
             echo 'File Not found';
@@ -40,5 +40,5 @@ switch($urlQueries["week"]){
 
 <?php
 
-include 'View/Footer.php';
+include 'Includes/Footer.php';
 ?>
