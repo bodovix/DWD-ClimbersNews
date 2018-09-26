@@ -25,7 +25,7 @@ require_once 'config/config.php';
         This was making the code harder to read and maintain since its display and data logic are tightly coupled throughout the website. It was wise to implement a solution to this problem before any further development was carried out, making the problem larger harder to refactor. An API needed to be put in place to separate the websites logical parts and make the database logic more reusable throughout the site.
         <br>
         <br>
-        To Implement the improved API I split the websites article logic into two parts, Data and Display. The Article date logic was moved into a separate Folder and Class: ‘Model/Article.php’ which left my Display Code in files only relating to Display code e.g. ‘View/pageNameControl.php’:
+        To Implement the improved structure and API I split the websites  logic into two parts, Data and Display. The Article date logic was moved into a separate Folder and Class: ‘Model/Article.php’ which left my Display Code in files only relating to Display code e.g. ‘View/pageNameControl.php’:
     </p>
     <img class="mx-auto d-block mb-3" src="uploads/Evaluations/Week-3/newFileStructure.jpg">
      <p>
@@ -34,19 +34,19 @@ require_once 'config/config.php';
     <div class="thumbnail mb-3">
         <img class="mx-auto d-block mb-0"  src="uploads/Evaluations/Week-3/newArticleModelAPI.jpg" alt="Image not found." >
         <div class="caption">
-            <p class="text-center">The new Article API</p>
+            <p class="text-center font-italic">The new Article API Class</p>
         </div>
     </div>
     <div class="thumbnail ">
         <img class="mx-auto d-block mb-0" src="uploads/Evaluations/Week-3/View.jpg" alt="Image not found." >
         <div class="caption">
-            <p class="text-center">Display Code encapsulates Article Data layer </p>
+            <p class="text-center font-italic">Display Code encapsulates Article Data layer </p>
         </div>
     </div>
 
     <h2>Benefits of using an API</h2>
     <p class="text-justify">
-        There are many benefits of using a structured API such as this in your websites. It makes your code much more readable and will make additional development easier.
+        Using an API structure in your website is a good idea and there are many benefits of using a structure such as this in your websites. It makes your code much more readable and will make future development easier.
     </p>
     <p class="text-justify">
         An API model like this also helps keep the logical parts of your website separate. By separating the display and data logic we make it easy for multiple developers to potentially work on the website at the same time. Someone can build the front end whilst another works on the backend. Because both developers are working on an agreed API integrating their work once complete will be much easier.
