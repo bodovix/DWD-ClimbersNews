@@ -13,6 +13,12 @@ include_once 'Includes/Header.php';
 include_once 'Includes/SearchBar.php';
 
 ?>
-<?php  include_once  "Includes/Login.php" ?>
+<div id="signupFormsContainer" class="container">
+    <?php  include_once  "Includes/Login.php" ?>
 
-<?php  include_once "Includes/Register.php"; ?>
+</div>
+
+<?php
+//TODO:sort out evaluation for week 4
+$pathToPage = "TODO:evaluation";
+include_once 'Includes/Footer.php';?>
