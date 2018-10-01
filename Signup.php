@@ -13,6 +13,8 @@ include_once 'Includes/Header.php';
 include_once 'Includes/SearchBar.php';
 
 ?>
+
+    <script src="View/JSHandlers/SignupJS.js"></script>
 <div id="signupFormsContainer" class="container">
     <?php  include_once  "Includes/Login.php" ?>
 

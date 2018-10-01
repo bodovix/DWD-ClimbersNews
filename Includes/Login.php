@@ -6,16 +6,9 @@
  * Time: 10:48 AM
  */
 ?>
-
-<?php
-require_once 'global/ConnectionSingleton.php';
-require_once 'config/config.php';
-include_once 'Includes/Header.php';
-include_once 'Includes/SearchBar.php';
-
-?>
+<link
 <div id="registerForm" class="container border-danger ">
-    <div class="form col-md-4 mx-auto my-4">
+    <form name="loginForm" id="loginForm" class="form col-md-4 mx-auto my-4">
         <div class="form-group">
             <p class="h3 ">Login</p>
         </div>
@@ -41,5 +34,5 @@ include_once 'Includes/SearchBar.php';
         <div class="form-group">
 
         </div>
-    </div>
+    </form>
 </div>
