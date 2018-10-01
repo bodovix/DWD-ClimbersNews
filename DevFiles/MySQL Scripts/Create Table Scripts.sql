@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS user (
 	userStatus set('active','inactive') not null,
 	userRole set('user','author','admin'),
     email varchar(70) not null,
+    phoneNumber varchar(15) not null,
     forename varchar(60) not null,
     surname varchar(60) not null,
 	createdOn date,
