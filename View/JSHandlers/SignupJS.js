@@ -14,30 +14,42 @@ $(function() {
     });
     //ClearForm
     $(document).on('click','#clearRegFormBtn',function () {
-        $('#forenameReg').val("");
-        $('#surnameReg').val("");
-        $('#phoneReg').val("");
-        $('#emailReg').val("");
-        $('#passwordReg').val("");
-        $('#passwordConfReg').val("");
+        clearRegForm();
     });
     //Register
     $(document).on('click','#registerBtn',function () {
+        var alertMsgBox =  $('#regAlertMessage');
        var validateForm = validateRegisterForm();
     
         if (validateForm.error){
             //Invalid
-            $('#regAlertMessage').removeClass('d-none');
-            $('#regAlertMessage').text(validateForm.msg);
+            alertMsgBox.removeClass('d-none');
+            alertMsgBox.removeClass('alert-success');
+            alertMsgBox.addClass('alert-danger');
+            alertMsgBox.text(validateForm.msg);
             return;
         }else {
             //Valid
-            $('#regAlertMessage').addClass('d-none');
-            $('#regAlertMessage').text("");
+            alertMsgBox.addClass('d-none');
+            alertMsgBox.removeClass('alert-danger');
+            alertMsgBox.text("");
 
-
-            $.post('View/phpAjaxScripts/CallRegisterUser.php',$('#registerForm').serialize(),function (data) {
-                alert("post complete");
+            var formData = $('form#registerForm').serialize();
+            $.post('View/phpAjaxScripts/CallRegisterUser.php',formData,function (data) {
+                if (data !== ""){
+                    //Error
+                    alertMsgBox.removeClass('d-none');
+                    alertMsgBox.removeClass('alert-success');
+                    alertMsgBox.addClass('alert-danger');
+                    alertMsgBox.text(data);
+                    return;
+                } else{
+                    alertMsgBox.removeClass('d-none');
+                    alertMsgBox.addClass('alert-success');
+                    alertMsgBox.removeClass('alert-danger');
+                    alertMsgBox.text("Registration Successful");
+                    clearRegForm();
+                }
             });
         }
     
@@ -47,6 +59,15 @@ $(function() {
 
 
 //============================================================
+    function clearRegForm() {
+        $('#forenameReg').val("");
+        $('#surnameReg').val("");
+        $('#phoneReg').val("");
+        $('#emailReg').val("");
+        $('#passwordReg').val("");
+        $('#passwordConfReg').val("");
+    }
+
     function validateRegisterForm() {
        var forename =  $('#forenameReg').val();
        var surname =  $('#surnameReg').val();

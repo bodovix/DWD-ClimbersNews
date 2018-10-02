@@ -7,7 +7,7 @@
  */
 ?>
 
-<div id="registerForm" class="container border-danger ">
+<div id="registerFormContainer" class="container border-danger ">
     <form name="registerForm" id="registerForm" class="form col-md-4 mx-auto my-4" method="post">
         <div class="form-group">
             <p class="h3 ">Register</p>
