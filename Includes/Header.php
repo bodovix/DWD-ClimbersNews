@@ -38,6 +38,9 @@ error_reporting(E_ALL);
                         <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=3'?>">Week 3</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo 'Signup.php'; ?>">Sign in</a>
+                </li>
             </ul>
         </div>
     </div>

@@ -26,18 +26,27 @@ $(function() {
        var validateForm = validateRegisterForm();
     
         if (validateForm.error){
-            alert(validateForm.msg);
-            return
+            //Invalid
+            $('#regAlertMessage').removeClass('d-none');
+            $('#regAlertMessage').text(validateForm.msg);
+            return;
+        }else {
+            //Valid
+            $('#regAlertMessage').addClass('d-none');
+            $('#regAlertMessage').text("");
+
+
+            $.post('View/phpAjaxScripts/CallRegisterUser.php',$('#registerForm').serialize(),function (data) {
+                alert("post complete");
+            });
         }
-        //
     
     });
 
     //Login
 
 
-
-
+//============================================================
     function validateRegisterForm() {
        var forename =  $('#forenameReg').val();
        var surname =  $('#surnameReg').val();
@@ -72,10 +81,6 @@ $(function() {
             isValid = false;
             msg = "Email Required";
         }
-
-
-
-
 
         return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
     }

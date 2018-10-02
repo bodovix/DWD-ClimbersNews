@@ -12,6 +12,9 @@
         <div class="form-group">
             <p class="h3 ">Register</p>
         </div>
+        <div id="regAlertMessage" class="alert alert-danger d-none">
+
+        </div>
         <div class="form-group">
             <input id="forenameReg" name="forenameReg" class="form-control" placeholder="First Name" required type="text"/>
         </div>
@@ -27,7 +30,7 @@
         </div>
 
         <div class="form-group">
-            <input id="passwordReg" name="passwordReg" class="form-control"  placeholder="Password" required type="password"/>
+            <input id="passwordReg" name="passwordReg" class="form-control"  placeholder="Password" required type="password" />
         </div>
 
         <div class="form-group">
