@@ -2,6 +2,7 @@
  * Created by Gwydion on 10/1/2018.
  */
 $(function() {
+
     var formContainer = $('#signupFormsContainer');
     //Load Register Form
     $(document).on('click','#openRegisterForm',function () {
@@ -20,7 +21,62 @@ $(function() {
         $('#passwordReg').val("");
         $('#passwordConfReg').val("");
     });
+    //Register
+    $(document).on('click','#registerBtn',function () {
+       var validateForm = validateRegisterForm();
+    
+        if (validateForm.error){
+            alert(validateForm.msg);
+            return
+        }
+        //
+    
+    });
+
     //Login
 
-    //Register
+
+
+
+    function validateRegisterForm() {
+       var forename =  $('#forenameReg').val();
+       var surname =  $('#surnameReg').val();
+       var phone =  $('#phoneReg').val();
+       var email =  $('#emailReg').val();
+       var password =  $('#passwordReg').val();
+       var passConf =  $('#passwordConfReg').val();
+
+       var isValid = true;
+        var msg = "";
+        if (passConf !== password){
+            isValid = false;
+            msg = "Passwords Must Match";
+        }
+        if (password === ""){
+            isValid = false;
+            msg = "Password Required";
+        }
+        if (forename === ""){
+            isValid = false;
+            msg = "Forename Required";
+        }
+        if (surname === ""){
+            isValid = false;
+            msg = "Surname Required";
+        }
+        if (phone === ""){
+            isValid = false;
+            msg = "Phone Required";
+        }
+        if (email === ""){
+            isValid = false;
+            msg = "Email Required";
+        }
+
+
+
+
+
+        return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
+    }
 });

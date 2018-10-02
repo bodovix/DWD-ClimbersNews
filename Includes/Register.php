@@ -23,18 +23,18 @@
         </div>
 
         <div class="form-group">
-            <input id="emailReg" name="emailReg" class="form-control"  placeholder="Email" required type="text"/>
+            <input id="emailReg" name="emailReg" class="form-control"  placeholder="Email" required type="email"/>
         </div>
 
         <div class="form-group">
-            <input id="passwordReg" name="passwordReg" class="form-control"  placeholder="Password" required type="text"/>
+            <input id="passwordReg" name="passwordReg" class="form-control"  placeholder="Password" required type="password"/>
         </div>
 
         <div class="form-group">
-            <input id="passwordConfReg" name="passwordConfReg" class="form-control"  placeholder="Confirm" required type="text"/>
+            <input id="passwordConfReg" name="passwordConfReg" class="form-control"  placeholder="Confirm" required type="password"/>
         </div>
         <div class="form-group">
-            <input type="button" class="btn btn-primary " value="Register"/>
+            <input id="registerBtn" type="button" class="btn btn-primary " value="Register"/>
             <input id="clearRegFormBtn" type="button" class="btn btn-danger float-right" value="Clear"/>
         </div>
         <div class="form-group">
