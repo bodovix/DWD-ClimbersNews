@@ -19,31 +19,29 @@ $userModel = new User();
 
     if (!isset($forename) || $forename == "") {
         $errorMsg = 'Forename Required';
-        return;
     }
     if (!isset($surname) || $surname == "") {
         $errorMsg = 'Surname Required';
-        return;
     }
     if (!isset($phone) || $phone == "") {
         $errorMsg = 'Phone Required';
-        return;
     }
     if (!isset($email) || $email == "") {
         $errorMsg = 'Email Required';
-        return;
     }
     if (!isset($password) || $password == "") {
         $errorMsg = 'Password Required';
-        return;
     }
     if (!isset($passConf) && $passConf == $password) {
         $errorMsg = 'Passwords Must Match';
-        return;
     }
-//Check if already exists
+//Check if email exists
+$emailFoundJson = $userModel->countUsersByEmail($email);
+$result = json_decode($emailFoundJson);
 
-
+if ($result > 0){
+    $errorMsg = "Email already used";
+}
 
 //run create
 $resultJson = $userModel->creteUser($email,$phone,$forename,$surname);
@@ -52,8 +50,6 @@ $result = json_decode($resultJson);
 //return message
 if ($result == false){
     $errorMsg ="SQL error. Please try again";
-}else{
-
 }
 echo $errorMsg;
 return;

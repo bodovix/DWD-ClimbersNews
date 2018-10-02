@@ -102,6 +102,11 @@ $(function() {
             isValid = false;
             msg = "Email Required";
         }
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!filter.test(email)) {
+            isValid = false;
+            msg ="Invalid Email. Email must be in format 'email@domain.com' or similar";
+        }
 
         return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
     }

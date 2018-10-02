@@ -15,7 +15,7 @@ class User
     {
         $this->con = ConnectionSingleton::Instance()->GetCon();
     }
-    //TODO: Get User
+
     public function getUserById($id){
         $query = $this->con-> prepare("select * from user where id = :userId");
         $success = $query -> execute(['userId' => $id]);
@@ -32,6 +32,18 @@ class User
             return null;
         }
     }
+    public function countUsersByEmail($email){
+        $query = $this->con-> prepare("select * from user where email = :email");
+        $success = $query -> execute(['email' => $email]);
+
+        if ($success){
+
+            return json_encode($query -> rowCount());
+        }else{
+            return null;
+        }
+    }
+
     //TODO: Create User
     public function creteUser($email,$phoneNumber,$forename,$surname){
         $createdOn = date('Y-m-d',strtotime("now"));
