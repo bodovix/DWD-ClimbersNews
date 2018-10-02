@@ -1,5 +1,5 @@
-insert into user (userStatus,userRole,email,forename,surname, imageUrl,createdOn) 
-		values ('active','author','BillWrights@ClimbersNews.com','Bill','Wrights','TODO: SORT IMAGES','2016-10-01');
+insert into user (userStatus,userRole,email,password,phoneNumber,forename,surname, imageUrl,createdOn) 
+		values ('active','author','BillWrights@ClimbersNews.com','test','123456789','Bill','Wrights','TODO: SORT IMAGES','2016-10-01');
 DO SLEEP(0.1);
 insert  into articleCategory  (category,createdOn) value('News','2016-10-01');
 DO SLEEP(0.1);

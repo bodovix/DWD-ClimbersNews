@@ -12,18 +12,18 @@
         <div class="form-group">
             <p class="h3 ">Login</p>
         </div>
-
+        <div id="loginAlertMessage" class="alert alert-danger d-none"></div>
         <div class="form-group">
-            <input name="emailLogin" class="form-control"  placeholder="Email" required type="text"/>
+            <input name="emailLogin" id="emailLogin" class="form-control"  placeholder="Email" required type="text"/>
         </div>
 
         <div class="form-group">
-            <input name="passwordLogin" class="form-control"  placeholder="Password" required type="text"/>
+            <input name="passwordLogin" id="passwordLogin" class="form-control"  placeholder="Password" required type="password"/>
         </div>
 
         <div class="form-group ">
             <div class=" d-inline">
-                <input type="button" class="btn btn-primary d-inline" value="Login"/>
+                <input id="loginBtn" type="button" class="btn btn-primary d-inline" value="Login"/>
             </div>
             <div class="ml-auto d-inline">
                 <p class="p-0 small font-italic text-muted mb-0" >Don't Have an Account? </p>

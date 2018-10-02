@@ -23,42 +23,84 @@ $(function() {
     
         if (validateForm.error){
             //Invalid
-            alertMsgBox.removeClass('d-none');
-            alertMsgBox.removeClass('alert-success');
-            alertMsgBox.addClass('alert-danger');
-            alertMsgBox.text(validateForm.msg);
+            showErrorMsg(alertMsgBox,validateForm.msg);
             return;
         }else {
             //Valid
-            alertMsgBox.addClass('d-none');
-            alertMsgBox.removeClass('alert-danger');
-            alertMsgBox.text("");
+            hideMessageBox(alertMsgBox);
 
             var formData = $('form#registerForm').serialize();
             $.post('View/phpAjaxScripts/CallRegisterUser.php',formData,function (data) {
                 if (data !== ""){
                     //Error
-                    alertMsgBox.removeClass('d-none');
-                    alertMsgBox.removeClass('alert-success');
-                    alertMsgBox.addClass('alert-danger');
-                    alertMsgBox.text(data);
+                    showErrorMsg(alertMsgBox,data);
                     return;
                 } else{
-                    alertMsgBox.removeClass('d-none');
-                    alertMsgBox.addClass('alert-success');
-                    alertMsgBox.removeClass('alert-danger');
-                    alertMsgBox.text("Registration Successful");
+                    showSuccessMessage(alertMsgBox,"Registration Successful")
                     clearRegForm();
                 }
             });
         }
-    
     });
 
     //Login
+    $(document).on('click','#loginBtn',function () {
+        var alertMsgBox = $('#loginAlertMessage');
+        var validateForm = validateLogin();
 
+        if (validateForm.error){
+            //Error
+            showErrorMsg(alertMsgBox,validateForm.msg);
+            return;
+        }else {
+            //Valid
+            hideMessageBox(alertMsgBox);
+
+            var formData = $('form#loginForm').serialize();
+
+            $.ajax({
+                type: "POST",
+                data: formData,
+                url: 'View/phpAjaxScripts/CallLogin.php',
+                //  dataType: "html",
+                //  async: true,
+                success: function(data) {
+                    if (data !== ""){
+                        //Error
+                        showErrorMsg(alertMsgBox,data);
+                        return;
+                    } else{
+                        showSuccessMessage(alertMsgBox,"Login Successful");
+                        clearRegForm();
+                    }
+                },
+                error: (error) => {
+                    console.log(JSON.stringify(error));
+                }
+            });
+        }
+    });
 
 //============================================================
+    function showSuccessMessage(alertMsgBox,successMessage) {
+        alertMsgBox.removeClass('d-none');
+        alertMsgBox.addClass('alert-success');
+        alertMsgBox.removeClass('alert-danger');
+        alertMsgBox.text(successMessage);
+    }
+    function showErrorMsg(alertBox,errorMessage) {
+        alertBox.removeClass('d-none');
+        alertBox.removeClass('alert-success');
+        alertBox.addClass('alert-danger');
+        alertBox.text(errorMessage);
+    }
+
+    function hideMessageBox(alertMsgBox) {
+        alertMsgBox.addClass('d-none');
+        alertMsgBox.removeClass('alert-danger');
+        alertMsgBox.text("");
+    }
+
     function clearRegForm() {
         $('#forenameReg').val("");
         $('#surnameReg').val("");
@@ -98,15 +140,44 @@ $(function() {
             isValid = false;
             msg = "Phone Required";
         }
+        //check if valid email
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!filter.test(email)) {
+            isValid = false;
+            msg ="Invalid Email.";
+        }
+
         if (email === ""){
             isValid = false;
             msg = "Email Required";
         }
-        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if (!filter.test(email)) {
-            isValid = false;
-            msg ="Invalid Email. Email must be in format 'email@domain.com' or similar";
+
+
+        return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
+    }
+
+    function validateLogin() {
+      var email =  $('#emailLogin').val();
+      var password =   $('#passwordLogin').val();
+
+      var isValid = true;
+      var msg = "";
+
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      if (!filter.test(email)) {
+           isValid = false;
+           msg ="Invalid Email.";
+      }
+
+        if (email === "") {
+            isValid =false;
+            msg = "Email Required";
         }
+
+      if (password === "") {
+          isValid =false;
+          msg = "Password Required";
+      }
 
         return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
     }

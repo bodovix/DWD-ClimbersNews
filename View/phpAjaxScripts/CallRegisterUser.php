@@ -42,9 +42,14 @@ $result = json_decode($emailFoundJson);
 if ($result > 0){
     $errorMsg = "Email already used";
 }
+//Hash Password
+
+// default hashing algorithm is bcrypt
+//can add custom salt, or leave blank for default (10)
+$password = password_hash($password, PASSWORD_DEFAULT);
 
 //run create
-$resultJson = $userModel->creteUser($email,$phone,$forename,$surname);
+$resultJson = $userModel->creteUser($email,$password,$phone,$forename,$surname);
 $result = json_decode($resultJson);
 
 //return message
