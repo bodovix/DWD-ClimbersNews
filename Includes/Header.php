@@ -15,7 +15,7 @@ error_reporting(E_ALL);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
           crossorigin="anonymous">
 
-    <scripr src="../View/JSHandlers/SignupJS.js"></scripr>
+    <script src="View/JSHandlers/SignupJS.js"></script>
 
 <div>
     <div id="banner" class="col-12 bg-dark" style="height: 100px">

@@ -92,7 +92,6 @@ $(function() {
 
     //Logout
     $(document).on('click','#LogoutLink',function () {
-        alert("test");
         $.post('View/phpAjaxScripts/CallLogout.php');
         location.reload();
     });
