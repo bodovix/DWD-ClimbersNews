@@ -20,6 +20,7 @@ $password = strip_tags($_POST['passwordLogin']) ;
 //validate
 $errorMsg = "";
 $userModel = new User();
+$genericErrorMsg = "Login failed. please check details and try again.";
 
 if (!isset($email) || $email ==""){
     echo "Email Required";
@@ -32,8 +33,9 @@ if (!isset($password) || $password ==""){
 //check for email address
 $resultJson = $userModel->getUserByEmail($email);
 try {
+    //check API returned something
     if ($resultJson == null || !isset($resultJson) || $resultJson == false){
-        echo  "Login failed. please check details and try again.";
+        echo  $genericErrorMsg;
         return;
     }
         $result = json_decode($resultJson);
@@ -41,12 +43,17 @@ try {
         echo $e->getMessage();
         return;
 }
+//check if User found with email
+if (!isset($result) ||$result == null ||$result == false){
+    echo $genericErrorMsg;
+    return;
+}
 //Verify
 if (password_verify($password,$result->password)){
     $_SESSION['userId'] = $result->id;
 
 }else{
-    echo "Login failed. please check details and try again.";
+    echo $genericErrorMsg;
     return;
 }
 echo "";

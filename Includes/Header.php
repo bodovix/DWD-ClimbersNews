@@ -44,13 +44,19 @@ error_reporting(E_ALL);
                     if (!isset($_SESSION['userId'])){
                         $link = <<<EOT
                         <li id="signInLink" class="nav-item">
-                            <a class="nav-link" href="Signup.php">Sign in</a>
+                            <a class="nav-link" id="signInMenuBtn" href="Signup.php">Sign in</a>
+                        </li>
+                        <li id="LogoutLink" class="nav-item" style="display: none;">
+                            <p class="nav-link mb-0 text-warning" id="logoutMenuBtn" style="display: none;">Logout</p>
                         </li>
 EOT;
                     }else{
                         $link = <<<EOT
-                        <li id="LogoutLink" class="nav-item">
-                            <p class="nav-link mb-0" >Logout</p>
+                        <li id="signInLink" class="nav-item" style="display: none;">
+                            <a class="nav-link" id="signInMenuBtn" href="Signup.php" style="display: none;">Sign in</a>
+                        </li>
+                        <li id="LogoutLink" class="nav-item" >
+                            <p class="nav-link mb-0 text-warning" id="logoutMenuBtn" >Logout</p>
                         </li>
 EOT;
                     }

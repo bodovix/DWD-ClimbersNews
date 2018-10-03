@@ -70,8 +70,17 @@ $(function() {
                         showErrorMsg(alertMsgBox,data);
                         return;
                     } else{
+                       // location.reload();
                         showSuccessMessage(alertMsgBox,"Login Successful");
                         clearLoginForm();
+                        var loginLink = $('li#signInLink');
+                        var loginMenuBtn = $('#signInMenuBtn');
+                        var logOutMenuBtn = $('p#logoutMenuBtn');
+                        var logoutLink = $('li#LogoutLink');
+                        loginLink.hide();
+                        loginMenuBtn.hide();
+                        logoutLink.show();
+                        logOutMenuBtn.show();
                     }
                 },
                 error: (error) => {
@@ -85,6 +94,7 @@ $(function() {
     $(document).on('click','#LogoutLink',function () {
         alert("test");
         $.post('View/phpAjaxScripts/CallLogout.php');
+        location.reload();
     });
 
 //============================================================
