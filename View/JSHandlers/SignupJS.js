@@ -71,7 +71,7 @@ $(function() {
                         return;
                     } else{
                         showSuccessMessage(alertMsgBox,"Login Successful");
-                        clearRegForm();
+                        clearLoginForm();
                     }
                 },
                 error: (error) => {
@@ -101,6 +101,11 @@ $(function() {
         alertMsgBox.text("");
     }
 
+    function clearLoginForm() {
+
+        $('#emailLogin').val("");
+        $('#passwordLogin').val("");
+    }
     function clearRegForm() {
         $('#forenameReg').val("");
         $('#surnameReg').val("");

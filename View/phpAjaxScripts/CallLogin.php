@@ -5,6 +5,10 @@
  * Date: 02/10/2018
  * Time: 17:24
  */
+session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require_once '../../Model/User.php';
 require_once  '../../config/config.php';
 
@@ -18,24 +22,32 @@ $errorMsg = "";
 $userModel = new User();
 
 if (!isset($email) || $email ==""){
-    $errorMsg = "Email Required";
+    echo "Email Required";
+    return;
 }
 if (!isset($password) || $password ==""){
-    $errorMsg = "Password Required";
+    echo "Password Required";
+    return;
 }
-
 //check for email address
 $resultJson = $userModel->getUserByEmail($email);
-$result = json_decode($resultJson);
-
-if (count($result) != 1){
-    $errorMsg = "Login failed. please check details and try again  - RESULT NOT EQUAL 1";
-}else{
-
-    if (password_verify($password,$result->password)){
-        $_SESSION['userId'] = $result['userId'];
-    }else{
-        $errorMsg = "Login failed. please check details and try again - PASSOWRDS DONT MATCH";
+try {
+    if ($resultJson == null || !isset($resultJson) || $resultJson == false){
+        echo  "Login failed. please check details and try again.";
+        return;
     }
+        $result = json_decode($resultJson);
+} catch (Exception $e) {
+        echo $e->getMessage();
+        return;
 }
-echo $errorMsg;
+//Verify
+if (password_verify($password,$result->password)){
+    $_SESSION['userId'] = $result->id;
+
+}else{
+    echo "Login failed. please check details and try again.";
+    return;
+}
+echo "";
+

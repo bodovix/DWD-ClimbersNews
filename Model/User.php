@@ -42,10 +42,10 @@ class User
                 $json = json_encode($result);
                 return $json;
             }else{
-                return null;
+                return json_encode(false);
             }
         }else{
-            return null;
+            return json_encode(false);
         }
     }
     public function countUsersByEmail($email){
