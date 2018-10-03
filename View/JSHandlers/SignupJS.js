@@ -6,11 +6,11 @@ $(function() {
     var formContainer = $('#signupFormsContainer');
     //Load Register Form
     $(document).on('click','#openRegisterForm',function () {
-        formContainer.fadeOut("slow").load('Includes/Register.php').fadeIn("slow");
+        formContainer.load('Includes/Register.php');
     });
     //Load Login Form
     $(document).on('click','#openLoginForm',function () {
-        formContainer.fadeOut("slow").load('Includes/Login.php').fadeIn("slow");
+        formContainer.load('Includes/Login.php');
     });
     //ClearForm
     $(document).on('click','#clearRegFormBtn',function () {
