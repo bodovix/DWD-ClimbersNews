@@ -81,6 +81,12 @@ $(function() {
         }
     });
 
+    //Logout
+    $(document).on('click','#LogoutLink',function () {
+        alert("test");
+        $.post('View/phpAjaxScripts/CallLogout.php');
+    });
+
 //============================================================
     function showSuccessMessage(alertMsgBox,successMessage) {
         alertMsgBox.removeClass('d-none');
@@ -92,13 +98,13 @@ $(function() {
         alertBox.removeClass('d-none');
         alertBox.removeClass('alert-success');
         alertBox.addClass('alert-danger');
-        alertBox.text(errorMessage);
+        alertBox.html(errorMessage);
     }
 
     function hideMessageBox(alertMsgBox) {
         alertMsgBox.addClass('d-none');
         alertMsgBox.removeClass('alert-danger');
-        alertMsgBox.text("");
+        alertMsgBox.html("");
     }
 
     function clearLoginForm() {

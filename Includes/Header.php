@@ -15,6 +15,7 @@ error_reporting(E_ALL);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
           crossorigin="anonymous">
 
+    <scripr src="../View/JSHandlers/SignupJS.js"></scripr>
 
 <div>
     <div id="banner" class="col-12 bg-dark" style="height: 100px">
@@ -39,9 +40,24 @@ error_reporting(E_ALL);
                         <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=3'?>">Week 3</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo 'Signup.php'; ?>">Sign in</a>
-                </li>
+                <?php
+                    if (!isset($_SESSION['userId'])){
+                        $link = <<<EOT
+                        <li id="signInLink" class="nav-item">
+                            <a class="nav-link" href="Signup.php">Sign in</a>
+                        </li>
+EOT;
+                    }else{
+                        $link = <<<EOT
+                        <li id="LogoutLink" class="nav-item">
+                            <p class="nav-link mb-0" >Logout</p>
+                        </li>
+EOT;
+                    }
+                    echo $link;
+                ?>
+
+
             </ul>
         </div>
     </div>
