@@ -20,5 +20,5 @@ include_once 'Includes/Header.php';
 
 <?php
 //TODO:sort out evaluation for week 4
-$pathToPage = "TODO:evaluation";
+$pathToPage = URLROOT.'Evaluation.php?week=4';
 include_once 'Includes/Footer.php';?>
