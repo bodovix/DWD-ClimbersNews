@@ -11,6 +11,7 @@ require_once 'global/ConnectionSingleton.php';
 require_once 'config/config.php';
 include_once 'Includes/Header.php';
 
+
 ?>
 
     <script src="View/JSHandlers/SignupJS.js"></script>
