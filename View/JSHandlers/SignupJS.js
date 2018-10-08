@@ -148,17 +148,33 @@ $(function() {
             isValid = false;
             msg = "Password Required";
         }
+        if(password.length > 200){
+            isValid = false;
+            msg = "Password must be less than 200 characters long";
+        }
         if (forename === ""){
             isValid = false;
             msg = "Forename Required";
+        }
+        if(forename.length > 60){
+            isValid = false;
+            msg = "Forename must be less than 60 characters long";
         }
         if (surname === ""){
             isValid = false;
             msg = "Surname Required";
         }
+        if(surname.length > 60){
+            isValid = false;
+            msg = "Surname must be less than 60 characters long";
+        }
         if (phone === ""){
             isValid = false;
             msg = "Phone Required";
+        }
+        if(phone.length > 15){
+            isValid = false;
+            msg = "Phone number must be less than 15 characters long"
         }
         //check if valid email
         var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -170,6 +186,10 @@ $(function() {
         if (email === ""){
             isValid = false;
             msg = "Email Required";
+        }
+        if(email.length > 70){
+            isValid =false;
+            msg = "Email must be less than 70 characters long";
         }
 
 

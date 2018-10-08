@@ -71,17 +71,32 @@ class SignupControl
          if (!isset($forename) || $forename == "") {
              return 'Forename Required';
          }
+         if(strlen($forename) > 60){
+             return "Forename must be less than 60 characters long";
+         }
          if (!isset($surname) || $surname == "") {
              return 'Surname Required';
+         }
+         if(strlen($surname) > 60){
+             return "Surname must be less than 60 characters long";
          }
          if (!isset($phone) || $phone == "") {
              return 'Phone Required';
          }
+         if (strlen($phone) > 15){
+             return "Phone number must be less than 15 characters long";
+         }
          if (!isset($email) || $email == "") {
              return 'Email Required';
          }
+         if(strlen($email) > 70){
+             return "Email must be less than 70 characters long";
+         }
          if (!isset($password) || $password == "") {
              return 'Password Required';
+         }
+         if (strlen($password) > 200){
+             return "Password must be less than 200 characters long";
          }
          if (!isset($passConf) && $passConf == $password) {
              return 'Passwords Must Match';
