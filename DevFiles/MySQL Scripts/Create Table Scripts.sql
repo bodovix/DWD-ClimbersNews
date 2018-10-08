@@ -6,8 +6,8 @@ CREATE TABLE IF NOT EXISTS user (
     email varchar(70)  CHARACTER SET utf8 COLLATE utf8_bin not null ,
     password varchar(200)  CHARACTER SET utf8 COLLATE utf8_bin not null,
     phoneNumber varchar(15) not null,
-    forename varchar(60) not null,
-    surname varchar(60) not null,
+    forename varchar(60)  CHARACTER SET utf8 COLLATE utf8_bin not null,
+    surname varchar(60)  CHARACTER SET utf8 COLLATE utf8_bin not null,
 	createdOn date,
     imageUrl varchar(200) not null,
 
