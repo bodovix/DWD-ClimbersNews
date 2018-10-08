@@ -176,6 +176,11 @@ $(function() {
             isValid = false;
             msg = "Phone number must be less than 15 characters long"
         }
+        var phoneFilter = /^[1-9][0-9]{9,14}$/;
+        if(!phoneFilter.test(phone)){
+            isValid = false;
+            msg = "Invalid Phone format. phone must only contain numbers: 0-9 and be between 10 and 15 characters long";
+        }
         //check if valid email
         var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         if (!filter.test(email)) {

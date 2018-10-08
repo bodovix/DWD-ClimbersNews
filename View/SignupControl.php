@@ -86,11 +86,19 @@ class SignupControl
          if (strlen($phone) > 15){
              return "Phone number must be less than 15 characters long";
          }
+         $phoneRegEx = '/^[1-9][0-9]{9,14}$/';
+         if(!preg_match($phoneRegEx,$phone)){
+             return 'Invalid Phone format. phone must only contain numbers: 0-9 and be between 10 and 15 characters long';
+         }
          if (!isset($email) || $email == "") {
              return 'Email Required';
          }
          if(strlen($email) > 70){
              return "Email must be less than 70 characters long";
+         }
+         $emailRegEx = '/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/';
+         if(!preg_match($emailRegEx, $email)){
+             return "Invalid Email.";
          }
          if (!isset($password) || $password == "") {
              return 'Password Required';
