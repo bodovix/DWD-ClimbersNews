@@ -16,25 +16,25 @@
 
         </div>
         <div class="form-group">
-            <input id="forenameReg" name="forenameReg" class="form-control" placeholder="First Name" required type="text"/>
+            <input id="forenameReg" name="forenameReg" class="form-control" placeholder="First Name" required type="text" maxlength="60"/>
         </div>
         <div class="form-group">
-            <input id="surnameReg" name="surnameReg" class="form-control"  placeholder="Last Name" required type="text"/>
+            <input id="surnameReg" name="surnameReg" class="form-control"  placeholder="Last Name" required type="text" maxlength="60"/>
         </div>
         <div class="form-group">
-            <input id="phoneReg" name="phoneReg" class="form-control"  placeholder="Phone Number" required type="text"/>
-        </div>
-
-        <div class="form-group">
-            <input id="emailReg" name="emailReg" class="form-control"  placeholder="Email" required type="email"/>
+            <input id="phoneReg" name="phoneReg" class="form-control"  placeholder="Phone Number" required type="text" maxlength="15"/>
         </div>
 
         <div class="form-group">
-            <input id="passwordReg" name="passwordReg" class="form-control"  placeholder="Password" required type="password" />
+            <input id="emailReg" name="emailReg" class="form-control"  placeholder="Email" required type="email" maxlength="70"/>
         </div>
 
         <div class="form-group">
-            <input id="passwordConfReg" name="passwordConfReg" class="form-control"  placeholder="Confirm" required type="password"/>
+            <input id="passwordReg" name="passwordReg" class="form-control"  placeholder="Password" required type="password" maxlength="200"/>
+        </div>
+
+        <div class="form-group">
+            <input id="passwordConfReg" name="passwordConfReg" class="form-control"  placeholder="Confirm" required type="password" maxlength="200"/>
         </div>
         <div class="form-group">
             <input id="registerBtn" type="button" class="btn btn-primary " value="Register"/>

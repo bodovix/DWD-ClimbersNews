@@ -23,8 +23,14 @@ class SignupControl
         if (!isset($email) || $email ==""){
             return "Email Required";
         }
+        if (strlen($email) > 80){
+            return "Email Must be less than 70 characters long.";
+        }
         if (!isset($password) || $password ==""){
             return "Password Required";
+        }
+        if (strlen($password) > 200){
+            return "Password Must be less than 200 characters long.";
         }
         return "";
     }

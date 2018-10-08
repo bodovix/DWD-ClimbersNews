@@ -14,11 +14,11 @@
         </div>
         <div id="loginAlertMessage" class="alert alert-danger d-none"></div>
         <div class="form-group">
-            <input name="emailLogin" id="emailLogin" class="form-control"  placeholder="Email" required type="text"/>
+            <input name="emailLogin" id="emailLogin" class="form-control"  placeholder="Email" required type="email"/>
         </div>
 
         <div class="form-group">
-            <input name="passwordLogin" id="passwordLogin" class="form-control"  placeholder="Password" required type="password"/>
+            <input name="passwordLogin" id="passwordLogin" class="form-control"  placeholder="Password" required type="password" />
         </div>
 
         <div class="form-group ">

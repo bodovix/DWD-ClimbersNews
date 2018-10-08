@@ -193,10 +193,18 @@ $(function() {
             isValid =false;
             msg = "Email Required";
         }
+        if (email.length > 70){
+          isValid=false;
+          msg = "Email Must be less than 70 characters long."
+        }
 
       if (password === "") {
           isValid =false;
           msg = "Password Required";
+      }
+      if(password.length > 200){
+            isValid = false;
+            msg = "Password Must be less than 200 characters long."
       }
 
         return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
