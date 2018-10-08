@@ -1,10 +1,10 @@
 
 CREATE TABLE IF NOT EXISTS user (
 	id int auto_increment,
-	userStatus set('active','inactive') not null,
-	userRole set('user','author','admin'),
-    email varchar(70) not null,
-    password varchar(200) not null,
+	userStatus set('active','inactive') CHARACTER SET utf8 COLLATE utf8_bin not null,
+	userRole set('user','author','admin') CHARACTER SET utf8 COLLATE utf8_bin,
+    email varchar(70)  CHARACTER SET utf8 COLLATE utf8_bin not null ,
+    password varchar(200)  CHARACTER SET utf8 COLLATE utf8_bin not null,
     phoneNumber varchar(15) not null,
     forename varchar(60) not null,
     surname varchar(60) not null,
