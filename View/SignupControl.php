@@ -60,6 +60,14 @@ class SignupControl
         if (password_verify($password,$result->password)){
             $_SESSION['userId'] = $result->id;
 
+            if ($result->userRole == 'author'){
+                $_SESSION['author'] = $result->id;
+            }
+            if ($result->userRole == 'admin'){
+                $_SESSION['author'] = $result->id;
+                $_SESSION['admin'] = $result->id;
+            }
+
         }else{
             return $this->genericLoginErrorMsg;
         }

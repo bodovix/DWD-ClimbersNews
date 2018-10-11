@@ -83,17 +83,7 @@ $(function() {
                         showErrorMsg(alertMsgBox,data);
                         return;
                     } else{
-                       // location.reload();
-                        showSuccessMessage(alertMsgBox,"Login Successful");
-                        clearLoginForm();
-                        var loginLink = $('li#signInLink');
-                        var loginMenuBtn = $('#signInMenuBtn');
-                        var logOutMenuBtn = $('p#logoutMenuBtn');
-                        var logoutLink = $('li#LogoutLink');
-                        loginLink.hide();
-                        loginMenuBtn.hide();
-                        logoutLink.show();
-                        logOutMenuBtn.show();
+                       location.reload();
                     }
                 },
                 error: (error) => {

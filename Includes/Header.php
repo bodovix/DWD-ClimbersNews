@@ -30,7 +30,7 @@ error_reporting(E_ALL);
         <div class="collapse navbar-collapse" id="navbarNav1">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo 'Index.php'; ?>">Recent Articles</a>
+                    <a class="nav-link" href="<?php echo 'Index.php'; ?>">Manage Articles</a>
                 </li>
                 <li class="dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Evaluations</a>
@@ -39,23 +39,29 @@ error_reporting(E_ALL);
                         <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=2'?>">Week 2</a>
                         <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=3'?>">Week 3</a>
                         <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=4'?>">Week 4</a>
+                        <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=5'?>">Week 5</a>
                     </div>
                 </li>
+
+                <?php
+                if (isset($_SESSION['author'])){
+                    $link = <<<EOT
+                <li class="nav-item">
+                    <a class="nav-link" href='UploadArticle.php'>Upload Article</a>
+                </li>
+EOT;
+                    echo $link;
+                }
+                ?>
                 <?php
                     if (!isset($_SESSION['userId'])){
                         $link = <<<EOT
                         <li id="signInLink" class="nav-item">
                             <a class="nav-link" id="signInMenuBtn" href="Signup.php">Sign in</a>
                         </li>
-                        <li id="LogoutLink" class="nav-item" style="display: none;">
-                            <p class="nav-link mb-0 text-warning" id="logoutMenuBtn" style="display: none;">Logout</p>
-                        </li>
 EOT;
                     }else{
                         $link = <<<EOT
-                        <li id="signInLink" class="nav-item" style="display: none;">
-                            <a class="nav-link" id="signInMenuBtn" href="Signup.php" style="display: none;">Sign in</a>
-                        </li>
                         <li id="LogoutLink" class="nav-item" >
                             <p class="nav-link mb-0 text-warning" id="logoutMenuBtn" >Logout</p>
                         </li>

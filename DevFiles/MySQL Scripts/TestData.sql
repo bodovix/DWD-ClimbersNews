@@ -1,5 +1,8 @@
 insert into user (userStatus,userRole,email,password,phoneNumber,forename,surname, imageUrl,createdOn) 
-		values ('active','author','BillWrights@ClimbersNews.com','$2y$10$TD3.aVIImaxKcqyRrcZrd.xmD9viOToQCfgftoYti18o5HlRzcx/2','123456789','Bill','Wrights','TODO: SORT IMAGES','2016-10-01');
+		values ('active','author','BillWrights@cn.com','$2y$10$TD3.aVIImaxKcqyRrcZrd.xmD9viOToQCfgftoYti18o5HlRzcx/2','123456789','Bill','Wrights','TODO: SORT IMAGES','2016-10-01');
+insert into user (userStatus,userRole,email,password,phoneNumber,forename,surname, imageUrl,createdOn) 
+		values ('active','admin','admin@cn.com','$2y$10$ofYy.O32NteTjIX0f61mKuoOQGoV8EqhoCYgDSh1ebYUfWoN81X9S','123456789','John','Smith','TODO: SORT IMAGES','2016-11-01');
+
 DO SLEEP(0.1);
 insert  into articleCategory  (category,createdOn) value('News','2016-10-01');
 DO SLEEP(0.1);
