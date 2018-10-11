@@ -142,6 +142,11 @@ $(function() {
         $('#emailReg').val("");
         $('#passwordReg').val("");
         $('#passwordConfReg').val("");
+        var passBar = $('#passwordStrengthBar');
+        passBar.html("");
+        passBar.width(0);
+        passBar.removeClass(lastClassApplied);
+        lastClassApplied = "";
     }
 
     function validateRegisterForm() {
