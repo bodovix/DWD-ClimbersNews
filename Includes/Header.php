@@ -47,7 +47,7 @@ error_reporting(E_ALL);
                 if (isset($_SESSION['author'])){
                     $link = <<<EOT
                 <li class="nav-item">
-                    <a class="nav-link" href='UploadArticle.php'>Upload Article</a>
+                    <a class="nav-link" href='MyArticles.php'>My Articles</a>
                 </li>
 EOT;
                     echo $link;
