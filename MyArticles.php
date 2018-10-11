@@ -14,7 +14,7 @@ include_once 'Includes/MyArticlesNav.php';
 <body >
 <div class="row">
     <div class="container">
-        <div id="uploadArticleContainer" class="h-100">
+        <div id="uploadArticleContainer">
 
         </div>
     </div>
