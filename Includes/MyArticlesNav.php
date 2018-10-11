@@ -3,7 +3,7 @@
 
         <div class=" navbar-collapse" id="navbarMyArticle">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
+                <li class="nav-item mx-auto">
                     <div id="addArticleNavBtn" class=" nav-link">Add Article</div>
                 </li>
             </ul>
