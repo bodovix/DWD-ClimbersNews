@@ -19,8 +19,9 @@ $(function() {
     //Register
     $(document).on('click','#registerBtn',function () {
         var alertMsgBox =  $('#regAlertMessage');
-       var validateForm = validateRegisterForm();
-    
+
+        var validateForm = validateRegisterForm();
+
         if (validateForm.error){
             //Invalid
             showErrorMsg(alertMsgBox,validateForm.msg);
@@ -42,7 +43,19 @@ $(function() {
             });
         }
     });
+    //Password Strength
+    var lastClassApplied = "";
+    $(document).on('keyup','#passwordReg',function () {
+        var password = $('#passwordReg').val();
+        var passwordBar = $('#passwordStrengthBar');
+        var result = calculatePasswordStrength(password);
 
+        passwordBar.html(result.strength +'%');
+        passwordBar.width(result.strength+'%');
+        passwordBar.removeClass(lastClassApplied);
+        passwordBar.addClass(result.styleToShow);
+        lastClassApplied = result.styleToShow;
+    });
     //Login
     $(document).on('click','#loginBtn',function () {
         var alertMsgBox = $('#loginAlertMessage');
@@ -96,6 +109,7 @@ $(function() {
         location.reload();
     });
 
+
 //============================================================
     function showSuccessMessage(alertMsgBox,successMessage) {
         alertMsgBox.removeClass('d-none');
@@ -131,6 +145,7 @@ $(function() {
     }
 
     function validateRegisterForm() {
+
        var forename =  $('#forenameReg').val();
        var surname =  $('#surnameReg').val();
        var phone =  $('#phoneReg').val();
@@ -144,6 +159,15 @@ $(function() {
             isValid = false;
             msg = "Passwords Must Match";
         }
+        var passwordStrength = calculatePasswordStrength(password);
+        if (passwordStrength.strength <= 60){
+            isValid = false;
+            msg = "Password not strong enough";
+        }
+        if (password.length < 5){
+            isValid = false;
+            msg = "Password not long enough";
+        }
         if (password === ""){
             isValid = false;
             msg = "Password Required";
@@ -152,6 +176,7 @@ $(function() {
             isValid = false;
             msg = "Password must be less than 200 characters long";
         }
+
         if (forename === ""){
             isValid = false;
             msg = "Forename Required";
@@ -176,10 +201,10 @@ $(function() {
             isValid = false;
             msg = "Phone number must be less than 15 characters long"
         }
-        var phoneFilter = /^[1-9][0-9]{9,14}$/;
+        var phoneFilter = /^[0-9]{9,14}$/;
         if(!phoneFilter.test(phone)){
             isValid = false;
-            msg = "Invalid Phone format. phone must only contain numbers: 0-9 and be between 10 and 15 characters long";
+            msg = "Phone must only contain numbers: 0-9 and be between 10 and 15 characters long";
         }
         //check if valid email
         var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -196,8 +221,6 @@ $(function() {
             isValid =false;
             msg = "Email must be less than 70 characters long";
         }
-
-
         return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
     }
 
@@ -233,5 +256,45 @@ $(function() {
       }
 
         return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
+    }
+
+    function calculatePasswordStrength(password) {
+        var passwordStrength = 0;
+        var styleToApply = "";
+        if (password.length > 20) {
+            passwordStrength += 33;
+        }
+        else if (password.length > 10) {
+            passwordStrength += 20;
+        }
+        else if (password.length  > 5) {
+            passwordStrength += 15;
+        }
+        else if (password.length > 3) {
+            passwordStrength += 10;
+        }
+        else if (password.length > 2) {
+            passwordStrength += 5;
+        }
+        else {
+            passwordStrength += 0;
+        }
+        if (password.match(/[a-z]/) && password.match(/[A-Z]/)){
+            passwordStrength += 33
+        }
+        if (password.match(/[!@#$%^&*(),=_+£.?":{}|<>]/)){
+            passwordStrength += 33;
+        }
+
+        if (passwordStrength > 80){
+            styleToApply = "bg-success";
+        } else if(passwordStrength > 60){
+            styleToApply = "bg-info";
+        }else if(passwordStrength > 30){
+            styleToApply = "bg-warning";
+        }else{
+            styleToApply = "bg-danger";
+        }
+        return {strength: passwordStrength, styleToShow: styleToApply};
     }
 });

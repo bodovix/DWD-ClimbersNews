@@ -86,7 +86,7 @@ class SignupControl
          if (strlen($phone) > 15){
              return "Phone number must be less than 15 characters long";
          }
-         $phoneRegEx = '/^[1-9][0-9]{9,14}$/';
+         $phoneRegEx = '/^[0-9]{9,14}$/';
          if(!preg_match($phoneRegEx,$phone)){
              return 'Invalid Phone format. phone must only contain numbers: 0-9 and be between 10 and 15 characters long';
          }
@@ -123,23 +123,23 @@ class SignupControl
         $validateRegistration = $this->validateRegister($forename,$surname,$phone,$email,$password,$passConf);
         if ($validateRegistration != ""){
             return $validateRegistration;
+        }else{
+            //Register
+            //Hash Password::
+
+            // default hashing algorithm is bcrypt
+            //can add custom salt, or leave blank for default (10)
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+            //run create
+            $resultJson = $this->userModel->creteUser($email,$password,$phone,$forename,$surname);
+            $result = json_decode($resultJson);
+
+            //return message
+            if ($result == false){
+                return "SQL error. Please try again";
+            }
+            return "";
         }
-        //Register
-        //Hash Password::
-
-        // default hashing algorithm is bcrypt
-        //can add custom salt, or leave blank for default (10)
-        $password = password_hash($password, PASSWORD_DEFAULT);
-
-        //run create
-        $resultJson = $this->userModel->creteUser($email,$password,$phone,$forename,$surname);
-        $result = json_decode($resultJson);
-
-        //return message
-        if ($result == false){
-            return "SQL error. Please try again";
-        }
-        return "";
-
     }
 }

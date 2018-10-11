@@ -22,7 +22,7 @@
             <input id="surnameReg" name="surnameReg" class="form-control"  placeholder="Last Name" required type="text"/>
         </div>
         <div class="form-group">
-            <input id="phoneReg" name="phoneReg" class="form-control"  placeholder="Phone Number" required type="text"/>
+            <input id="phoneReg" name="phoneReg" class="form-control"  placeholder="Phone Number" required type="tel"/>
         </div>
 
         <div class="form-group">
@@ -36,6 +36,12 @@
         <div class="form-group">
             <input id="passwordConfReg" name="passwordConfReg" class="form-control"  placeholder="Confirm" required type="password" />
         </div>
+        <div class="form-group">
+            <div class="progress">
+                <div class="progress-bar" id="passwordStrengthBar" ></div>
+            </div>
+        </div>
+
         <div class="form-group">
             <input id="registerBtn" type="button" class="btn btn-primary " value="Register"/>
             <input id="clearRegFormBtn" type="button" class="btn btn-danger float-right" value="Clear"/>
