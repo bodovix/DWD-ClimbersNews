@@ -9,27 +9,17 @@ require_once  'config/config.php';
 include_once 'Includes/Header.php';
 include_once 'Includes/MyArticlesNav.php';
 ?>
-<script src="View/JSHandlers/IndexJS.js"></script>
+<script src="View/JSHandlers/MyArticlesJS.js"></script>
 
 <body >
 <div class="row">
+    <div class="container">
+        <div id="uploadArticleContainer" class="h-100">
 
-    <div id="uploadArticleContainer"class="h-100">
-        <div class="container">
-            <div class="form">
-                <div>
-
-                </div>
-            </div>
         </div>
     </div>
 </div>
-
-
 </body>
-
-
-
 
 <?php
 $pathToPage = URLROOT.'Evaluation.php?week=5';

@@ -19,9 +19,7 @@ $(function() {
     //Register
     $(document).on('click','#registerBtn',function () {
         var alertMsgBox =  $('#regAlertMessage');
-
         var validateForm = validateRegisterForm();
-
         if (validateForm.error){
             //Invalid
             showErrorMsg(alertMsgBox,validateForm.msg);
