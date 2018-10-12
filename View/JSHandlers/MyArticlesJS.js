@@ -63,7 +63,7 @@ $(function(){
     var descriptionLengthLimit = 70;
     var textLengthLimit = 4000;
     var mediaTypeOptions = ['none','image','video','audio'];
-    var mediaCaptionLengthLimmit = 200;
+    var mediaCaptionLengthLimit = 200;
 
 
 //=======================FUNCTIONS=======================
@@ -186,15 +186,32 @@ $(function(){
         var msg = "";
 
         //fields Required if Type set
+        //if none
+        if (sectionMediaType.val() ==="none"){
+            //don't need to validate as wont get saved
+        }
+        //if image
+        if (sectionMediaType.val() ==="image"){
+            //file size
+            //
+        }
+        //if audio
+        if(sectionMediaType.val() ==="audio"){
+
+        }
+        //if video
+        if(sectionMediaType.val() ==="video"){
+
+        }
 
         //Size limits per type
         if (sectionText.val().length > textLengthLimit){
             isValid = false;
             msg = "Text Too long ( "+sectionText.length+" ). cannot exceed "+textLengthLimit+" characters.";
         }
-        if (sectionMediaCaption.val().length > mediaCaptionLengthLimmit){
+        if (sectionMediaCaption.val().length > mediaCaptionLengthLimit){
             isValid = false;
-            msg = "Caption cannot exceed "+mediaCaptionLengthLimmit+" characters";
+            msg = "Caption cannot exceed "+mediaCaptionLengthLimit+" characters";
         }
 
         return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
