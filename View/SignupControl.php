@@ -18,6 +18,27 @@ class SignupControl
         $this->con = ConnectionSingleton::Instance()->GetCon();
     }
 
+    public function isUserLoggedIn(){
+        if (isset($_SESSION['userId'])){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function isAuthor(){
+        if (isset($_SESSION['author'])){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public  function  isAdmin(){
+        if (isset($_SESSION['admin'])){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     private function validateLogin($email,$password){
         if (!isset($email) || $email ==""){
@@ -34,7 +55,6 @@ class SignupControl
         }
         return "";
     }
-
 
     public function loginUser($email,$password){
         $validateLogin = $this->validateLogin($email,$password);

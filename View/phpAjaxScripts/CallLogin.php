@@ -15,11 +15,9 @@ require_once '../SignupControl.php';
 
 //get posts
 if (!isset($_POST['emailLogin'])){
-    echo "Email Not Set";
     return;
 }
 if (!isset($_POST['passwordLogin'])){
-    echo "Password Not Set";
     return;
 }
 $email = strip_tags($_POST['emailLogin']) ;
