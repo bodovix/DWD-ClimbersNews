@@ -54,8 +54,8 @@ $myArtCtr = new MyArticlesControl();
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="">Description</label>
-                            <input id="" class="form-control" type="text"/>
+                            <label for="addArticleDescription">Description</label>
+                            <input id="addArticleDescription" class="form-control" type="text"/>
                         </div>
                     </div>
                 </div>
@@ -71,8 +71,8 @@ $myArtCtr = new MyArticlesControl();
                     <div class="row">
                         <div class="form-group">
                             <label for="addPrimaryMediaType">Initial Media Type</label>
-                            <select id="addPrimaryMediaType" class="form-control">
-                                <option value="">None</option>
+                            <select id="addPrimaryMediaType" class="form-control mediaTypeInput">
+                                <option value="none">None</option>
                                 <option value="image">Image</option>
                                 <option value="video">Video</option>
                                 <option value="audio">Audio</option>
@@ -105,8 +105,8 @@ $myArtCtr = new MyArticlesControl();
                     <div class="row">
                         <div class="form-group">
                             <label for="addSecondaryMediaType">Secondary Media Type</label>
-                            <select id="addSecondaryMediaType" class="form-control">
-                                <option value="">None</option>
+                            <select id="addSecondaryMediaType" class="form-control mediaTypeInput">
+                                <option value="none">None</option>
                                 <option value="image">Image</option>
                                 <option value="video">Video</option>
                                 <option value="audio">Audio</option>
@@ -139,8 +139,8 @@ $myArtCtr = new MyArticlesControl();
                     <div class="row">
                         <div class="form-group">
                             <label for="addConclusionMediaType">Conclusion Media Type</label>
-                            <select id="addConclusionMediaType" class="form-control" >
-                                <option value="">None</option>
+                            <select id="addConclusionMediaType" class="form-control mediaTypeInput" >
+                                <option value="none">None</option>
                                 <option value="image">Image</option>
                                 <option value="video">Video</option>
                                 <option value="audio">Audio</option>
