@@ -85,26 +85,4 @@ class Article
             return null;
         }
     }
-
-    public function loadArticleCategories()
-    {
-        $query = $this->con->prepare("select distinct category 
-                                        from sql1701267.articleCategory
-                                        ORDER BY category desc");
-
-
-        $success = $query->execute();
-
-        if ($success) {
-            if ($query->rowCount() > 0) {
-
-                $result =  $query->fetchAll(PDO::FETCH_OBJ);
-                return json_encode($result);
-            } else {
-                return null;
-            }
-        }else{
-            return null;
-        }
-    }
 }
