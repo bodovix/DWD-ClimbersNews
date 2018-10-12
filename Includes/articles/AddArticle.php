@@ -1,12 +1,23 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require_once '../../View/MyArticlesControl.php';
+
+$myArtCtr = new MyArticlesControl();
+?>
 <div class="container">
     <div class="form">
         <div>
             <div class="mx-auto text-center">Add Article</div>
             <form class="form" method="post" name="addArticleForm">
-                <nav class="navbar navbar-expand-sm  navbar-dark bg-primary ">
+                <nav class="navbar navbar-expand-sm  navbar-dark">
                     <div class="container">
                         <div class=" navbar-collapse" id="navbarMyArticle">
                             <ul class="navbar-nav mx-auto">
+                                <li class="page-item">
+                                    <div id="toggleAddHeaderBtn" class="page-link">Header Info</div>
+                                </li>
                                 <li class="page-item">
                                     <div id="toggleAddHeaderBtn" class="page-link">Header Info</div>
                                 </li>
@@ -41,7 +52,7 @@
                     <div class="row">
                         <div class="form-group">
                             <label for="addArticleHeader">Category</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <?php echo $myArtCtr->DisplayArticleCategoriesAsOptionSet("addArticleHeader"); ?>
                         </div>
                     </div>
                     <div class="row">

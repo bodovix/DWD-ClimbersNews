@@ -1,7 +1,6 @@
 <html>
 <?php
 require_once  'global/ConnectionSingleton.php';
-require_once 'View/IndexControl.php';
 require_once  'config/config.php';
 
 ?>
@@ -9,6 +8,7 @@ require_once  'config/config.php';
 include_once 'Includes/Header.php';
 include_once 'Includes/MyArticlesNav.php';
 ?>
+
 <script src="View/JSHandlers/MyArticlesJS.js"></script>
 
 <body >

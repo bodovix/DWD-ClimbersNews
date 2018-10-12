@@ -1,12 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Gwydion
- * Date: 12/10/2018
- * Time: 09:07
- */
-include_once 'Model/Article.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
+require_once '../../Model/Article.php';
+require_once  '../../global/ConnectionSingleton.php';
+require_once '../../config/config.php';
 class MyArticlesControl
 {
     private $con;
@@ -17,5 +16,26 @@ class MyArticlesControl
         $this->con = ConnectionSingleton::Instance()->GetCon();
         $this->articleModel = new Article();
     }
-    
+    public function DisplayArticleCategoriesAsOptionSet($selectInputFormID){
+        $categories = json_decode($this->articleModel->loadArticleCategories());
+        if($categories != null){
+
+            if (count($categories) > 0) {
+                $html = null;
+                $html .= '<select class="form-control mr-2" id="'.$selectInputFormID.'" >';
+                $html .= '<option value="">Category...</option>';
+
+                foreach ($categories as $item) {
+                    $html .= '<option value="' . $item->category . '">' . $item->category . '</option>';
+                }
+                $html .= '</select>';
+
+                return $html;
+            }else{
+                return "";
+            }
+        }else{
+            return "";
+        }
+    }
 }
