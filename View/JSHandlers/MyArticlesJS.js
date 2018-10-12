@@ -117,15 +117,15 @@ function validateAddArticleForm() {
     if (headlineResult.error){
         return  { error: true, msg: headlineResult.msg };
     }
-    var initialResult = validateInitial(maxImageSizeBytes,maxAudioSizeBytes,maxVideoSizeBytes,$('#addPrimaryText'),$('#addPrimaryMediaType'),$('#addPrimaryUpload'),$('#addPrimaryCaption'));
+    var initialResult = validateSection(maxImageSizeBytes,maxAudioSizeBytes,maxVideoSizeBytes,$('#addPrimaryText'),$('#addPrimaryMediaType'),$('#addPrimaryUpload'),$('#addPrimaryCaption'));
     if (initialResult.error){
         return  { error: true, msg: initialResult.msg };
     }
-    var secondary = validateInitial(maxImageSizeBytes,maxAudioSizeBytes,maxVideoSizeBytes,$('#addSecondaryText'),$('#addSecondaryMediaType'),$('#addSecondaryUpload'),$('#addSecondaryCaption'));
+    var secondary = validateSection(maxImageSizeBytes,maxAudioSizeBytes,maxVideoSizeBytes,$('#addSecondaryText'),$('#addSecondaryMediaType'),$('#addSecondaryUpload'),$('#addSecondaryCaption'));
     if (secondary.error){
         return  { error: true, msg: secondary.msg };
     }
-    var conclusionResult = validateInitial(maxImageSizeBytes,maxAudioSizeBytes,maxVideoSizeBytes,$('#addConclusionText'),$('#addConclusionMediaType'),$('#addConclusionUpload'),$('#addConclusionCaption'));
+    var conclusionResult = validateSection(maxImageSizeBytes,maxAudioSizeBytes,maxVideoSizeBytes,$('#addConclusionText'),$('#addConclusionMediaType'),$('#addConclusionUpload'),$('#addConclusionCaption'));
     if (conclusionResult.error){
         return  { error: true, msg: conclusionResult.msg };
     }
@@ -163,9 +163,9 @@ function validateHeadline(maxImageSizeBytes) {
         isValid = false;
         msg = "Headline Cannot be longer than 60 characters";
     }
-    if (file.length > 175){
+    if (file.value.length > 150){
         isValid = false;
-        msg = "File name cannot be more than 175 characters";
+        msg = "File name cannot be more than 150 characters";
     }
     var size = file.prop("files")[0].size;
     if (size > maxImageSizeBytes){
@@ -181,11 +181,25 @@ function validateHeadline(maxImageSizeBytes) {
 
     return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
 }
-function validateInitial(maxImageSizeBytes,maxAudioSizeBytes,maxVideoSizeBytes,sectionText,sectionMediaType,sectionFile,sectionMediaCaption) {
+function validateSection(maxImageSizeBytes, maxAudioSizeBytes, maxVideoSizeBytes, sectionText, sectionMediaType, sectionFile, sectionMediaCaption) {
     var isValid = true;
     var msg = "";
 
-
+    //fields Required if Type set
+        
+    //Size limits per type
+    if (sectionText.length > 4000){
+        isValid = false;
+        msg = "Text Too long ( "+sectionText.length+" ). cannot exceed 4000 characters.";
+    }
+    if (sectionMediaCaption.length > 200){
+        isValid = false;
+        msg = "Caption cannot exceed 200 characters";
+    }
+    if (sectionFile.value.length > 150){
+        isValid = false;
+        msg = "File name cannot be more than 150 characters";
+    }
     return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
 }
 
