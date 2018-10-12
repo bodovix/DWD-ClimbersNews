@@ -8,16 +8,16 @@
                         <div class=" navbar-collapse" id="navbarMyArticle">
                             <ul class="navbar-nav mx-auto">
                                 <li class="page-item">
-                                    <div id="toggleAddHeaderBtn" class="page-link" value="{$index}">Header Info</div>
+                                    <div id="toggleAddHeaderBtn" class="page-link">Header Info</div>
                                 </li>
                                 <li class="page-item">
-                                    <div id="toggleAddInitialBtn" class="page-link" value="{$index}">Primary Section</div>
+                                    <div id="toggleAddInitialBtn" class="page-link">Primary Section</div>
                                 </li>
                                 <li class="page-item">
-                                    <div  id="toggleAddSecondBtn"  class="page-link" value="{$index}">Secondary Section</div>
+                                    <div  id="toggleAddSecondBtn"  class="page-link">Secondary Section</div>
                                 </li>
                                 <li class="page-item">
-                                    <div  id="toggleAddConclusionBtn" class="page-link" value="{$index}">Conclusion</div>
+                                    <div  id="toggleAddConclusionBtn" class="page-link">Conclusion</div>
                                 </li>
                             </ul>
                         </div>
