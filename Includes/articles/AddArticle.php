@@ -43,7 +43,7 @@ $myArtCtr = new MyArticlesControl();
                     <div class="row">
                         <div class="form-group">
                             <label for="addCoverImage">cove Image</label>
-                            <input id="addCoverImage" class="form-control" type="file"  accept="image/x-png,image/jpeg"/>
+                            <input id="addCoverImage" class="form-control" type="file" accept="image/x-png,image/jpeg"/>
                         </div>
                     </div>
                     <div class="row">
@@ -82,7 +82,7 @@ $myArtCtr = new MyArticlesControl();
                     <div class="row">
                         <div class="form-group">
                             <label for="addPrimaryUpload">Initial Media Upload</label>
-                            <input id="addPrimaryUpload" class="form-control" type="file" accept="image/x-png,image/jpeg"/>
+                            <input id="addPrimaryUpload" class="form-control" type="file"/>
                         </div>
                     </div>
                     <div class="row">
@@ -116,7 +116,7 @@ $myArtCtr = new MyArticlesControl();
                     <div class="row">
                         <div class="form-group">
                             <label for="addSecondaryUpload">Secondary Media Upload</label>
-                            <input id="addSecondaryUpload" class="form-control" type="file" accept="image/x-png,image/jpeg"/>
+                            <input id="addSecondaryUpload" class="form-control" type="file" />
                         </div>
                     </div>
                     <div class="row">
@@ -150,7 +150,7 @@ $myArtCtr = new MyArticlesControl();
                     <div class="row">
                         <div class="form-group">
                             <label for="addConclusionUpload">Conclusion Media Upload</label>
-                            <input id="addConclusionUpload" class="form-control" type="file" accept="image/x-png,image/jpeg"/>
+                            <input id="addConclusionUpload" class="form-control" type="file" />
                         </div>
                     </div>
                     <div class="row">
@@ -160,7 +160,7 @@ $myArtCtr = new MyArticlesControl();
                         </div>
                     </div>
                 </div>
-                <div  class="btn btn-success">Save</div>
+                <div id="AddArticleBtn"  class="btn btn-success">Save</div>
             </form>
         </div>
     </div>

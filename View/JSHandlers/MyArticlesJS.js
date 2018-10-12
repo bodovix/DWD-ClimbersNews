@@ -42,10 +42,39 @@ $(function(){
             togglePrimaryUploadHide();
             toggleSecondaryUploadHide();
             toggleConclusionUploadHide();
+
+            setFilterType($('#addPrimaryMediaType'),$('#addPrimaryUpload'));
+            setFilterType($('#addSecondaryMediaType'),$('#addSecondaryUpload'));
+            setFilterType($('#addConclusionMediaType'),$('#addConclusionUpload'));
+    });
+
+    $(mainContainer).on('click','#AddArticleBtn',function () {
+       var formValidation =  validateAddArticleForm()
+        if(formValidation.error){
+            //Error
+            alert(formValidation.msg);
+        }else{
+            //Valid
+            alert($('#addCoverImage').val());
+        }
     });
 });
 
 //=======================FUNCTIONS=======================
+function setFilterType(mediaType,controlToFilter) {
+    if (mediaType.val() === 'none'){
+        controlToFilter.attr("accept","");
+    }
+    if (mediaType.val() === 'image'){
+        controlToFilter.attr("accept","image/x-png,image/jpeg");
+    }
+    if(mediaType.val() === 'video'){
+        controlToFilter.attr("accept","video/mp4");
+    }
+    if(mediaType.val() === 'audio'){
+        controlToFilter.attr("accept","audio/mp3,audio/wav");
+    }
+}
 
 function togglePrimaryUploadHide() {
     if ($('#addPrimaryMediaType').val() === 'none'){
@@ -84,6 +113,10 @@ function validateAddArticleForm() {
     if (initialResult.error){
         return  { error: true, msg: initialResult.msg };
     }
+    var secondary = secondaryConclusion();
+    if (secondary.error){
+        return  { error: true, msg: secondary.msg };
+    }
     var conclusionResult = validateConclusion();
     if (conclusionResult.error){
         return  { error: true, msg: conclusionResult.msg };
@@ -99,14 +132,69 @@ function validateHeadline() {
     var category = $('#addArticleCategory');
     var description = $('#addArticleDescription');
 
+
+    //All fields required
+    if (header.val() === "" ){
+        isValid = false;
+        msg = "Headline Required";
+    }
+    if (file.val() === ""){
+        isValid = false;
+        msg = "Cover Image Required";
+    }
+    if (category.val() === ""){
+        isValid = false;
+        msg = "Category Required";
+    }
+    if (description.val() === ""){
+        isValid = false;
+        msg = "Description Required";
+    }
+    //fields valid
+    if (header.length > 60){
+        isValid = false;
+        msg = "Headline Cannot be longer than 60 characters";
+    }
+    if (file.length > 175){
+        isValid = false;
+        msg = "File name cannot be more than 175 characters";
+    }
+    if (description.length > 70){
+        isValid = false;
+        msg = "Description cannot be more than 70 characters long";
+    }
+
     return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
 }
 function validateInitial() {
+    var isValid = true;
+    var msg = "";
+    var text = $('#addPrimaryText');
+    var mediaType = $('#addPrimaryMediaType');
+    var mediaUpload = $('#addPrimaryUpload');
+    var mediaCaption = $('#addPrimaryCaption');
+
+    return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
+}
+function secondaryConclusion() {
+    var isValid = true;
+    var msg = "";
+    var text = $('#addSecondaryText');
+    var mediaType = $('#addSecondaryMediaType');
+    var mediaUpload = $('#addSecondaryUpload');
+    var mediaCaption = $('#addSecondaryCaption');
 
 
     return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
 }
 function validateConclusion() {
+    var isValid = true;
+    var msg = "";
+    var text = $('#addConclusionText');
+    var mediaType = $('#addConclusionMediaType');
+    var mediaUpload = $('#addConclusionUpload');
+    var mediaCaption = $('#addConclusionCaption');
+
 
     return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
 }
