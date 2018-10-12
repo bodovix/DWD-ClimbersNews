@@ -10,6 +10,7 @@ class ArticleCategory
 {
     private $con;
 
+
     public function __construct()
     {
         $this->con = ConnectionSingleton::Instance()->GetCon();

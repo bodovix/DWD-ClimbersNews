@@ -30,7 +30,7 @@ error_reporting(E_ALL);
         <div class="collapse navbar-collapse" id="navbarNav1">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo 'Index.php'; ?>">Manage Articles</a>
+                    <a class="nav-link" href="<?php echo 'Index.php'; ?>">Articles</a>
                 </li>
                 <li class="dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Evaluations</a>

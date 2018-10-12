@@ -10,14 +10,11 @@ $myArtCtr = new MyArticlesControl();
     <div class="form">
         <div>
             <div class="mx-auto text-center">Add Article</div>
-            <form class="form" method="post" name="addArticleForm">
+            <form class="form" method="post" name="addArticleForm" enctype="multipart/form-data">
                 <nav class="navbar navbar-expand-sm  navbar-dark">
                     <div class="container">
                         <div class=" navbar-collapse" id="navbarMyArticle">
                             <ul class="navbar-nav mx-auto">
-                                <li class="page-item">
-                                    <div id="toggleAddHeaderBtn" class="page-link">Header Info</div>
-                                </li>
                                 <li class="page-item">
                                     <div id="toggleAddHeaderBtn" class="page-link">Header Info</div>
                                 </li>
@@ -45,48 +42,53 @@ $myArtCtr = new MyArticlesControl();
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">cover</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addCoverImage">cove Image</label>
+                            <input id="addCoverImage" class="form-control" type="file"  accept="image/x-png,image/jpeg"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Category</label>
-                            <?php echo $myArtCtr->DisplayArticleCategoriesAsOptionSet("addArticleHeader"); ?>
+                            <label for="addArticleCategory">Category</label>
+                            <?php echo $myArtCtr->DisplayArticleCategoriesAsOptionSet("addArticleCategory"); ?>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Description</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="">Description</label>
+                            <input id="" class="form-control" type="text"/>
                         </div>
                     </div>
                 </div>
-                <!--:::::::::::::::::::::::::::Article PRIMARY INFO::::::::::::::::::::::::::-->
+                <!--:::::::::::::::::::::::::::Article Initial INFO::::::::::::::::::::::::::-->
                 <div id="addArticleInitialSection"  style="display : none">
                     <div class="text-center">Primary</div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Initial Text</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addPrimaryText">Initial Text</label>
+                            <input id="addPrimaryText" class="form-control" type="text"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Initial Media Type</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addPrimaryMediaType">Initial Media Type</label>
+                            <select id="addPrimaryMediaType" class="form-control">
+                                <option value="">None</option>
+                                <option value="image">Image</option>
+                                <option value="video">Video</option>
+                                <option value="audio">Audio</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Initial Media Upload</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addPrimaryUpload">Initial Media Upload</label>
+                            <input id="addPrimaryUpload" class="form-control" type="file" accept="image/x-png,image/jpeg"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Caption</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addPrimaryCaption">Caption</label>
+                            <input id="addPrimaryCaption" class="form-control" type="text"/>
                         </div>
                     </div>
                 </div>
@@ -96,26 +98,31 @@ $myArtCtr = new MyArticlesControl();
                     <div class="text-center">Secondary</div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Secondary Text</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addSecondaryText">Secondary Text</label>
+                            <input id="addSecondaryText" class="form-control" type="text"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Secondary Media Type</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addSecondaryMediaType">Secondary Media Type</label>
+                            <select id="addSecondaryMediaType" class="form-control">
+                                <option value="">None</option>
+                                <option value="image">Image</option>
+                                <option value="video">Video</option>
+                                <option value="audio">Audio</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Secondary Media Upload</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addSecondaryUpload">Secondary Media Upload</label>
+                            <input id="addSecondaryUpload" class="form-control" type="file" accept="image/x-png,image/jpeg"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Caption</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addSecondaryCaption">Caption</label>
+                            <input id="addSecondaryCaption" class="form-control" type="text"/>
                         </div>
                     </div>
                 </div>
@@ -125,30 +132,35 @@ $myArtCtr = new MyArticlesControl();
                     <div class="text-center">Conclusion</div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Conclusion Text</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addConclusionText">Conclusion Text</label>
+                            <input id="addConclusionText" class="form-control" type="text"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Conclusion Media Type</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addConclusionMediaType">Conclusion Media Type</label>
+                            <select id="addConclusionMediaType" class="form-control" >
+                                <option value="">None</option>
+                                <option value="image">Image</option>
+                                <option value="video">Video</option>
+                                <option value="audio">Audio</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Conclusion Media Upload</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addConclusionUpload">Conclusion Media Upload</label>
+                            <input id="addConclusionUpload" class="form-control" type="file" accept="image/x-png,image/jpeg"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="addArticleHeader">Caption</label>
-                            <input id="addArticleHeader" class="form-control" type="text"/>
+                            <label for="addConclusionCaption">Caption</label>
+                            <input id="addConclusionCaption" class="form-control" type="text"/>
                         </div>
                     </div>
                 </div>
-                <input type="button" value="Save" class="btn btn-success"/>
+                <div  class="btn btn-success">Save</div>
             </form>
         </div>
     </div>
