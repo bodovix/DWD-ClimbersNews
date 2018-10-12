@@ -60,11 +60,10 @@ $(function(){
     });
 //==============GLOBAL VARIABLES==============================
     var headerLengthLimit = 60;
-    var coverImageLimit = 150;
     var descriptionLengthLimit = 70;
     var textLengthLimit = 4000;
     var mediaTypeOptions = ['none','image','video','audio'];
-    var mediaCaptionLimmit = 200;
+    var mediaCaptionLengthLimmit = 200;
 
 
 //=======================FUNCTIONS=======================
@@ -174,13 +173,14 @@ $(function(){
             msg = "File to big("+ inkb +"KB). file cannot exceed 3000KB";
         }
 
-        if (description.val().length > 70){
+        if (description.val().length > descriptionLengthLimit){
             isValid = false;
-            msg = "Description cannot be more than 70 characters long";
+            msg = "Description cannot be more than "+descriptionLengthLimit+" characters long";
         }
 
         return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
     }
+
     function validateSection(maxImageSizeBytes, maxAudioSizeBytes, maxVideoSizeBytes, sectionText, sectionMediaType, sectionFile, sectionMediaCaption) {
         var isValid = true;
         var msg = "";
@@ -188,13 +188,13 @@ $(function(){
         //fields Required if Type set
 
         //Size limits per type
-        if (sectionText.val().length > 4000){
+        if (sectionText.val().length > textLengthLimit){
             isValid = false;
-            msg = "Text Too long ( "+sectionText.length+" ). cannot exceed 4000 characters.";
+            msg = "Text Too long ( "+sectionText.length+" ). cannot exceed "+textLengthLimit+" characters.";
         }
-        if (sectionMediaCaption.val().length > 200){
+        if (sectionMediaCaption.val().length > mediaCaptionLengthLimmit){
             isValid = false;
-            msg = "Caption cannot exceed 200 characters";
+            msg = "Caption cannot exceed "+mediaCaptionLengthLimmit+" characters";
         }
 
         return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
