@@ -7,20 +7,23 @@
  */
 
 
+include_once 'Model/Article.php';
 
 
 
 class SearchBarControl
 {
+    private  $articleModel;
     private $con;
     public function __construct()
     {
+        $this->articleModel = new Article();
         $this->con = ConnectionSingleton::Instance()->GetCon();
     }
 
 
     public function displayCategories(){
-        $categories = $this->loadArticleCategories();
+        $categories = json_decode($this->articleModel->loadArticleCategories());
 
         if (count($categories) > 0) {
             $html = null;
@@ -38,24 +41,5 @@ class SearchBarControl
         }
     }
 
-    private function loadArticleCategories()
-    {
-        $query = $this->con->prepare("select distinct category 
-                                        from sql1701267.articleCategory
-                                        ORDER BY category desc");
 
-
-        $success = $query->execute();
-
-        if ($success) {
-            if ($query->rowCount() > 0) {
-
-                return $query->fetchAll(PDO::FETCH_OBJ);
-            } else {
-                return null;
-            }
-        }else{
-            return null;
-        }
-    }
 }
