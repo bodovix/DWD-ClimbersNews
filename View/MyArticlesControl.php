@@ -21,7 +21,7 @@ class MyArticlesControl
     private $maxImageSizeBytes = 3000000;
     private $maxAudioSizeBytes = 10000000;
     private $bytesToKb = 1000;
-    const maxVideoSizeBytes = 40000000;
+    private $maxVideoSizeBytes = 40000000;
 
     public function __construct()
     {
@@ -94,59 +94,70 @@ class MyArticlesControl
             $errorMsg =$sectionName.": Media Type not valid";
         }
 
-        if ($type != null ||$type == $this->mediaTypeOptions[0]){
-            if ($type == $this->mediaTypeOptions[1]){
-                //Is Image
-
+        if ($type != null){
+            if ($type != $this->mediaTypeOptions[0]){
+                //=======General File checks
                 //is not null
                 if ($file == null){
                     $errorMsg = $sectionName.": A file must be selected to match the Media Type";
+                    return $errorMsg;
                 }
                 //uploaded successfully (error = 0)
                 $fileError = $this->checkErrorCode($file['error']);
                 if ($fileError != 0){
                     $errorMsg = $fileError;
+                    return $errorMsg;
                 }
                 //is only 1 file
                 if (count($file['name']) > 1){
                     $errorMsg = $sectionName.": Only 1 File can be added at a time";
+                    return $errorMsg;
                 }
-                //size within limit for type
-                if ($file['size'] > $this->maxImageSizeBytes){
+                //======Type Specific checks
+                if ($type == $this->mediaTypeOptions[1]){
+                    //Is Image
 
-                    $sizeInKb = ceil($file['size'] /$this->bytesToKb );
-                    $errorMsg = $sectionName.": cover Image to big(". $sizeInKb ."KB). file cannot exceed ".($this->maxImageSizeBytes /$this->bytesToKb)."KB";
+                    //size within limit for type
+                    if ($file['size'] > $this->maxImageSizeBytes){
+
+                        $sizeInKb = ceil($file['size'] /$this->bytesToKb );
+                        $errorMsg = $sectionName.": cover Image to big(". $sizeInKb ."KB). file cannot exceed ".($this->maxImageSizeBytes /$this->bytesToKb)."KB";
+                    }
+                    //is valid image file (jpg and png)
+                    $minedFileType = mime_content_type($file['tmp_name']);
+                    if($minedFileType == 'image/jpeg' || $minedFileType == 'image/png') {
+                        //valid
+                    }else{
+                        $errorMsg = $sectionName.": Images must be valid jpeg or png file.";
+                    }
                 }
-                //is valid image file (jpg and png)
-                $minedFileType = mime_content_type($file['tmp_name']);
-                if($minedFileType != 'image/jpeg' || $minedFileType != 'image/png') {
-                    $errorMsg = $sectionName.": Images must be valid jpeg or png file";
+                if ($type == $this->mediaTypeOptions[2]){
+                    //Is Video
+
+                    //size within limit for type
+                    if ($file['size'] > $this->maxVideoSizeBytes){
+
+                        $sizeInKb = ceil($file['size'] /$this->bytesToKb );
+                        $errorMsg = $sectionName.": cover Image to big(". $sizeInKb ."KB). file cannot exceed ".($this->maxVideoSizeBytes /$this->bytesToKb)."KB";
+                    }
+                    //is valid video file (mime_content_type ) MP4
+                    $minedFileType = mime_content_type($file['tmp_name']);
+                    if($minedFileType != 'video/mp4') {
+                        $errorMsg = $sectionName.": Images must be valid jpeg or png file";
+                    }
+                }
+                if ($type == $this->mediaTypeOptions[3]){
+                    //Is Audio
+
+                    //size within limit for type
+                    //is valid image file   All the audio files format has "audio/" common. So, we can
+                    // check the $_FILES['file']['mime_type'] and apply a preg_match() to check if "audio/" exists in this mime type or not /mime_content_type
+                    //
+                    //
+                    //is valid file type of (mp3 or wav)
                 }
             }
-            if ($type == $this->mediaTypeOptions[2]){
-                //Is Video
 
-                //is not null
-                //uploaded successfully (error = 0)
-                //is only 1 file
-                //size within limit for type
-                //is valid video file (mime_content_type )
-                //is valid video type MP4
-
-            }
-            if ($type == $this->mediaTypeOptions[3]){
-                //Is Audio
-
-                //is not null
-                //uploaded successfully (error = 0)
-                //is only 1 file
-                //size within limit for type
-                //is valid image file   All the audio files format has "audio/" common. So, we can
-                // check the $_FILES['file']['mime_type'] and apply a preg_match() to check if "audio/" exists in this mime type or not /mime_content_type
-                //
-                //
-                //is valid file type of (mp3 or wav)
-            }
         }else{
             //no file to add
         }
