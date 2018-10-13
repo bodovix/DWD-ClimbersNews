@@ -260,6 +260,11 @@ $(function(){
         }
         //if audio
         if(sectionMediaType.val() ==="audio"){
+
+            //TODO: sort out post error on larger files/audio - might not need
+            return  { error: true, msg: "Audio Not Supported Yet" };
+
+
             //Required Fields
             if (sectionFile.val() === ""){
                 isValid = false;
@@ -275,6 +280,11 @@ $(function(){
         }
         //if video
         if(sectionMediaType.val() ==="video"){
+
+            //TODO: sort out post error on larger files/video - might not need
+            return { error: true, msg: "Video Not Supported Yet" };
+
+
             //Required Fields
             if (sectionFile.val() === ""){
                 isValid = false;

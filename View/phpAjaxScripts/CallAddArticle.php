@@ -15,8 +15,8 @@ require_once '../MyArticlesControl.php';
 
 //Check all fields sent via post
 //header
-print_r($_POST); echo '<br><br><br>';
-print_r($_FILES );
+//print_r($_POST); echo '<br><br><br>';
+//print_r($_FILES );
 if (!isset($_POST['addArticleHeader'])){
     echo 1 ."</br>";return;
 }

@@ -130,31 +130,38 @@ class MyArticlesControl
                     }else{
                         $errorMsg = $sectionName.": Images must be valid jpeg or png file.";
                     }
+                    //TODO: add if file already exists check
                 }
                 if ($type == $this->mediaTypeOptions[2]){
                     //Is Video
+                    $errorMsg = $sectionName.": Video Not Supported Yet";
+                    return $errorMsg;
 
                     //size within limit for type
-                    if ($file['size'] > $this->maxVideoSizeBytes){
-
-                        $sizeInKb = ceil($file['size'] /$this->bytesToKb );
-                        $errorMsg = $sectionName.": cover Image to big(". $sizeInKb ."KB). file cannot exceed ".($this->maxVideoSizeBytes /$this->bytesToKb)."KB";
-                    }
+//                            if ($file['size'] > $this->maxVideoSizeBytes){
+//
+//                                $sizeInKb = ceil($file['size'] /$this->bytesToKb );
+//                                $errorMsg = $sectionName.": cover Image to big(". $sizeInKb ."KB). file cannot exceed ".($this->maxVideoSizeBytes /$this->bytesToKb)."KB";
+//                            }
                     //is valid video file (mime_content_type ) MP4
-                    $minedFileType = mime_content_type($file['tmp_name']);
-                    if($minedFileType != 'video/mp4') {
-                        $errorMsg = $sectionName.": Images must be valid jpeg or png file";
-                    }
+//                            $minedFileType = mime_content_type($file['tmp_name']);
+//                            if($minedFileType != 'video/mp4') {
+//                                $errorMsg = $sectionName.": Images must be valid jpeg or png file";
+//                            }
+                    //if file already exists check
+
                 }
                 if ($type == $this->mediaTypeOptions[3]){
                     //Is Audio
-
+                    $errorMsg = $sectionName.": Audio Not Supported Yet";
+                    return $errorMsg;
                     //size within limit for type
                     //is valid image file   All the audio files format has "audio/" common. So, we can
                     // check the $_FILES['file']['mime_type'] and apply a preg_match() to check if "audio/" exists in this mime type or not /mime_content_type
                     //
                     //
                     //is valid file type of (mp3 or wav)
+                    //if file already exists check
                 }
             }
 
@@ -170,8 +177,18 @@ class MyArticlesControl
             //Invalid
             return $validateMsg;
         }else{
+            //Upload CoverImage
+            $pathToCoverImage = $this->uploadMediaToServer($coverImage,$this->mediaTypeOptions[1]);
+            //Upload Primary media (if Required)
+            $pathToPrimaryMedia = $this->uploadMediaToServer($pUrl,$pType);
+            //Upload Secondary media (if Required)
+            $pathToSecondaryMedia = $this->uploadMediaToServer($sUrl,$sType);
+            //Upload Conclusion media (if Required)
+            $pathToConclusionMedia = $this->uploadMediaToServer($cUrl,$cType);
+
             //Add Article
-            return "valid";//TODO: upload and add to DB
+
+            return ""; APPROOT.'/uploads/articles/images/'.$coverImage['name'];//TODO: upload and add to DB
         }
     }
 
@@ -237,5 +254,34 @@ class MyArticlesControl
             $return  = "Server Error: Upload Stopped";
         }
         return $return;
+    }
+
+    private function uploadMediaToServer($file, $mediaType)
+    {
+        $newFileUrl =null;
+        if ($mediaType == $this->mediaTypeOptions[0]){
+            //None - do nothing
+        }
+        if ($mediaType == $this->mediaTypeOptions[1]){
+            //Image
+
+                $didUpload = move_uploaded_file($file['tmp_name'], APPROOT.'/uploads/articles/images/'.$file['name']);
+                if ($didUpload) {
+                    return "";
+                } else {
+                    echo "An error occurred somewhere. Try again or contact the admin";
+                }
+        }
+        if ($mediaType == $this->mediaTypeOptions[2]){
+            //Video
+            //TODO: hear back from tutor about what to do here
+            return "Not Implemented Yet";
+        }
+        if ($mediaType == $this->mediaTypeOptions[3]){
+            //Audio
+            //TODO: hear back from tutor about what to do here
+            return "Not implemented Yet";
+        }
+        return $newFileUrl;
     }
 }
