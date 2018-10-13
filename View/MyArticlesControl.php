@@ -99,14 +99,29 @@ class MyArticlesControl
                 //Is Image
 
                 //is not null
+                if ($file == null){
+                    $errorMsg = $sectionName.": A file must be selected to match the Media Type";
+                }
                 //uploaded successfully (error = 0)
+                $fileError = $this->checkErrorCode($file['error']);
+                if ($fileError != 0){
+                    $errorMsg = $fileError;
+                }
                 //is only 1 file
+                if (count($file['name']) > 1){
+                    $errorMsg = $sectionName.": Only 1 File can be added at a time";
+                }
                 //size within limit for type
-                //is valid image file   (if(exif_imagetype('path/to/image.jpg')) {
-                //                         // your image is valid
-                //                       })
-                //is valid file type of (png or jpeg)
+                if ($file['size'] > $this->maxImageSizeBytes){
 
+                    $sizeInKb = ceil($file['size'] /$this->bytesToKb );
+                    $errorMsg = $sectionName.": cover Image to big(". $sizeInKb ."KB). file cannot exceed ".($this->maxImageSizeBytes /$this->bytesToKb)."KB";
+                }
+                //is valid image file (jpg and png)
+                $minedFileType = mime_content_type($file['tmp_name']);
+                if($minedFileType != 'image/jpeg' || $minedFileType != 'image/png') {
+                    $errorMsg = $sectionName.": Images must be valid jpeg or png file";
+                }
             }
             if ($type == $this->mediaTypeOptions[2]){
                 //Is Video
@@ -127,7 +142,7 @@ class MyArticlesControl
                 //is only 1 file
                 //size within limit for type
                 //is valid image file   All the audio files format has "audio/" common. So, we can
-                // check the $_FILES['file']['mime_type'] and apply a preg_match() to check if "audio/" exists in this mime type or not
+                // check the $_FILES['file']['mime_type'] and apply a preg_match() to check if "audio/" exists in this mime type or not /mime_content_type
                 //
                 //
                 //is valid file type of (mp3 or wav)
@@ -184,4 +199,32 @@ class MyArticlesControl
         return $errorMsg;
     }
 
+    private function checkErrorCode($phpFileErrorCode){
+        $return = "";
+        if ($phpFileErrorCode == 0){
+            $return  = "";
+        }
+        if ($phpFileErrorCode == 1){
+            $return  = "Server Error: File To big for Server";
+        }
+        if ($phpFileErrorCode == 2){
+            $return  = "Server Error: Max File size reached";
+        }
+        if ($phpFileErrorCode == 3){
+            $return  = "Server Error: Only partially uploaded";
+        }
+        if ($phpFileErrorCode == 4){
+            $return  = "Server Error: No File Uploaded";
+        }
+        if ($phpFileErrorCode == 6){
+            $return  = "Server Error";//missingTemporary folder on server
+        }
+        if ($phpFileErrorCode == 7){//Failed to write file to disk
+            $return  = "Server Error.";
+        }
+        if ($phpFileErrorCode == 8){
+            $return  = "Server Error: Upload Stopped";
+        }
+        return $return;
+    }
 }
