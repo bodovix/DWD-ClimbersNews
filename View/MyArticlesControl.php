@@ -21,9 +21,8 @@ class MyArticlesControl
     private $maxImageSizeBytes = 3000000;
     private $maxAudioSizeBytes = 10000000;
     private $bytesToKb = 1000;
-
-
     const maxVideoSizeBytes = 40000000;
+
     public function __construct()
     {
         $this->con = ConnectionSingleton::Instance()->GetCon();
@@ -91,20 +90,47 @@ class MyArticlesControl
         $errorMsg = "";
         //Check media type is valid:
         if (in_array($type,$this->mediaTypeOptions)){
-            $errorMsg = "";
         }else{
             $errorMsg =$sectionName.": Media Type not valid";
         }
 
         if ($type != null ||$type == $this->mediaTypeOptions[0]){
             if ($type == $this->mediaTypeOptions[1]){
-                //IF IMAGE
+                //Is Image
+
+                //is not null
+                //uploaded successfully (error = 0)
+                //is only 1 file
+                //size within limit for type
+                //is valid image file   (if(exif_imagetype('path/to/image.jpg')) {
+                //                         // your image is valid
+                //                       })
+                //is valid file type of (png or jpeg)
+
             }
             if ($type == $this->mediaTypeOptions[2]){
-                //Video
+                //Is Video
+
+                //is not null
+                //uploaded successfully (error = 0)
+                //is only 1 file
+                //size within limit for type
+                //is valid video file (mime_content_type )
+                //is valid video type MP4
+
             }
             if ($type == $this->mediaTypeOptions[3]){
-                //Audio
+                //Is Audio
+
+                //is not null
+                //uploaded successfully (error = 0)
+                //is only 1 file
+                //size within limit for type
+                //is valid image file   All the audio files format has "audio/" common. So, we can
+                // check the $_FILES['file']['mime_type'] and apply a preg_match() to check if "audio/" exists in this mime type or not
+                //
+                //
+                //is valid file type of (mp3 or wav)
             }
         }else{
             //no file to add
