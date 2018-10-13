@@ -96,7 +96,7 @@ $pUrl = null;
 if (isset($_FILES['addPrimaryUpload'])){
     $pUrl = $_FILES['addPrimaryUpload'];
 }
-$pCapt = null;
+$pCapt = "";
 if (isset($_POST['addPrimaryCaption'])){
     $pCapt = strip_tags($_POST['addPrimaryCaption']);
 }
@@ -107,7 +107,7 @@ $sUrl = null;
 if (isset($_FILES['addSecondaryUpload'])){
     $sUrl = $_FILES['addSecondaryUpload'];
 }
-$sCapt = null;
+$sCapt = "";
 if (isset($_POST['addSecondaryCaption'])){
     $sCapt = strip_tags($_POST['addSecondaryCaption']);
 }
@@ -118,7 +118,7 @@ $cUrl = null;
 if (isset($_FILES['addConclusionUpload'])){
     $cUrl = $_FILES['addConclusionUpload'];
 }
-$cCapt = null;
+$cCapt = "";
 if (isset($_POST['addConclusionCaption'])){
     $cCapt = strip_tags($_POST['addConclusionCaption']);
 }

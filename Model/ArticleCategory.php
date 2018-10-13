@@ -36,4 +36,20 @@ class ArticleCategory
             return null;
         }
     }
+    public function GetCategoryByID($id){
+        $query = $this->con->prepare("select distinct * 
+                                        from sql1701267.articleCategory WHERE id = :id");
+        $success = $query->execute(['id' => $id]);
+
+        if ($success) {
+            if ($query->rowCount() > 0) {
+                $result =  $query->fetch(PDO::FETCH_OBJ);
+                return json_encode($result);
+            } else {
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
 }
