@@ -68,7 +68,22 @@ class MyArticlesControl
             $errorMsg = "Article Category Invalid";
         }
         //Validate File Types and Upload
-
+        $coverImgValidation = $this->validateFileUpload($coverImage,$this->mediaTypeOptions[1],'Header');
+        if ($coverImgValidation != ""){
+            $errorMsg = $coverImgValidation;
+        }
+        $primaryMediaValidation = $this->validateFileUpload($pUrl,$pType,'Primary');
+        if ($primaryMediaValidation != ""){
+            $errorMsg = $primaryMediaValidation;
+        }
+        $secondaryMediaValidation = $this->validateFileUpload($sUrl,$sType,'Secondary');
+        if ($secondaryMediaValidation != ""){
+            $errorMsg = $secondaryMediaValidation;
+        }
+        $conclusionMediaValidation = $this->validateFileUpload($cUrl,$cType,'Conclusion');
+        if ($conclusionMediaValidation != ""){
+            $errorMsg = $conclusionMediaValidation;
+        }
 
          return $errorMsg;
     }
