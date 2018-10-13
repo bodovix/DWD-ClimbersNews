@@ -15,77 +15,104 @@ require_once '../MyArticlesControl.php';
 
 //Check all fields sent via post
 //header
+print_r($_POST); echo '<br><br><br>';
+print_r($_FILES);
 if (!isset($_POST['addArticleHeader'])){
-    return;
+    echo 1 ."</br>";return;
 }
-if (!isset($_POST['addCoverImage'])){
-    return;
+if (!isset($_FILES['addCoverImage'])){
+    echo 2 ."</br>";return;
 }
 if (!isset($_POST['addArticleCategory'])){
-    return;
+    echo 3 ."</br>";return;
 }
 if (!isset($_POST['addArticleDescription'])){
-    return;
+    echo 4 ."</br>";return;
 }
 //primary
 if (!isset($_POST['addPrimaryText'])){
-    return;
+    echo 5 ."</br>";return;
 }
 if (!isset($_POST['addPrimaryMediaType'])){
-    return;
-}
-if (!isset($_POST['addPrimaryUpload'])){
-    return;
-}
-if (!isset($_POST['addPrimaryCaption'])){
-    return;
-}
-//Secondary
-if (!isset($_POST['addSecondaryText'])){
-    return;
-}
-if (!isset($_POST['addSecondaryMediaType'])){
-    return;
-}
-if (!isset($_POST['addSecondaryUpload'])){
-    return;
-}
-if (!isset($_POST['addSecondaryCaption'])){
-    return;
-}
-//Conclusion
-if (!isset($_POST['addConclusionText'])){
-    return;
-}
-if (!isset($_POST['addConclusionMediaType'])){
-    return;
-}
-if (!isset($_POST['addConclusionUpload'])){
-    return;
-}
-if (!isset($_POST['addConclusionCaption'])){
-    return;
+    echo 6  ."</br>";return;
 }
 
+if (isset($_POST['addPrimaryMediaType'])){
+    if ($_POST['addPrimaryMediaType'] != 'none'){
+        if (!isset($_FILES['addPrimaryUpload'])){
+            echo 7 ."</br>";return;
+        }
+        if (!isset($_POST['addPrimaryCaption'])){
+            echo 8 ."</br>";return;
+        }
+    }
+}
+
+//Secondary
+if (!isset($_POST['addSecondaryText'])){
+    echo 9 ."</br>";return;
+}
+if (!isset($_POST['addSecondaryMediaType'])){
+    echo 10 ."</br>";return;
+}
+if (isset($_POST['addSecondaryMediaType'])){
+    if ($_POST['addSecondaryMediaType'] != 'none'){
+        if (!isset($_FILES['addSecondaryUpload'])){
+            echo 11 ."</br>";return;
+        }
+        if (!isset($_POST['addSecondaryCaption'])){
+            echo 12 ."</br>";return;
+        }
+    }
+}
+
+//Conclusion
+if (!isset($_POST['addConclusionText'])){
+    echo 13 ."</br>";return;
+}
+if (!isset($_POST['addConclusionMediaType'])){
+    echo 14 ."</br>";return;
+}
+if (isset($_POST['addConclusionMediaType'])){
+    if ($_POST['addConclusionMediaType'] != 'none'){
+        if (!isset($_FILES['addConclusionUpload'])){
+            echo 15 ."</br>";return;
+        }
+        if (!isset($_POST['addConclusionCaption'])){
+            echo 16 ."</br>";return;
+        }
+    }
+}
+
+
 $header = strip_tags($_POST['addArticleHeader']);
-$coverImg = strip_tags($_POST['addCoverImage']);
+$coverImg = $_FILES['addCoverImage'];
 $articleCat = strip_tags($_POST['addArticleCategory']);
 $desc = strip_tags($_POST['addArticleDescription']);
 
 $pText = strip_tags($_POST['addPrimaryText']);
 $pType = strip_tags($_POST['addPrimaryMediaType']);
-$pUrl = strip_tags($_POST['addPrimaryUpload']);
+$pUrl = $_FILES['addPrimaryUpload'];
 $pCapt = strip_tags($_POST['addPrimaryCaption']);
 
 $sText = strip_tags($_POST['addSecondaryText']);
 $sType = strip_tags($_POST['addSecondaryMediaType']);
-$sUrl = strip_tags($_POST['addSecondaryUpload']);
+$sUrl = $_FILES['addSecondaryUpload'];
 $sCapt = strip_tags($_POST['addSecondaryCaption']);
 
 $cText = strip_tags($_POST['addConclusionText']);
 $cType = strip_tags($_POST['addConclusionMediaType']);
-$cUrl = strip_tags($_POST['addConclusionUpload']);
-$cCapt = strip_tags($_POST['addConclusionCaption']);
+if (isset($_FILES['addConclusionUpload'])){
+    $cUrl = $_FILES['addConclusionUpload'];
+}else{
+    $cUrl = null;
+}
+if (isset($_POST['addConclusionCaption'])){
+    $cCapt = strip_tags($_POST['addConclusionCaption']);
+}else{
+    $cCapt = null;
+}
+
 
 
 $myArticleControl = new MyArticlesControl();

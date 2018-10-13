@@ -59,6 +59,32 @@ $(function(){
             //Valid
             hideMessageBox(addResultMessage);
 
+            //var formData = $('form#addArticleForm').serialize();
+            var formData = new FormData($('#addArticleForm')[0]);
+            $.ajax({
+                type: "POST",
+                data: formData,
+                url: 'View/phpAjaxScripts/CallAddArticle.php',
+                //  dataType: "html",
+                //  async: true,
+                cache: false,
+                 processData: false,
+                 contentType: false,
+                success: function(data) {
+                    if (data !== ""){
+                        //Error
+                        showErrorMsg(addResultMessage,data);
+                        return;
+                    } else{
+                        showSuccessMessage(addResultMessage,"Add Article Successful")
+                    }
+                },
+                error: (error) => {
+                    console.log(JSON.stringify(error));
+                }
+            });
+
+
         }
     });
 //==============GLOBAL VARIABLES==============================
@@ -69,6 +95,9 @@ $(function(){
     const mediaCaptionLengthLimit = 200;
     const maxImageSizeBytes = 3000000;
     const maxAudioSizeBytes = 10000000;
+    const bytesToKb = 1000;
+
+
     const maxVideoSizeBytes = 40000000;
 
 //=======================FUNCTIONS=======================
@@ -190,8 +219,8 @@ $(function(){
         var size = file.prop("files")[0].size;
         if (size > maxImageSizeBytes){
             isValid = false;
-            var inkb = Math.ceil(size /1000 );
-            msg = "Header: cover Image to big("+ inkb +"KB). file cannot exceed "+(maxImageSizeBytes /1000)+"KB";
+            var inkb = Math.ceil(size /bytesToKb );
+            msg = "Header: cover Image to big("+ inkb +"KB). file cannot exceed "+(maxImageSizeBytes /bytesToKb)+"KB";
         }
 
         if (description.val().length > descriptionLengthLimit){
@@ -223,8 +252,9 @@ $(function(){
             var size = sectionFile.prop("files")[0].size;
             if (size > maxImageSizeBytes){
                 isValid = false;
-                var inkb = Math.ceil(size /1000 );
-                msg = sectionName+": File to big("+ inkb +"KB). file cannot exceed "+(maxImageSizeBytes /1000)+"KB";
+                var inkb = Math.ceil(size /bytesToKb );
+
+                msg = sectionName+": File to big("+ inkb +" Kb). file cannot exceed "+(maxImageSizeBytes/bytesToKb )+" Kb";
             }
 
         }
@@ -237,10 +267,10 @@ $(function(){
                 return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
             }
             var audioSize = sectionFile.prop("files")[0].size;
-            if (audioSize > maxImageSizeBytes){
+            if (audioSize > maxAudioSizeBytes){
                 isValid = false;
-                var inmb = Math.ceil(audioSize /1000000 );
-                msg = sectionName+": File to big("+ inmb +"MB). file cannot exceed "+(maxAudioSizeBytes /1000000)+"MB";
+                var inkb2 = Math.ceil(size /bytesToKb );
+                msg = sectionName+": File to big("+ inkb2 +" Kb). file cannot exceed "+(maxAudioSizeBytes / bytesToKb)+" Kb";
             }
         }
         //if video
@@ -252,10 +282,11 @@ $(function(){
                 return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
             }
             var videoSize = sectionFile.prop("files")[0].size;
-            if (videoSize > maxImageSizeBytes){
+            if (videoSize > maxVideoSizeBytes){
                 isValid = false;
-                var videoBytes = Math.ceil(videoSize/1000000 );
-                msg = sectionName+": File to big("+ videoBytes +"MB). file cannot exceed "+(maxVideoSizeBytes/1000000)+"MB";
+                var inkb3 = Math.ceil(size /bytesToKb );
+
+                msg = sectionName+": File to big("+ inkb3 +" Kb). file cannot exceed "+(maxVideoSizeBytes /bytesToKb)+" Bytes";
             }
         }
 

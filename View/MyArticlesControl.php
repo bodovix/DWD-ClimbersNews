@@ -43,18 +43,20 @@ class MyArticlesControl
     }
 
     private function validateArticleInput($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt){
-        $isValid = "";
-
+        $isValid = "test";
+        //are required fields set
+        //are conditional required fields set
+        //
         return $isValid;
     }
     public  function AddArticle($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt){
         $validateMsg = $this->validateArticleInput($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt);
         if ($validateMsg != ""){
             //Invalid
-            return$validateMsg;
+            return $validateMsg;
         }else{
             //Add Article
-            return "";//TODO: upload and add to DB
+            return "valid";//TODO: upload and add to DB
         }
     }
 }
