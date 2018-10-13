@@ -92,25 +92,35 @@ $desc = strip_tags($_POST['addArticleDescription']);
 
 $pText = strip_tags($_POST['addPrimaryText']);
 $pType = strip_tags($_POST['addPrimaryMediaType']);
-$pUrl = $_FILES['addPrimaryUpload'];
-$pCapt = strip_tags($_POST['addPrimaryCaption']);
+$pUrl = null;
+if (isset($_FILES['addPrimaryUpload'])){
+    $pUrl = $_FILES['addPrimaryUpload'];
+}
+$pCapt = null;
+if (isset($_POST['addPrimaryCaption'])){
+    $pCapt = strip_tags($_POST['addPrimaryCaption']);
+}
 
 $sText = strip_tags($_POST['addSecondaryText']);
 $sType = strip_tags($_POST['addSecondaryMediaType']);
-$sUrl = $_FILES['addSecondaryUpload'];
-$sCapt = strip_tags($_POST['addSecondaryCaption']);
+$sUrl = null;
+if (isset($_FILES['addSecondaryUpload'])){
+    $sUrl = $_FILES['addSecondaryUpload'];
+}
+$sCapt = null;
+if (isset($_POST['addSecondaryCaption'])){
+    $sCapt = strip_tags($_POST['addSecondaryCaption']);
+}
 
 $cText = strip_tags($_POST['addConclusionText']);
 $cType = strip_tags($_POST['addConclusionMediaType']);
+$cUrl = null;
 if (isset($_FILES['addConclusionUpload'])){
     $cUrl = $_FILES['addConclusionUpload'];
-}else{
-    $cUrl = null;
 }
+$cCapt = null;
 if (isset($_POST['addConclusionCaption'])){
     $cCapt = strip_tags($_POST['addConclusionCaption']);
-}else{
-    $cCapt = null;
 }
 
 

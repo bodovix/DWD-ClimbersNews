@@ -46,7 +46,8 @@ class MyArticlesControl
         $isValid = "test";
         //are required fields set
         //are conditional required fields set
-        //
+
+        //are files valid (if sent
         return $isValid;
     }
     public  function AddArticle($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt){
