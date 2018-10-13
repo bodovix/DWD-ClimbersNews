@@ -72,6 +72,42 @@ class MyArticlesControl
 
          return $errorMsg;
     }
+    private function validateFileUpload($file,$type,$sectionName){
+        $errorMsg = "";
+        //Check media type is valid:
+        if (in_array($type,$this->mediaTypeOptions)){
+            $errorMsg = "";
+        }else{
+            $errorMsg =$sectionName.": Media Type not valid";
+        }
+
+        if ($type != null ||$type == $this->mediaTypeOptions[0]){
+            if ($type == $this->mediaTypeOptions[1]){
+                //IF IMAGE
+            }
+            if ($type == $this->mediaTypeOptions[2]){
+                //Video
+            }
+            if ($type == $this->mediaTypeOptions[3]){
+                //Audio
+            }
+        }else{
+            //no file to add
+        }
+        return $errorMsg;
+    }
+
+    public  function AddArticle($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt){
+        $validateMsg = $this->validateArticleInput($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt);
+        if ($validateMsg != ""){
+            //Invalid
+            return $validateMsg;
+        }else{
+            //Add Article
+            return "valid";//TODO: upload and add to DB
+        }
+    }
+
     private function validateArticleTextFields($headline, $description, $pText, $pCapt,$sText,$sCapt,$cText,$cCapt){
         $errorMsg = "";
         if ($headline == "") {
@@ -107,15 +143,4 @@ class MyArticlesControl
         return $errorMsg;
     }
 
-
-    public  function AddArticle($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt){
-        $validateMsg = $this->validateArticleInput($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt);
-        if ($validateMsg != ""){
-            //Invalid
-            return $validateMsg;
-        }else{
-            //Add Article
-            return "valid";//TODO: upload and add to DB
-        }
-    }
 }
