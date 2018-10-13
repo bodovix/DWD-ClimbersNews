@@ -31,6 +31,9 @@ $myArtCtr = new MyArticlesControl();
                         </div>
                     </div>
                 </nav>
+                <div id="addResultMessage" class="alert d-none">
+                    dsfg
+                </div>
                 <!--:::::::::::::::::::::::::::Article HEADER INFO::::::::::::::::::::::::::-->
                 <div id="AddFormHeaderSection">
                     <div class="text-center">Header</div>
