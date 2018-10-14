@@ -17,3 +17,9 @@ define('URLROOT', 'https://mayar.abertay.ac.uk/~1701267/sites/ClimbersNews/');
 
 // Site Name
 define('SITENAME', 'Climbers News');
+
+
+//Uploads
+define('IMAGEFOLDER','/uploads/articles/images/');
+define('AUDIOFOLDER','/uploads/articles/audio/');
+define('VIDEOFOLDER','/uploads/articles/videos/');

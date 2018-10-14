@@ -9,6 +9,28 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+echo "upload_max_filesize ".ini_get("upload_max_filesize")."<br>";
+echo "post_maxSize ".ini_get("post_max_size")."<br>";
+echo "memory_limmit ".ini_get("memory_limit")."<br>";
+echo "max_input_limmit ".ini_get("max_input_time")."<br>";
+echo "max_execution_time ".ini_get("max_execution_time")."<br>";
+
+set_time_limit(0);
+ini_set('upload_max_filesize', '50M');
+ini_set('post_max_size', '300M');
+ini_set('memory_limit', '400M');
+ini_set('max_input_time', 4000); // Play with the values
+ini_set('max_execution_time', 4000); // Play with the values
+echo "<br><br><br>";
+echo "upload_max_filesize ".ini_get("user_ini.filename")."<br>";
+echo "upload_max_filesize ".ini_get("upload_max_filesize")."<br>";
+echo "post_max_size ".ini_get("post_max_size")."<br>";
+echo "memory_limmit ".ini_get("memory_limit")."<br>";
+echo "max_input_limmit ".ini_get("max_input_time")."<br>";
+echo "max_execution_time ".ini_get("max_execution_time")."<br>";
+
+
+
 require_once '../../Model/Article.php';
 require_once  '../../config/config.php';
 require_once '../MyArticlesControl.php';

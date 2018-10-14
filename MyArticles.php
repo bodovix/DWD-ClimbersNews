@@ -7,6 +7,7 @@ require_once  'config/config.php';
 <?php
 include_once 'Includes/Header.php';
 include_once 'Includes/MyArticlesNav.php';
+
 ?>
 
 <script src="View/JSHandlers/MyArticlesJS.js"></script>
