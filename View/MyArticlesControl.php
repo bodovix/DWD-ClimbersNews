@@ -267,18 +267,18 @@ class MyArticlesControl
 
     private function uploadMediaToServer($file, $mediaType)
     {
-//        // set up basic SSL connection
-//        $ftp_server = "mayar.abertay.ac.uk";
-//        $ftp_conn = ftp_connect ($ftp_server,22) or die("Could not connect to $ftp_server");
-//        $ftp_username ="1701267";
-//        $ftp_userpass = "123Haggis0nToast123";
-////        // login
-//        $login = ftp_login($ftp_conn, $ftp_username, $ftp_userpass);
-////
-////        // then do something...
-//        echo $login;
-////        // close SSL connection
-//        ftp_close($ftp_conn);
+
+        // set up basic SSL connection
+        $ftp_server = "mayar.abertay.ac.uk";
+        $ftp_conn = ftp_connect ($ftp_server,22) or die("Could not connect to $ftp_server"); // might need sftp
+        $ftp_username ="1701267";
+        $ftp_userpass = "123Haggis0nToast123";
+        // login
+        $login = ftp_login($ftp_conn, $ftp_username, $ftp_userpass);
+        // then do something...
+        echo "Login: ".$login . '<br/>';
+        // close SSL connection
+        ftp_close($ftp_conn);
 ///
         $msg = is_readable(APPROOT.IMAGEFOLDER) ? $msg = 'File is readable'
             : $msg = 'File is not readable';

@@ -22,6 +22,7 @@ ini_set('memory_limit', '400M');
 ini_set('max_input_time', 4000); // Play with the values
 ini_set('max_execution_time', 4000); // Play with the values
 echo "<br><br><br>";
+echo "file_uploads ".ini_get("file_uploads")."<br>";
 echo "upload_max_filesize ".ini_get("user_ini.filename")."<br>";
 echo "upload_max_filesize ".ini_get("upload_max_filesize")."<br>";
 echo "post_max_size ".ini_get("post_max_size")."<br>";
