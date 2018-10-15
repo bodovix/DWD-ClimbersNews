@@ -23,3 +23,7 @@ define('SITENAME', 'Climbers News');
 define('IMAGEFOLDER','/uploads/articles/images/');
 define('AUDIOFOLDER','/uploads/articles/audio/');
 define('VIDEOFOLDER','/uploads/articles/videos/');
+
+define('IMAGEDATABASE','uploads/articles/images/');
+define('AUDIODATABSE','uploads/articles/audio/');
+define('VIDEODATABSE','uploads/articles/videos/');

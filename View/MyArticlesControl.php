@@ -323,7 +323,7 @@ class MyArticlesControl
 
                 $didUpload = move_uploaded_file($file['tmp_name'], APPROOT.IMAGEFOLDER.$file['name']);
                 if ($didUpload) {
-                    return APPROOT.IMAGEFOLDER.$file['name'];
+                    return IMAGEDATABASE.$file['name'];
 
                 } else {
                     $errorMessage = "An error occurred moving file to Website. Please try again or contact the admin";
