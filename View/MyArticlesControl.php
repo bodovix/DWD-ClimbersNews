@@ -93,7 +93,7 @@ class MyArticlesControl
         //Check media type is valid:
         if (in_array($type,$this->mediaTypeOptions)){
         }else{
-            $errorMsg =$sectionName.": Media Type not valid";
+            return $sectionName.": Media Type not valid";
         }
 
         if ($type != null){
@@ -101,45 +101,47 @@ class MyArticlesControl
                 //=======General File checks
                 //is not null
                 if ($file == null){
-                    $errorMsg = $sectionName.": A file must be selected to match the Media Type";
-                    return $errorMsg;
+                    return $sectionName.": A file must be selected to match the Media Type";
                 }
                 //uploaded successfully (error = 0)
                 $fileError = $this->checkErrorCode($file['error']);
                 if ($fileError != 0){
-                    $errorMsg = $fileError;
-                    return $errorMsg;
+                    return $sectionName.": ".$fileError;
                 }
                 //is only 1 file
                 if (count($file['name']) > 1){
-                    $errorMsg = $sectionName.": Only 1 File can be added at a time";
-                    return $errorMsg;
+                    return $sectionName.": Only 1 File can be added at a time";
                 }
                 //======Type Specific checks
                 if ($type == $this->mediaTypeOptions[1]){
                     //Is Image
                     //check uploads folder exists:
                     if(!is_dir(APPROOT.IMAGEFOLDER)){
-                        return "uploads folder not found";
+                        return "Server  Error: Image uploads folder not found. Please Contact Support";
                     }
                     //check if file exists
                     if (file_exists(APPROOT.IMAGEFOLDER.$file['name'])) {
-                        $errorMsg = "Sorry, file already exists.";
+                        return  $sectionName.": Sorry, file already exists.";
                     }
                     //size within limit for type
                     if ($file['size'] > $this->maxImageSizeBytes){
 
                         $sizeInKb = ceil($file['size'] /$this->bytesToKb );
-                        $errorMsg = $sectionName.": cover Image to big(". $sizeInKb ."KB). file cannot exceed ".($this->maxImageSizeBytes /$this->bytesToKb)."KB";
+                        return $sectionName.": cover Image to big(". $sizeInKb ."KB). file cannot exceed ".($this->maxImageSizeBytes /$this->bytesToKb)."KB";
                     }
                     //is valid image file (jpg and png)
                     $minedFileType = mime_content_type($file['tmp_name']);
                     if($minedFileType == 'image/jpeg' || $minedFileType == 'image/png') {
                         //valid
                     }else{
-                        $errorMsg = $sectionName.": Images must be valid jpeg or png file.";
+                        return $sectionName.": Images must be valid jpeg or png file.";
                     }
-
+                    if(!is_readable(APPROOT.IMAGEFOLDER)){
+                        return 'Server Error: Image Directory is not readable. Please Contact Support';
+                    }
+                    if(!is_writable(APPROOT.IMAGEFOLDER)){
+                        return 'Server Error: Image Directory is not writable. Please Contact Support';
+                    }
                 }
                 if ($type == $this->mediaTypeOptions[2]){
                     //Is Video
@@ -187,7 +189,10 @@ class MyArticlesControl
             return $validateMsg;
         }else{
             //Upload CoverImage
-            $pathToCoverImage = $this->uploadMediaToServer($coverImage,$this->mediaTypeOptions[1]);
+            $pathToCoverImage = $this->uploadMediaToServer($coverImage,$this->mediaTypeOptions[1],$validateMsg);
+            if ($validateMsg != ""){
+                return $validateMsg;
+            }
             //Upload Primary media (if Required)
         //    $pathToPrimaryMedia = $this->uploadMediaToServer($pUrl,$pType);
             //Upload Secondary media (if Required)
@@ -197,7 +202,7 @@ class MyArticlesControl
 
             //Add Article
 
-            return ""; APPROOT.IMAGEFOLDER.$coverImage['name'];//TODO: upload and add to DB
+            return "";//TODO: upload and add to DB
         }
     }
 
@@ -265,33 +270,15 @@ class MyArticlesControl
         return $return;
     }
 
-    private function uploadMediaToServer($file, $mediaType)
+    private function uploadMediaToServer($file, $mediaType,&$errorMessage)
     {
 
-        // set up basic SSL connection
-        $ftp_server = "mayar.abertay.ac.uk";
-        $ftp_conn = ftp_connect ($ftp_server,22) or die("Could not connect to $ftp_server"); // might need sftp
-        $ftp_username ="1701267";
-        $ftp_userpass = "123Haggis0nToast123";
-        // login
-        $login = ftp_login($ftp_conn, $ftp_username, $ftp_userpass);
-        // then do something...
-        echo "Login: ".$login . '<br/>';
-        // close SSL connection
-        ftp_close($ftp_conn);
-///
-        $msg = is_readable(APPROOT.IMAGEFOLDER) ? $msg = 'File is readable'
-            : $msg = 'File is not readable';
-        echo $msg . '<br/>';
 
-        $msg = is_writable(APPROOT.IMAGEFOLDER) ? $msg = 'File is writable'
-            : $msg = 'File is not writable';
-        echo $msg . '<br/>';
-
+        echo "PHP VERSION:". phpversion();
 
         $newFileUrl =null;
         if ($mediaType == $this->mediaTypeOptions[0]){
-            //None - do nothing
+            //No media to upload for section - do nothing
             return null;
         }
         if ($mediaType == $this->mediaTypeOptions[1]){
@@ -301,7 +288,7 @@ class MyArticlesControl
                 if ($didUpload) {
                     return "";
                 } else {
-                    echo "An error occurred somewhere. Try again or contact the admin";
+                    $errorMessage = "An unknown error occurred somewhere. Try again or contact the admin";
                 }
         }
         if ($mediaType == $this->mediaTypeOptions[2]){
