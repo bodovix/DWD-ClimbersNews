@@ -181,31 +181,6 @@ class MyArticlesControl
         }
         return $errorMsg;
     }
-
-    public  function AddArticle($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt){
-        $validateMsg = $this->validateArticleInput($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt);
-        if ($validateMsg != ""){
-            //Invalid
-            return $validateMsg;
-        }else{
-            //Upload CoverImage
-            $pathToCoverImage = $this->uploadMediaToServer($coverImage,$this->mediaTypeOptions[1],$validateMsg);
-            if ($validateMsg != ""){
-                return $validateMsg;
-            }
-            //Upload Primary media (if Required)
-        //    $pathToPrimaryMedia = $this->uploadMediaToServer($pUrl,$pType);
-            //Upload Secondary media (if Required)
-        //    $pathToSecondaryMedia = $this->uploadMediaToServer($sUrl,$sType);
-            //Upload Conclusion media (if Required)
-           // $pathToConclusionMedia = $this->uploadMediaToServer($cUrl,$cType);
-
-            //Add Article
-
-            return "";//TODO: upload and add to DB
-        }
-    }
-
     private function validateArticleTextFields($headline, $description, $pText, $pCapt,$sText,$sCapt,$cText,$cCapt){
         $errorMsg = "";
         if ($headline == "") {
@@ -240,7 +215,6 @@ class MyArticlesControl
         }
         return $errorMsg;
     }
-
     private function checkErrorCode($phpFileErrorCode){
         $return = "";
         if ($phpFileErrorCode == 0){
@@ -270,13 +244,76 @@ class MyArticlesControl
         return $return;
     }
 
+    public  function AddArticle($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt,$status,$authorID){
+        $validateMsg = $this->validateArticleInput($headline, $coverImage, $category, $description, $pText, $pUrl, $pType, $pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt);
+        if ($validateMsg != ""){
+            //Invalid
+            return $validateMsg;
+        }else{
+            //Upload CoverImage
+            $pathToCoverImage = $this->uploadMediaToServer($coverImage,$this->mediaTypeOptions[1],$validateMsg);
+            if ($validateMsg != ""){
+                return $validateMsg;
+            }
+            //Upload Primary media (if Required)
+            $pathToPrimaryMedia = $this->uploadMediaToServer($pUrl,$pType,$validateMsg);
+            if ($validateMsg != ""){
+                //if file upload failed rollback changes
+                if (file_exists($pathToCoverImage)){
+                    unlink($pathToCoverImage);
+                }
+                return $validateMsg;
+            }
+            //Upload Secondary media (if Required)
+            $pathToSecondaryMedia = $this->uploadMediaToServer($sUrl,$sType,$validateMsg);
+            if ($validateMsg != ""){
+                //if file upload failed rollback changes
+                if (file_exists($pathToCoverImage)){
+                    unlink($pathToCoverImage);
+                }
+                if (file_exists($pathToPrimaryMedia)){
+                    unlink($pathToPrimaryMedia);
+                }
+                return $validateMsg;
+            }
+            //Upload Conclusion media (if Required)
+            $pathToConclusionMedia = $this->uploadMediaToServer($cUrl,$cType,$validateMsg);
+            if ($validateMsg != ""){
+                //if file upload failed rollback changes
+                if (file_exists($pathToCoverImage)){
+                    unlink($pathToCoverImage);
+                }
+                if (file_exists($pathToPrimaryMedia)){
+                    unlink($pathToPrimaryMedia);
+                }
+                if (file_exists($pathToSecondaryMedia)){
+                    unlink($pathToSecondaryMedia);
+                }
+                return $validateMsg;
+            }
+            //Add Article
+            $resultJsn = $this->articleModel->CreateArticle($headline,$category,$description,$pText,$pathToCoverImage,$pathToPrimaryMedia,$pType,$pCapt,$sText,$pathToSecondaryMedia,$sType,$sCapt,$cText,$pathToConclusionMedia,$cType,$cCapt,$status,$authorID);
+            $result = json_decode($resultJsn);
+            if ($result == true){
+                //success
+            }else{
+                //rollback changes
+                if (file_exists($pathToCoverImage)){
+                    unlink($pathToCoverImage);
+                }
+                if (file_exists($pathToPrimaryMedia)){
+                    unlink($pathToPrimaryMedia);
+                }
+                if (file_exists($pathToSecondaryMedia)){
+                    unlink($pathToSecondaryMedia);
+                }
+                return "SQL Error. please try again or contact support";
+            }
+            return "";
+        }
+    }
     private function uploadMediaToServer($file, $mediaType,&$errorMessage)
     {
-
-
-        echo "PHP VERSION:". phpversion();
-
-        $newFileUrl =null;
         if ($mediaType == $this->mediaTypeOptions[0]){
             //No media to upload for section - do nothing
             return null;
@@ -286,9 +323,10 @@ class MyArticlesControl
 
                 $didUpload = move_uploaded_file($file['tmp_name'], APPROOT.IMAGEFOLDER.$file['name']);
                 if ($didUpload) {
-                    return "";
+                    return APPROOT.IMAGEFOLDER.$file['name'];
+
                 } else {
-                    $errorMessage = "An unknown error occurred somewhere. Try again or contact the admin";
+                    $errorMessage = "An error occurred moving file to Website. Please try again or contact the admin";
                 }
         }
         if ($mediaType == $this->mediaTypeOptions[2]){
@@ -302,6 +340,6 @@ class MyArticlesControl
             return "Not implemented Yet";
         }
 
-        return $newFileUrl;
+        return null;
     }
 }

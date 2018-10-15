@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="AbertaySutdentDB" uuid="474f51ef-01d4-4801-a13d-8033287b9107">
+    <data-source source="LOCAL" name="AbertayDB" uuid="89a980f5-b18b-4f55-9872-1fed471fe5b5">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>

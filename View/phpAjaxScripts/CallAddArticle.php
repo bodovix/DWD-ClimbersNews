@@ -8,7 +8,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+session_start();
 //echo "upload_max_filesize ".ini_get("upload_max_filesize")."<br>";
 //echo "post_maxSize ".ini_get("post_max_size")."<br>";
 //echo "memory_limmit ".ini_get("memory_limit")."<br>";
@@ -29,6 +29,7 @@ error_reporting(E_ALL);
 //echo "max_input_limmit ".ini_get("max_input_time")."<br>";
 //echo "max_execution_time ".ini_get("max_execution_time")."<br>";
 
+echo "PHP VERSION:". phpversion();
 
 
 require_once '../../Model/Article.php';
@@ -148,4 +149,4 @@ if (isset($_POST['addConclusionCaption'])){
 
 
 $myArticleControl = new MyArticlesControl();
-echo $myArticleControl->AddArticle($header,$coverImg,$articleCat,$desc,$pText,$pUrl,$pType,$pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt);
+echo $myArticleControl->AddArticle($header,$coverImg,$articleCat,$desc,$pText,$pUrl,$pType,$pCapt,$sText,$sUrl,$sType,$sCapt,$cText,$cUrl,$cType,$cCapt,"active",$_SESSION['userId']);

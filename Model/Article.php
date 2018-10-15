@@ -32,7 +32,6 @@ class Article
         }
     }
 
-    //TODO: get all
     public function GetAllArticleDetails (){
 
         $query = $this->con-> prepare("select id,coverImage,headline,description,createdOn 
@@ -53,7 +52,58 @@ class Article
             return null;
         }
     }
-    //TODO: Create
+
+    public  function CreateArticle($headline,$category,$description,$primaryText,$coverImage,$primaryMediaUrl,$primaryMediaType,$primaryMediaCaption,$secondaryText,$secondaryMediaUrl,$secondaryMediaType,$secondaryMediaCaption,$conclusionText,$conclusionMediaUrl,$conclusionMediaType,$conclusionMediaCaption,$statusCode,$author){
+         $query = $this->con-> prepare("insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,primaryMediaCaption,secondaryText,secondaryMediaUrl,secondaryMediaType,secondaryMediaCaption,conclusionText,conclusionMediaUrl,conclusionMediaType,conclusionMediaCaption,statusCode,author) 
+                                                values(
+                                        /*headline*/        		:headline
+                                        /*category*/        		,:category
+                                        /*description*/        		,:description
+                                        /*primaryText*/       		,:primaryText
+                                        /*coverImage*/				,:coverImage
+                                        /*primaryMediaUrl*/			,:primaryMediaUrl
+                                        /*primaryMediaType*/		,:primaryMediaType
+                                        /*primaryMediaCaption*/		,:primaryMediaCaption
+                                        /*secondaryText*/			,:secondaryText
+                                        /*secondaryMediaUrl*/		,:secondaryMediaUrl
+                                        /*secondaryMediaType*/		,:secondaryMediaType
+                                        /*secondaryMediaCaption*/	,:secondaryMediaCaption
+                                        /*conclusionText*/ 			,:conclusionText
+                                        /*conclusionMediaUrl*/ 		,:conclusionMediaUrl
+                                        /*conclusionMediaType*/ 	,:conclusionMediaType
+                                        /*conclusionMediaCaption*/ 	,:conclusionMediaCaption
+                                        /*statusCode*/				,:statusCode
+                                        /*author*/					,:author
+                                        );"
+         );
+        $success = $query -> execute([
+            'headline' => $headline,
+            'category' =>$category,
+            'description' =>$description,
+            'primaryText' =>$primaryText,
+            'coverImage' =>$coverImage,
+            'primaryMediaUrl' =>$primaryMediaUrl,
+            'primaryMediaType' =>$primaryMediaType,
+            'primaryMediaCaption' =>$primaryMediaCaption,
+            'secondaryText' =>$secondaryText,
+            'secondaryMediaUrl' =>$secondaryMediaUrl,
+            'secondaryMediaType' =>$secondaryMediaType,
+            'secondaryMediaCaption' =>$secondaryMediaCaption,
+            'conclusionText' =>$conclusionText,
+            'conclusionMediaUrl' =>$conclusionMediaUrl,
+            'conclusionMediaType' =>$conclusionMediaType,
+            'conclusionMediaCaption' =>$conclusionMediaCaption,
+            'statusCode' =>$statusCode,
+            'author' =>$author
+            ]);
+
+        if ($success && $query -> rowCount() > 0){
+            $json = json_encode(true);
+            return $json;
+        }else{
+            return json_encode(false);
+        }
+    }
     //TODO: delete
     //TODO: update
 
