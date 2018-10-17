@@ -4,7 +4,7 @@ $(function(){
     var addResultMessage;
     //AddArticle Btn Click
     $(document).on('click','#addArticleNavBtn',function () {
-        mainContainer.load('View/Includes/articles/AddArticle.php',function () {
+        mainContainer.load('View/Includes/AddArticle.php',function () {
             togglePrimaryUploadHide();
             toggleSecondaryUploadHide();
             toggleConclusionUploadHide();

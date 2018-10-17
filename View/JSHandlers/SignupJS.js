@@ -17,7 +17,7 @@ $(function() {
         clearRegForm();
     });
     //Register
-    $(document).on('click','#registerBtn',function () {
+    $(document).unbind("click").on('click','#registerBtn',function () {
         var alertMsgBox =  $('#regAlertMessage');
         var validateForm = validateRegisterForm();
         if (validateForm.error){
@@ -35,7 +35,7 @@ $(function() {
                     showErrorMsg(alertMsgBox,data);
                     return;
                 } else{
-                    showSuccessMessage(alertMsgBox,"Registration Successful")
+                    showSuccessMessage(alertMsgBox,"Registration Successful");
                     clearRegForm();
                 }
             });

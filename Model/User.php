@@ -60,7 +60,7 @@ class User
         }
     }
 
-    //TODO: Create User
+
     public function creteUser($email,$password,$phoneNumber,$forename,$surname){
         $createdOn = date('Y-m-d',strtotime("now"));
         $query = $this->con-> prepare("insert into user (userStatus,userRole,email,password,phoneNumber,forename,surname,createdOn) 
