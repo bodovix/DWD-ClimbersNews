@@ -75,9 +75,5 @@ switch($urlQueries["week"]){
 ?>
 
 <?php
-echo "Week " .$urlQueries["week"]."<br>";
-echo "Path to page  ".$pathToPage."<br>";
-echo "APPROOT   ".APPROOT."<br>";
-echo "URLROOT   ".URLROOT."<br>";
 include_once 'View/Includes/Footer.php';
 ?>
