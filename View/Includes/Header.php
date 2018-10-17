@@ -70,8 +70,6 @@ EOT;
                     }
                     echo $link;
                 ?>
-
-
             </ul>
         </div>
     </div>

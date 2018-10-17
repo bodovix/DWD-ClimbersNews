@@ -10,9 +10,9 @@ $myTest = new FooterControl();
             <p class="mb-0">1701267@uad.ac.uk</p>
         </div>
 
-        <did class=" bg-secondary col offset-md-6 offset-sm-0">
+        <div class=" bg-secondary col offset-md-6 offset-sm-0">
            <?php echo $myTest->loadRelatedPageLink($pathToPage) ?>
-        </did>
+        </div>
     </div>
 </footer>
 <!--dependencies for bootstrap for Bootstrap functionality-->
