@@ -12,8 +12,8 @@ define('DB_NAME', 'sql1701267');
 define('APPROOT', dirname(dirname(__FILE__)));
 
 // URL Root
-define('URLROOT', 'http://localhost:63342/DWD-ClimbersNews/');
-//define('URLROOT', 'https://mayar.abertay.ac.uk/~1701267/sites/ClimbersNews/');
+//define('URLROOT', 'http://localhost:63342/DWD-ClimbersNews/');
+define('URLROOT', 'https://mayar.abertay.ac.uk/~1701267/sites/ClimbersNews/');
 
 // Site Name
 define('SITENAME', 'Climbers News');

@@ -5,7 +5,8 @@ $(function() {
 
     var formContainer = $('#signupFormsContainer');
     //Load Register Form
-    $(document).on('click','#openRegisterForm',function () {
+    $(document).on('click','input#openRegisterForm',function () {
+
         formContainer.load('View/Includes/Register.php');
     });
     //Load Login Form
@@ -17,7 +18,7 @@ $(function() {
         clearRegForm();
     });
     //Register
-    $(document).unbind("click").on('click','#registerBtn',function () {
+    $(document).on('click','#registerBtn',function () {
         var alertMsgBox =  $('#regAlertMessage');
         var validateForm = validateRegisterForm();
         if (validateForm.error){

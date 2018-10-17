@@ -8,6 +8,7 @@ require_once  'config/config.php';
 include_once 'View/Includes/Header.php';
 include_once 'View/Includes/MyArticlesNav.php';
 
+include_once 'Controller/AuthorCheck.php';
 ?>
 
 <script src="View/JSHandlers/MyArticlesJS.js"></script>

@@ -5,7 +5,6 @@
  * Date: 17/10/2018
  * Time: 16:10
  */
-session_start();
 
 if(isset($_SESSION['admin'])){
 }else{

@@ -14,7 +14,7 @@ include_once 'View/Includes/Header.php';
 
 ?>
 
-    <script src="View/JSHandlers/SignupJS.js"></script>
+    <script src="../View/JSHandlers/SignupJS.js"></script>
 <div id="signupFormsContainer" class="container">
     <?php
         include_once "View/Includes/Login.php";
