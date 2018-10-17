@@ -5,8 +5,8 @@ require_once  'config/config.php';
 
 ?>
 <?php
-include_once 'Includes/Header.php';
-include_once 'Includes/MyArticlesNav.php';
+include_once 'View/Includes/Header.php';
+include_once 'View/Includes/MyArticlesNav.php';
 
 ?>
 
@@ -24,7 +24,7 @@ include_once 'Includes/MyArticlesNav.php';
 
 <?php
 $pathToPage = URLROOT.'Evaluation.php?week=5';
-include 'Includes/Footer.php';
+include 'View/Includes/Footer.php';
 ?>
 </html>
 

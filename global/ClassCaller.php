@@ -1,6 +1,6 @@
 <?php
 require_once  '../global/ConnectionSingleton.php';
-require_once '../View/IndexControl.php';
+require_once '../Controller/IndexControl.php';
 require_once '../Model/Article.php';
 require_once  '../config/config.php';
 

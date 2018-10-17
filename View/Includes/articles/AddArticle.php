@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 
 
-require_once '../../View/MyArticlesControl.php';
+require_once '../../Controller/MyArticlesControl.php';
 
 $myArtCtr = new MyArticlesControl();
 ?>

@@ -1,7 +1,7 @@
 <html>
 <?php
 require_once  'global/ConnectionSingleton.php';
-require_once 'View/ReadArticlesControl.php';
+require_once 'Controller/ReadArticlesControl.php';
 require_once  'config/config.php';
 
 
@@ -11,7 +11,7 @@ parse_str($_SERVER['QUERY_STRING'], $urlQueries);
 $relatedArticlesControl = new ReadArticlesControl();
 ?>
 <?php
-include_once 'Includes/Header.php';
+include_once 'View/Includes/Header.php';
 
 
 
@@ -30,7 +30,7 @@ include_once 'Includes/Header.php';
 
 <?php
 $pathToPage = URLROOT.'Evaluation.php?week=2';
-include 'Includes/Footer.php';
+include 'View/Includes/Footer.php';
 ?>
 </html>
 

@@ -33,7 +33,7 @@ echo "PHP VERSION:". phpversion();
 
 
 require_once '../../Model/Article.php';
-require_once  '../../config/config.php';
+require_once '../../config/config.php';
 require_once '../MyArticlesControl.php';
 
 //Check all fields sent via post

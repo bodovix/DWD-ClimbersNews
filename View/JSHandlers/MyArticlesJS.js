@@ -4,7 +4,7 @@ $(function(){
     var addResultMessage;
     //AddArticle Btn Click
     $(document).on('click','#addArticleNavBtn',function () {
-        mainContainer.load('Includes/articles/AddArticle.php',function () {
+        mainContainer.load('View/Includes/articles/AddArticle.php',function () {
             togglePrimaryUploadHide();
             toggleSecondaryUploadHide();
             toggleConclusionUploadHide();
@@ -64,7 +64,7 @@ $(function(){
             $.ajax({
                 type: "POST",
                 data: formData,
-                url: 'View/phpAjaxScripts/CallAddArticle.php',
+                url: 'Controller/phpAjaxScripts/CallAddArticle.php',
                 //  dataType: "html",
                 //  async: true,
                 cache: false,

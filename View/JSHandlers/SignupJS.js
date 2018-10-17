@@ -6,11 +6,11 @@ $(function() {
     var formContainer = $('#signupFormsContainer');
     //Load Register Form
     $(document).on('click','#openRegisterForm',function () {
-        formContainer.load('Includes/Register.php');
+        formContainer.load('View/Includes/Register.php');
     });
     //Load Login Form
     $(document).on('click','#openLoginForm',function () {
-        formContainer.load('Includes/Login.php');
+        formContainer.load('View/Includes/Login.php');
     });
     //ClearForm
     $(document).on('click','#clearRegFormBtn',function () {
@@ -29,7 +29,7 @@ $(function() {
             hideMessageBox(alertMsgBox);
 
             var formData = $('form#registerForm').serialize();
-            $.post('View/phpAjaxScripts/CallRegisterUser.php',formData,function (data) {
+            $.post('Controller/phpAjaxScripts/CallRegisterUser.php',formData,function (data) {
                 if (data !== ""){
                     //Error
                     showErrorMsg(alertMsgBox,data);
@@ -72,7 +72,7 @@ $(function() {
             $.ajax({
                 type: "POST",
                 data: formData,
-                url: 'View/phpAjaxScripts/CallLogin.php',
+                url: 'Controller/phpAjaxScripts/CallLogin.php',
                 //  dataType: "html",
                 //  async: true,
                 success: function(data) {
@@ -93,7 +93,7 @@ $(function() {
 
     //Logout
     $(document).on('click','#LogoutLink',function () {
-        $.post('View/phpAjaxScripts/CallLogout.php');
+        $.post('Controller/phpAjaxScripts/CallLogout.php');
         location.reload();
     });
 

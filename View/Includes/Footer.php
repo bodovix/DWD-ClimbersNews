@@ -1,6 +1,6 @@
 <?php
 
-require_once 'View/FooterControl.php';
+require_once 'Controller/FooterControl.php';
 $myTest = new FooterControl();
 ?>
 <footer class="position-sticky " style="position: absolute;bottom: 0;">

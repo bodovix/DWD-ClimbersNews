@@ -7,23 +7,23 @@
  */
 
 
-include_once 'Model/Article.php';
+include_once 'Model/ArticleCategory.php';
 
 
 
 class SearchBarControl
 {
-    private  $articleModel;
+    private  $articleCategoriesModel;
     private $con;
     public function __construct()
     {
-        $this->articleModel = new Article();
+        $this->articleCategoriesModel = new ArticleCategory();
         $this->con = ConnectionSingleton::Instance()->GetCon();
     }
 
 
     public function displayCategories(){
-        $categories = json_decode($this->articleModel->loadArticleCategories());
+        $categories = json_decode($this->articleCategoriesModel->loadArticleCategories());
 
         if (count($categories) > 0) {
             $html = null;

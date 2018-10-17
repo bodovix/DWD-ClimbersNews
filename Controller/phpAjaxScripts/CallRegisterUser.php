@@ -2,7 +2,7 @@
 
 
 require_once '../../Model/User.php';
-require_once  '../../config/config.php';
+require_once '../../config/config.php';
 require_once '../SignupControl.php';
 
 //get posts
