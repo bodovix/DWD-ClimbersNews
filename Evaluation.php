@@ -53,7 +53,7 @@ switch($urlQueries["week"]){
         if(file_exists(APPROOT.'/View/Includes/Evaluations/Evaluation-Week-5.php'))
         {
             include_once('View/Includes/Evaluations/Evaluation-Week-5.php');
-            $pathToPage = URLROOT.'TODO:::::::::::.php';
+            $pathToPage = URLROOT.'MyArticles.php';
         }else{
             echo 'File Not found';
         }
