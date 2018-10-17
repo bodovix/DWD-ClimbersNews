@@ -49,6 +49,24 @@ switch($urlQueries["week"]){
             echo 'File Not found';
         }
         break;
+    case '5':
+        if(file_exists(APPROOT.'View/Includes/Evaluations/Evaluation-Week-5.php'))
+        {
+            include_once('View/Includes/Evaluations/Evaluation-Week-5.php');
+            $pathToPage = URLROOT.'TODO:::::::::::.php';
+        }else{
+            echo 'File Not found';
+        }
+        break;
+    case '4':
+        if(file_exists(APPROOT.'View/Includes/Evaluations/Evaluation-Week-6.php'))
+        {
+            include_once('View/Includes/Evaluations/Evaluation-Week-6.php');
+            $pathToPage = URLROOT.'Index.php';
+        }else{
+            echo 'File Not found';
+        }
+        break;
 
     default:
         echo 'No evaluation found for week: ' . $urlQueries["week"];
