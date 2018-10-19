@@ -165,28 +165,46 @@ class MyArticlesControl
                         $errorMsg = $sectionName.": Video must be valid mp4 file";
                     }
                     if(!is_readable(APPROOT.VIDEOFOLDER)){
-                        return 'Server Error: Image Directory is not readable. Please Contact Support';
+                        return 'Server Error: Video Directory is not readable. Please Contact Support';
                     }
                     if(!is_writable(APPROOT.VIDEOFOLDER)){
-                        return 'Server Error: Image Directory is not writable. Please Contact Support';
+                        return 'Server Error: Video Directory is not writable. Please Contact Support';
                     }
                     //==============================================================================
 
                 }
                 if ($type == $this->mediaTypeOptions[3]){
                     //Is Audio
-                    $errorMsg = $sectionName.": Audio Not Supported Yet";
-                    return $errorMsg;
+                    //=====================================AUDIO===================================
+                    //check uploads folder exists:
+                    if(!is_dir(APPROOT.AUDIOFOLDER)){
+                        return "Server  Error: Audio uploads folder not found. Please Contact Support";
+                    }
+                    //check if file exists
+                    if (file_exists(APPROOT.AUDIOFOLDER.$file['name'])) {
+                        return  $sectionName.": Sorry, file already exists.";
+                    }
                     //size within limit for type
-                    //is valid image file   All the audio files format has "audio/" common. So, we can
-                    // check the $_FILES['file']['mime_type'] and apply a preg_match() to check if "audio/" exists in this mime type or not /mime_content_type
-                    //
-                    //
-                    //is valid file type of (mp3 or wav)
-                    //if file already exists check
+                    if ($file['size'] > $this->maxAudioSizeBytes){
+                        $sizeInKb = ceil($file['size'] /$this->bytesToKb );
+                        $errorMsg = $sectionName.": cover Audio File too big(". $sizeInKb ."KB). file cannot exceed ".($this->maxAudioSizeBytes /$this->bytesToKb)."KB";
+                    }
+                    //is valid Audio file (mime_content_type ) audio/mp3,audio/wav
+                    $minedFileType = mime_content_type($file['tmp_name']);
+                    if($minedFileType == 'audio/mp3' || $minedFileType != 'audio/wav' ) {
+                        //valid
+                    }else{
+                        $errorMsg = $sectionName.": Audio must be valid mp3 or wav file";
+                    }
+                    if(!is_readable(APPROOT.AUDIOFOLDER)){
+                        return 'Server Error: Audio Directory is not readable. Please Contact Support';
+                    }
+                    if(!is_writable(APPROOT.AUDIOFOLDER)){
+                        return 'Server Error: Audio Directory is not writable. Please Contact Support';
+                    }
                 }
+                //=================================================================================
             }
-
         }else{
             //no file to add
         }
@@ -352,9 +370,13 @@ class MyArticlesControl
         }
         if ($mediaType == $this->mediaTypeOptions[3]){
             //Audio
-            //TODO: hear back from tutor about what to do here
-            $errorMessage =  "Not implemented Yet";
-            return "";
+            $didUpload = move_uploaded_file($file['tmp_name'], APPROOT.AUDIOFOLDER.$file['name']);
+            if ($didUpload) {
+                return AUDIODATABSE.$file['name'];
+
+            } else {
+                $errorMessage = "An error occurred moving file to Website. Please try again or contact the admin";
+            }
         }
 
         return null;
