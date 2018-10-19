@@ -44,6 +44,15 @@ $(function(){
             togglePrimaryUploadHide();
             toggleSecondaryUploadHide();
             toggleConclusionUploadHide();
+            if (this.id === 'addPrimaryMediaType') {
+                clearSelectedFile(this,$('#addPrimaryUpload'));
+            }
+            if (this.id === 'addSecondaryMediaType') {
+                clearSelectedFile(this,$('#addSecondaryUpload'));
+            }
+            if (this.id === 'addConclusionMediaType') {
+                clearSelectedFile(this,$('#addConclusionUpload'));
+            }
 
             setFilterType($('#addPrimaryMediaType'),$('#addPrimaryUpload'));
             setFilterType($('#addSecondaryMediaType'),$('#addSecondaryUpload'));
@@ -131,6 +140,9 @@ $(function(){
         if(mediaType.val() === 'audio'){
             controlToFilter.attr("accept","audio/mp3,audio/wav");
         }
+    }
+    function clearSelectedFile(trigger,fileUploadToClear) {
+        fileUploadToClear.val("");
     }
 
     function togglePrimaryUploadHide() {
