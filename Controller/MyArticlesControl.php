@@ -18,10 +18,10 @@ class MyArticlesControl
     private $textLengthLimit = 4000;
     private $mediaTypeOptions = ['none','image','video','audio'];
     private $mediaCaptionLengthLimit = 200;
-    private $maxImageSizeBytes = 3000000;
-    private $maxAudioSizeBytes = 10000000;
+    private $maxImageSizeBytes = 2000000;
+    private $maxAudioSizeBytes = 2000000;//10000000;
     private $bytesToKb = 1000;
-    private $maxVideoSizeBytes = 40000000;
+    private $maxVideoSizeBytes = 2000000;//40000000;
 
     public function __construct()
     {
@@ -111,6 +111,7 @@ class MyArticlesControl
                     return $sectionName.": Only 1 File can be added at a time";
                 }
                 //======Type Specific checks
+                //=================================IMAGE================================
                 if ($type == $this->mediaTypeOptions[1]){
                     //Is Image
                     //check uploads folder exists:
@@ -141,23 +142,35 @@ class MyArticlesControl
                         return 'Server Error: Image Directory is not writable. Please Contact Support';
                     }
                 }
+                //=================================================================
+
                 if ($type == $this->mediaTypeOptions[2]){
-                    //Is Video
-                    //$errorMsg = $sectionName.": Video Not Supported Yet";
-                    //return $errorMsg;
-
+                    //====================VIDEO================================================
+                    //check uploads folder exists:
+                    if(!is_dir(APPROOT.VIDEOFOLDER)){
+                        return "Server  Error: Video uploads folder not found. Please Contact Support";
+                    }
+                    //check if file exists
+                    if (file_exists(APPROOT.VIDEOFOLDER.$file['name'])) {
+                        return  $sectionName.": Sorry, file already exists.";
+                    }
                     //size within limit for type
-                            if ($file['size'] > $this->maxVideoSizeBytes){
-
-                                $sizeInKb = ceil($file['size'] /$this->bytesToKb );
-                                $errorMsg = $sectionName.": cover Image to big(". $sizeInKb ."KB). file cannot exceed ".($this->maxVideoSizeBytes /$this->bytesToKb)."KB";
-                            }
+                    if ($file['size'] > $this->maxVideoSizeBytes){
+                        $sizeInKb = ceil($file['size'] /$this->bytesToKb );
+                        $errorMsg = $sectionName.": cover Video too big(". $sizeInKb ."KB). file cannot exceed ".($this->maxVideoSizeBytes /$this->bytesToKb)."KB";
+                    }
                     //is valid video file (mime_content_type ) MP4
-                            $minedFileType = mime_content_type($file['tmp_name']);
-                            if($minedFileType != 'video/mp4') {
-                                $errorMsg = $sectionName.": Images must be valid jpeg or png file";
-                            }
-                    //if file already exists check
+                    $minedFileType = mime_content_type($file['tmp_name']);
+                    if($minedFileType != 'video/mp4') {
+                        $errorMsg = $sectionName.": Video must be valid mp4 file";
+                    }
+                    if(!is_readable(APPROOT.VIDEOFOLDER)){
+                        return 'Server Error: Image Directory is not readable. Please Contact Support';
+                    }
+                    if(!is_writable(APPROOT.VIDEOFOLDER)){
+                        return 'Server Error: Image Directory is not writable. Please Contact Support';
+                    }
+                    //==============================================================================
 
                 }
                 if ($type == $this->mediaTypeOptions[3]){
@@ -329,13 +342,19 @@ class MyArticlesControl
         }
         if ($mediaType == $this->mediaTypeOptions[2]){
             //Video
-            //TODO: hear back from tutor about what to do here
-            return "Not Implemented Yet";
+            $didUpload = move_uploaded_file($file['tmp_name'], APPROOT.VIDEOFOLDER.$file['name']);
+            if ($didUpload) {
+                return VIDEODATABSE.$file['name'];
+
+            } else {
+                $errorMessage = "An error occurred moving file to Website. Please try again or contact the admin";
+            }
         }
         if ($mediaType == $this->mediaTypeOptions[3]){
             //Audio
             //TODO: hear back from tutor about what to do here
-            return "Not implemented Yet";
+            $errorMessage =  "Not implemented Yet";
+            return "";
         }
 
         return null;

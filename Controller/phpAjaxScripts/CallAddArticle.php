@@ -29,7 +29,7 @@ session_start();
 //echo "max_input_limmit ".ini_get("max_input_time")."<br>";
 //echo "max_execution_time ".ini_get("max_execution_time")."<br>";
 
-echo "PHP VERSION:". phpversion();
+//echo "PHP VERSION:". phpversion();
 
 
 require_once '../../Model/Article.php';

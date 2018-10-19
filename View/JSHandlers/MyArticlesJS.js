@@ -102,12 +102,10 @@ $(function(){
     const textLengthLimit = 4000;
     const mediaTypeOptions = ['none','image','video','audio'];
     const mediaCaptionLengthLimit = 200;
-    const maxImageSizeBytes = 3000000;
-    const maxAudioSizeBytes = 10000000;
+    const maxImageSizeBytes = 2000000;
+    const maxAudioSizeBytes = 2000000;// 10000000;
     const bytesToKb = 1000;
-
-
-    const maxVideoSizeBytes = 40000000;
+    const maxVideoSizeBytes = 2000000;// 40000000;
 
 //=======================FUNCTIONS=======================
     function showErrorMsg(alertBox,errorMessage) {
