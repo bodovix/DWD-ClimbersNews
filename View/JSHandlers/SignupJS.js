@@ -276,7 +276,6 @@ $(function() {
         if (password.match(/[a-z]/) && password.match(/[A-Z]/)){
             passwordStrength += 33
         }
-        //TODO: move these match expresions int the php aswell
         if (password.match(/[!@#$%^&*(),=_+£.?":{}|<>]/)){
             passwordStrength += 33;
         }
