@@ -9,6 +9,6 @@
 if(isset($_SESSION['author']) || isset($_SESSION['admin'])){
 }else{
     echo '<script> alert("Authors Only.")</script>';
-    header ("refresh:0;url=index.php");
+    header ("refresh:0;url=Index.php");
     exit();
 }
