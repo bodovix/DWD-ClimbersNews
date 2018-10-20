@@ -17,13 +17,28 @@ include_once 'View/Includes/Header.php';
 
 ?>
 <div class="container">
-    <div id="articleDisplayArea" class="mx-auto">
+       <div id="articleDisplayArea" class="col-12 mx-auto">
         <?php
         if (isset($urlQueries['article'])) {
             echo $relatedArticlesControl->formatArticle($urlQueries['article']);
         }
         ?>
-    </div>
+        </div>
+        <div id="articleCommentsArea" class="col-12 border ">
+            <div class="row">
+                <div class="col font-weight-bold">comments</div>
+                <div class="col-3 font-weight-bold">****</div>
+            </div>
+            <div id="userComment" class="border my-1 mx-1">
+
+                <div class="row">
+                    <div class="col text-info">John - 19/12/2018</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">This article is rubbish!!!!</div>
+                </div>
+            </div>
+        </div>
 </div>
 
 
