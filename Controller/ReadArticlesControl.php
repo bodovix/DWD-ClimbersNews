@@ -82,4 +82,9 @@ EOT;
             return 'Failed to Load Article';
         }
     }
+
+    //TODO:Implement Comments
+    private function renderArticleComment(){
+
+    }
 }

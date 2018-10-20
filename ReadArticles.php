@@ -27,13 +27,15 @@ include_once 'View/Includes/Header.php';
         <div id="articleCommentsArea" class="col-12 border ">
             <div class="row">
                 <div class="col font-weight-bold">comments</div>
+                <button>Add Comment</button>
                 <div class="col-3 font-weight-bold">****</div>
             </div>
             <div id="userComment" class="border my-1 mx-1">
-
                 <div class="row">
                     <div class="col text-info">John - 19/12/2018</div>
                 </div>
+                <button class="btn btn-info p-1">Edit</button>
+                <button class="btn btn-info p-1">Remove</button>
                 <div class="row">
                     <div class="col-12">This article is rubbish!!!!</div>
                 </div>
