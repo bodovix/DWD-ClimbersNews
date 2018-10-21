@@ -84,7 +84,22 @@ EOT;
     }
 
     //TODO:Implement Comments
-    private function renderArticleComment(){
+    public  function displayCommentsForArticle(){
 
+    }
+    private function renderArticleComment($name,$date,$comment){
+$comment = <<<EOT
+ <div id="userComment" class="border my-1 mx-1">
+                <div class="row">
+                    <div class="col text-info">{$name} - {$date}</div>
+                </div>
+                <button class="btn btn-info p-1">Edit</button>
+                <button class="btn btn-info p-1">Remove</button>
+                <div class="row">
+                    <div class="col-12">{$comment}</div>
+                </div>
+            </div>
+EOT;
+    return $comment;
     }
 }
