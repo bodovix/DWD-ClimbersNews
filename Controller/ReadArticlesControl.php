@@ -1,7 +1,9 @@
 <?php
-    include_once 'Model/Article.php';
-    include_once 'Model/Feedback.php';
+
+
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
+}
 class ReadArticlesControl
 {
     public  $isDisabledBtn;
@@ -142,7 +144,7 @@ EOT;
         $comment = <<<EOT
  <div class="userComment border my-1 mx-1">
                 <div class="row">
-                    <div class="col text-info">{$name}</div>
+                    <div class="col text-info">{$name} - {$date}</div>
                 </div>
                 <button class="btn btn-info p-1" {$edit}>Edit</button>
                 <button class="btn btn-info p-1" {$remove}>Remove</button>
@@ -152,5 +154,18 @@ EOT;
             </div>
 EOT;
     return $comment;
+    }
+
+    public function addComment($feedback,$showOnSite,$userId,$articleId){
+        $resultJsn = $this->feedbackModel->AddFeedback($feedback,$showOnSite,$userId,$articleId);
+        $result = json_decode($resultJsn);
+
+        if ($result){
+            //Success
+            return "";
+        }else{
+            //Error
+            return "Failed to add comment. Please try again or contact support";
+        }
     }
 }

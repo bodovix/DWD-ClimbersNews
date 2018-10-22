@@ -8,12 +8,32 @@ $(function() {
         if (addBtn.is(":disabled")){
             return;
         }
+
         var validateResult = validateAddComment();
         if (validateResult.error){
             showErrorMsg(allertBox,validateResult.msg)
             return;
         }else{
             //Valid; Add Comment
+            $.ajax({
+                type: "POST",
+                data: {feedback: $('#feedbackTxt').val(), article: $('#articleID').val()},
+                url: 'Controller/phpAjaxScripts/CallAddComment.php',
+                //  dataType: "html",
+                //  async: true,
+                success: function(data) {
+                    if (data !== ""){
+                        //Error
+                        showErrorMsg(allertBox,data);
+                        return;
+                    } else{
+                        //Valid
+                    }
+                },
+                error: (error) => {
+                    console.log(JSON.stringify(error));
+                }
+            });
         }
 
 

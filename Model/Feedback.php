@@ -55,4 +55,24 @@ class Feedback
             return null;
         }
     }
+
+    public function AddFeedback($feedback,$showOnSite,$userId,$articleId){
+        $createdOn = date('Y-m-d',strtotime("now"));
+        $query = $this->con-> prepare("insert into feedback (createdOn,feedback,showOnSite,userId,article) 
+                                                  value (:createdOn,:feedback,:showOnSite,:userId,:articleId);");
+        $success = $query -> execute([
+            'createdOn' =>  $createdOn,
+            'feedback' =>  $feedback,
+            'showOnSite' =>  $showOnSite,
+            'userId' =>  $userId,
+            'articleId' =>  $articleId,
+        ]);
+
+        if ($success && $query -> rowCount() > 0){
+            $json = json_encode(true);
+            return $json;
+        }else{
+            return json_encode(false);
+        }
+    }
 }

@@ -3,7 +3,8 @@
 require_once  'global/ConnectionSingleton.php';
 require_once 'Controller/ReadArticlesControl.php';
 require_once  'config/config.php';
-
+include_once 'Model/Article.php';
+include_once 'Model/Feedback.php';
 
 $urlQueries = array();
 parse_str($_SERVER['QUERY_STRING'], $urlQueries);
@@ -18,6 +19,7 @@ include_once 'View/Includes/Header.php';
 
 <div class="container">
        <div id="articleDisplayArea" class="col-12 mx-auto">
+           <input id="articleID" hidden value="<?php echo $urlQueries['article']; ?>" />
         <?php
         if (isset($urlQueries['article'])) {
             echo $relatedArticlesControl->formatArticle($urlQueries['article']);
@@ -35,7 +37,7 @@ include_once 'View/Includes/Header.php';
                     <div class="container">
                         <button id="addCommentBtn" class=" btn btn-success p-1 m-2" <?php echo $relatedArticlesControl->isDisabledBtn ?>>Add Comment</button>
                         <div id="addCommentAlert" class="alert d-none"></div>
-                        <textarea id="feedbackTxt" class="col-11 mx-auto" placeholder="Comment"></textarea>
+                        <textarea id="feedbackTxt" name="feedbackTxt" class="col-11 mx-auto" placeholder="Comment"></textarea>
                     </div>
                 </div>
             </div>
