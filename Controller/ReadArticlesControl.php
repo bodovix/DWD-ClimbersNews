@@ -4,6 +4,7 @@
     session_start();
 class ReadArticlesControl
 {
+    public  $isDisabledBtn;
     private $con;
     private $articleModel;
     private $feedbackModel;
@@ -13,8 +14,20 @@ class ReadArticlesControl
         $this->con = ConnectionSingleton::Instance()->GetCon();
         $this->articleModel = new Article();
         $this->feedbackModel = new Feedback();
-    }
 
+        if ($this->isLoggedIn()){
+            $this->isDisabledBtn = "";
+        }else{
+            $this->isDisabledBtn = "disabled";
+        }
+    }
+    private function isLoggedIn(){
+        if (isset($_SESSION['userId'])){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     private  function  addMedia($mediaUrl,$mediaCaption,$mediaType){
         $output = '';
@@ -127,7 +140,7 @@ EOT;
         }
 
         $comment = <<<EOT
- <div id="userComment" class="border my-1 mx-1">
+ <div class="userComment border my-1 mx-1">
                 <div class="row">
                     <div class="col text-info">{$name}</div>
                 </div>
