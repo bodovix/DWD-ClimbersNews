@@ -102,7 +102,7 @@ EOT;
         }
     }
 
-    //TODO:Implement Comments
+    //TODO:Implement Comments & Ratings
     public  function displayCommentsForArticle($articleID){
         $commentsJson = $this->feedbackModel->getActiveFeedbackForArticle($articleID);
         $comments = json_decode($commentsJson);
@@ -193,4 +193,9 @@ EOT;
         }
     }
 
+    public function setRatingOnArticle(){
+        //check is logged in
+        //check not already voted
+        //vote
+    }
 }
