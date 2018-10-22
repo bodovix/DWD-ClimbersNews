@@ -27,7 +27,7 @@ include_once 'View/Includes/Header.php';
         <div id="articleCommentsArea" class="col-12 border ">
             <div class="row">
                 <div class="col font-weight-bold">comments</div>
-                <button>Add Comment</button>
+                <button class="btn btn-info p-1">Add Comment</button>
                 <div class="col-3 font-weight-bold">****</div>
             </div>
             <?php echo $relatedArticlesControl->displayCommentsForArticle($urlQueries['article']) ?>

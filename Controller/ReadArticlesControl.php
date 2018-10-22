@@ -118,8 +118,6 @@ EOT;
     private function renderArticleComment($name,$date,$comment,$canEdit,$canRemove){
         $edit = "disabled";
         $remove ="disabled";
-        $test1 =json_encode($canEdit);
-        $test2 =json_encode($canRemove);
 
         if ($canEdit == true){
             $edit = "";
@@ -131,10 +129,10 @@ EOT;
         $comment = <<<EOT
  <div id="userComment" class="border my-1 mx-1">
                 <div class="row">
-                    <div class="col text-info">{$name} - {$date}</div>
+                    <div class="col text-info">{$name}</div>
                 </div>
-                <button class="btn btn-info p-1" {$edit}>Edit  {$test1}</button>
-                <button class="btn btn-info p-1" {$remove}>Remove  {$test2}</button>
+                <button class="btn btn-info p-1" {$edit}>Edit</button>
+                <button class="btn btn-info p-1" {$remove}>Remove</button>
                 <div class="row">
                     <div class="col-12">{$comment}</div>
                 </div>
