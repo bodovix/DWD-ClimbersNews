@@ -24,12 +24,12 @@ $(function() {
                 //  async: true,
                 success: function(data) {
                     if (data !== ""){
-                        //Error
-                        showErrorMsg(allertBox,data);
-                        return;
+                        //success
+                        $('#articleCommentsArea').prepend(data);
                     } else{
-                        //Valid
-
+                        //error
+                        showErrorMsg("Failed to save comment. please try again or contact support");
+                        return;
                     }
                 },
                 error: (error) => {

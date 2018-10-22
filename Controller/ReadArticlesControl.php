@@ -1,6 +1,4 @@
 <?php
-
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -10,12 +8,14 @@ class ReadArticlesControl
     private $con;
     private $articleModel;
     private $feedbackModel;
+    private $userModel;
 
     public function __construct()
     {
         $this->con = ConnectionSingleton::Instance()->GetCon();
         $this->articleModel = new Article();
         $this->feedbackModel = new Feedback();
+        $this->userModel = new User();
 
         if ($this->isLoggedIn()){
             $this->isDisabledBtn = "";
@@ -141,7 +141,7 @@ EOT;
             $remove = "";
         }
 
-        $comment = <<<EOT
+        $commentHtml = <<<EOT
  <div class="userComment border my-1 mx-1">
                 <div class="row">
                     <div class="col text-info">{$name} - {$date}</div>
@@ -153,7 +153,8 @@ EOT;
                 </div>
             </div>
 EOT;
-    return $comment;
+        echo $commentHtml;
+    return $commentHtml;
     }
 
     public function addComment($feedback,$showOnSite,$userId,$articleId){
@@ -162,10 +163,18 @@ EOT;
 
         if ($result){
             //Success
-            return "";
+            $user = json_decode($this->userModel->getUserById($userId));
+            if($user->userRole == 'admin'){
+                $canRemove =  true;
+            }else{
+                $canRemove = false;
+            }
+            $date = date('Y-m-d');
+            $commentToReturn = $this->renderArticleComment($user->forename,$date,$feedback,true,$canRemove);
+            return $commentToReturn;
         }else{
             //Error
-            return "Failed to add comment. Please try again or contact support";
+            return "";
         }
     }
 }

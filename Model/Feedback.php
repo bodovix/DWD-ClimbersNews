@@ -16,6 +16,24 @@ class Feedback
         $this->con = ConnectionSingleton::Instance()->GetCon();
     }
 
+    public  function getFeedbackById($id){
+        $query = $this->con-> prepare("select feedback,showOnSite,userId,article,feedback.createdOn as createdOn,forename from feedback 
+                                                    left join article on article.id = feedback.article 
+                                                    left join user on user.id = feedback.userId where feedback.id = :feedbackId");
+        $success = $query -> execute(['feedbackId' => $id]);
+
+        if ($success && $query -> rowCount() > 0){
+            $result = $query -> fetch(PDO::FETCH_OBJ);
+            if (!is_null($result)){
+                $json = json_encode($result);
+                return $json;
+            }else{
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
     public function getAllFeedbackForArticle($id){
         $query = $this->con->prepare("select feedback,showOnSite,userId,article,feedback.createdOn as createdOn,forename from feedback 
                                                     left join article on article.id = feedback.article 
@@ -65,7 +83,7 @@ class Feedback
             'feedback' =>  $feedback,
             'showOnSite' =>  $showOnSite,
             'userId' =>  $userId,
-            'articleId' =>  $articleId,
+            'articleId' =>  $articleId
         ]);
 
         if ($success && $query -> rowCount() > 0){

@@ -12,6 +12,7 @@ session_start();
 
 require_once '../../Model/Feedback.php';
 require_once '../../Model/Article.php';
+require_once '../../Model/User.php';
 require_once '../../config/config.php';
 require_once '../ReadArticlesControl.php';
 include_once '../../global/ConnectionSingleton.php';
@@ -29,5 +30,6 @@ if(!isset($_POST['article'])){
 }
 
 $feedbackControl = new ReadArticlesControl();
-return $feedbackControl->addComment($_POST['feedback'],true,$_SESSION['userId'],$_POST['article']);
+return  $feedbackControl->addComment($_POST['feedback'],true,$_SESSION['userId'],$_POST['article']);
+
 
