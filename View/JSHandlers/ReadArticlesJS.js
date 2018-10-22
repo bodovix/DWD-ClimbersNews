@@ -14,10 +14,11 @@ $(function() {
             showErrorMsg(allertBox,validateResult.msg)
             return;
         }else{
+            var commentText = $('#articleID').val();
             //Valid; Add Comment
             $.ajax({
                 type: "POST",
-                data: {feedback: $('#feedbackTxt').val(), article: $('#articleID').val()},
+                data: {feedback: $('#feedbackTxt').val(), article:commentText },
                 url: 'Controller/phpAjaxScripts/CallAddComment.php',
                 //  dataType: "html",
                 //  async: true,
@@ -28,6 +29,7 @@ $(function() {
                         return;
                     } else{
                         //Valid
+
                     }
                 },
                 error: (error) => {
@@ -53,6 +55,7 @@ $(function() {
         alertMsgBox.removeClass('alert-danger');
         alertMsgBox.text(successMessage);
     }
+
     function hideMessageBox(alertMsgBox) {
         alertMsgBox.addClass('d-none');
         alertMsgBox.removeClass('alert-danger');
