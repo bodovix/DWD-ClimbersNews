@@ -42,7 +42,9 @@ include_once 'View/Includes/Header.php';
                     </div>
                 </div>
             </div>
-            <?php echo $relatedArticlesControl->displayCommentsForArticle($urlQueries['article']) ?>
+            <div id="articleDisplayContainer">
+                <?php echo $relatedArticlesControl->displayCommentsForArticle($urlQueries['article']) ?>
+            </div>
         </div>
 </div>
 

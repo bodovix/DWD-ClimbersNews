@@ -25,7 +25,7 @@ $(function() {
                 success: function(data) {
                     if (data !== ""){
                         //success
-                        $('#articleCommentsArea').prepend(data);
+                        $('#articleDisplayContainer').prepend(data);
                     } else{
                         //error
                         showErrorMsg("Failed to save comment. please try again or contact support");
