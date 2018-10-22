@@ -69,17 +69,25 @@ $(function() {
     });
     //Star Rating System
     //hover
-    $('#articleRatingSystem').children().mouseover(function () {
+    var ratingSystemBtns = $('#articleRatingSystem');
+    ratingSystemBtns.children().mouseover(function () {
         $(this).css({"color":"gold"});
         $(this).prevAll().css({"color":"gold"});
         $(this).nextAll().css({"color":"black"});
     });
-    $('#articleRatingSystem').children().mouseleave(function(){
+    ratingSystemBtns.children().mouseleave(function(){
         $(this).css({"color":""});
         $(this).prevAll().css({"color":""});
         $(this).nextAll().css({"color":""});
     });
     //click
+    $(document).on('click','.starRatingIcon',function () {
+        var ratingIcon = $(this);
+        var score = ratingIcon.attr("data-value");
+
+        //save rating
+
+    });
 
     //================GLOBAL VARIABLES============
     var feedbackSizeLimit = 150;

@@ -8,6 +8,7 @@ class ReadArticlesControl
     private $con;
     private $articleModel;
     private $feedbackModel;
+    private $ratingModel;
     private $userModel;
 
     public function __construct()
@@ -16,6 +17,7 @@ class ReadArticlesControl
         $this->articleModel = new Article();
         $this->feedbackModel = new Feedback();
         $this->userModel = new User();
+        $this->ratingModel = new Rating();
 
         if ($this->isLoggedIn()){
             $this->isDisabledBtn = "";
@@ -193,9 +195,27 @@ EOT;
         }
     }
 
-    public function setRatingOnArticle(){
+    public function setRatingOnArticle($rating,$articleId,$userId){
+        //validate Rating Range
+        if ($rating != 1 ||$rating != 2 ||$rating != 3 ||$rating != 4 ||$rating != 5){
+            return "Invalid Rating";
+        }
+
         //check is logged in
+        if (!isset($_SESSION['userId'])){
+            return "Not logged in";
+        }
         //check not already voted
+        $alreadyRated = $this->ratingModel->checkRatingAlreadyPlaced($articleId,$userId);
+        if ($alreadyRated){
+            return "Already Voted.";
+        }
         //vote
+        $created = $this->ratingModel->createRating($rating,$userId,$articleId);
+        if ($created > 0){
+            return "";
+        }else{
+            return "Failed to Vote. Please try again or contact Support";
+        }
     }
 }
