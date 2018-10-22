@@ -15,9 +15,23 @@ class Rating
         $this->con = ConnectionSingleton::Instance()->GetCon();
     }
 
-    public function checkRatingAlreadyPlaced(){
+    public function checkRatingAlreadyPlaced($articleId,$userId){
+        $query = $this->con-> prepare("select id from rating where userId = :userId and article = articleId;");
+        $success = $query -> execute([
+            'userId' =>  $userId,
+            'articleId' =>  $articleId
+        ]);
 
+        if ($success && $query -> rowCount() > 0){
+            //Rating Found
+            $json = json_encode(true);
+            return $json;
+        }else{
+            //No Ratings found
+            return json_encode(false);
+        }
     }
+
     public  function createRating($rating,$userId,$articleId){
         $createdOn = date('Y-m-d',strtotime("now"));
         $query = $this->con-> prepare("insert into rating (createdOn,rating,userId,article) 
