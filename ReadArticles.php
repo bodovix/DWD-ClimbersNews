@@ -34,6 +34,7 @@ include_once 'View/Includes/Header.php';
                 <div class="row">
                     <div class="container">
                         <button id="addCommentBtn" class=" btn btn-success p-1 m-2" <?php echo $relatedArticlesControl->isDisabledBtn ?>>Add Comment</button>
+                        <div id="addCommentAlert" class="alert d-none"></div>
                         <textarea id="feedbackTxt" class="col-11 mx-auto" placeholder="Comment"></textarea>
                     </div>
                 </div>
