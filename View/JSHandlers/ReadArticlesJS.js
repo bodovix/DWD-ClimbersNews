@@ -11,7 +11,7 @@ $(function() {
 
         var validateResult = validateAddComment();
         if (validateResult.error){
-            showErrorMsg(allertBox,validateResult.msg)
+            showErrorMsg(allertBox,validateResult.msg);
             return;
         }else{
             var commentText = $('#articleID').val();
@@ -84,9 +84,35 @@ $(function() {
     $(document).on('click','.starRatingIcon',function () {
         var ratingIcon = $(this);
         var score = ratingIcon.attr("data-value");
+        var alertBox = $('#addCommentAlert');
+        hideMessageBox(alertBox);
 
         //save rating
+        //$rating,$articleId,$userId)
 
+        $.ajax({
+            type: "POST",
+            data: {
+                rating: score,
+                articleId:$('#articleID').val()
+            },
+            url: 'Controller/phpAjaxScripts/CallSetRatingOnArticle.php',
+            //  dataType: "html",
+            //  async: true,
+            success: function(data) {
+                if (data === ""){
+                    //success
+                    alert("vote placed");
+                } else{
+                    //error
+                    showErrorMsg(alertBox,data);
+                    return;
+                }
+            },
+            error: (error) => {
+                console.log(JSON.stringify(error));
+            }
+        });
     });
 
     //================GLOBAL VARIABLES============

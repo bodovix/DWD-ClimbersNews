@@ -16,7 +16,7 @@ class Rating
     }
 
     public function checkRatingAlreadyPlaced($articleId,$userId){
-        $query = $this->con-> prepare("select id from rating where userId = :userId and article = articleId;");
+        $query = $this->con-> prepare("select id from rating where userId = :userId and article = :articleId;");
         $success = $query -> execute([
             'userId' =>  $userId,
             'articleId' =>  $articleId

@@ -197,7 +197,10 @@ EOT;
 
     public function setRatingOnArticle($rating,$articleId,$userId){
         //validate Rating Range
-        if ($rating != 1 ||$rating != 2 ||$rating != 3 ||$rating != 4 ||$rating != 5){
+        if ($rating == '1' ||$rating == '2' ||$rating == '3' ||$rating == '4' ||$rating == '5'){
+            //valid
+        }else{
+            //error
             return "Invalid Rating";
         }
 
@@ -206,12 +209,14 @@ EOT;
             return "Not logged in";
         }
         //check not already voted
-        $alreadyRated = $this->ratingModel->checkRatingAlreadyPlaced($articleId,$userId);
-        if ($alreadyRated){
+        $alreadyRated = json_decode($this->ratingModel->checkRatingAlreadyPlaced($articleId,$userId));
+
+        if ($alreadyRated == 1){
             return "Already Voted.";
         }
         //vote
-        $created = $this->ratingModel->createRating($rating,$userId,$articleId);
+        $created = json_decode($this->ratingModel->createRating($rating,$userId,$articleId));
+        echo $created;
         if ($created > 0){
             return "";
         }else{
