@@ -124,20 +124,20 @@ EOT;
                             $canEdit = true;
                         }
                     }
-                    $html .= $this->renderArticleComment($item->forename,$item->createdOn,$item->feedback,$canEdit,$canRemove);
+                    $html .= $this->renderArticleComment($item->id,$item->forename,$item->createdOn,$item->feedback,$canEdit,$canRemove);
                 }
             }
         }
         return $html;
     }
-    private function renderArticleComment($name,$date,$comment,$canEdit,$canRemove){
+    private function renderArticleComment($commentId,$name,$date,$comment,$canEdit,$canRemove){
         $edit = "disabled";
         $remove ="disabled";
 
-        if ($canEdit == true){
+        if ($canEdit === true){
             $edit = "";
         }
-        if ($canRemove == true){
+        if ($canRemove === true){
             $remove = "";
         }
 
@@ -148,6 +148,7 @@ EOT;
                 </div>
                 <button class="btn btn-info p-1" {$edit}>Edit</button>
                 <button class="btn btn-info p-1" {$remove}>Remove</button>
+                <input class="commentId" type="text" value="{$commentId}" hidden/>
                 <div class="row">
                     <div class="col-12">{$comment}</div>
                 </div>
@@ -161,16 +162,16 @@ EOT;
         $resultJsn = $this->feedbackModel->AddFeedback($feedback,$showOnSite,$userId,$articleId);
         $result = json_decode($resultJsn);
 
-        if ($result){
+        if ($result != false){
             //Success
             $user = json_decode($this->userModel->getUserById($userId));
             if($user->userRole == 'admin'){
-                $canRemove =  true;
+                $canRemove = true;
             }else{
                 $canRemove = false;
             }
             $date = date('Y-m-d');
-            $commentToReturn = $this->renderArticleComment($user->forename,$date,$feedback,true,$canRemove);
+            $commentToReturn = $this->renderArticleComment($result,$user->forename,$date,$feedback,true,$canRemove);
             return $commentToReturn;
         }else{
             //Error

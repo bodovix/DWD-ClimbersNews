@@ -35,12 +35,12 @@ class Feedback
         }
     }
     public function getAllFeedbackForArticle($id){
-        $query = $this->con->prepare("select feedback,showOnSite,userId,article,feedback.createdOn as createdOn,forename from feedback 
+        $query = $this->con->prepare("select feedback.id as id, feedback,showOnSite,userId,article,feedback.createdOn as createdOn,forename from feedback 
                                                     left join article on article.id = feedback.article 
                                                     left join user on user.id = feedback.userId
-                                                    where article.id = :id
+                                                    where article.id = :articleId
                                                     order by createdOn desc ;");
-        $success = $query->execute(['id' => $id]);
+        $success = $query->execute(['articleId' => $id]);
 
         if ($success) {
             if ($query->rowCount() > 0) {
@@ -54,13 +54,13 @@ class Feedback
         }
     }
     public function getActiveFeedbackForArticle($id){
-        $query = $this->con->prepare("select feedback,showOnSite,userId,article,feedback.createdOn as createdOn,forename from feedback 
+        $query = $this->con->prepare("select feedback.id as id, feedback,showOnSite,userId,article,feedback.createdOn as createdOn,forename from feedback 
                                                     left join article on article.id = feedback.article 
                                                     left join user on user.id = feedback.userId
-                                                    where article.id = :id
+                                                    where article.id = :articleId
                                                     AND showOnSite = true
                                                     order by createdOn desc ;");
-        $success = $query->execute(['id' => $id]);
+        $success = $query->execute(['articleId' => $id]);
 
         if ($success) {
             if ($query->rowCount() > 0) {
@@ -87,7 +87,8 @@ class Feedback
         ]);
 
         if ($success && $query -> rowCount() > 0){
-            $json = json_encode(true);
+            $last_id = $this->con->lastInsertId();
+            $json = json_encode($last_id);
             return $json;
         }else{
             return json_encode(false);
