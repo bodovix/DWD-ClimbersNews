@@ -67,6 +67,20 @@ $(function() {
             }
         });
     });
+    //Star Rating System
+    //hover
+    $('#articleRatingSystem').children().mouseover(function () {
+        $(this).css({"color":"gold"});
+        $(this).prevAll().css({"color":"gold"});
+        $(this).nextAll().css({"color":"black"});
+    });
+    $('#articleRatingSystem').children().mouseleave(function(){
+        $(this).css({"color":""});
+        $(this).prevAll().css({"color":""});
+        $(this).nextAll().css({"color":""});
+    });
+    //click
+    
     //================GLOBAL VARIABLES============
     var feedbackSizeLimit = 150;
     //=================METHODS====================

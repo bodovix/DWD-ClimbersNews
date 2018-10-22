@@ -30,7 +30,13 @@ include_once 'View/Includes/Header.php';
         <div id="articleCommentsArea" class="col-12 border ">
             <div class="row">
                 <div class="col font-weight-bold">comments</div>
-                <div class="col-3 font-weight-bold">****</div>
+                <div id="articleRatingSystem" class="col font-weight-bold h3">
+                    <span id="oneStarRating" class="starRatingIcon">&#x2605;</span>
+                    <span id="twoStarRating" class="starRatingIcon">&#x2605;</span>
+                    <span id="threeStarRating" class="starRatingIcon">&#x2605;</span>
+                    <span id="fourStarRating" class="starRatingIcon">&#x2605;</span>
+                    <span id="fiveStarRating" class="starRatingIcon">&#x2605;</span>
+                </div>
             </div>
 
             <div class="addComment border my-1 mx-1">
