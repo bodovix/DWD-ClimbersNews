@@ -1,6 +1,7 @@
 <?php
     include_once 'Model/Article.php';
     include_once 'Model/Feedback.php';
+    session_start();
 class ReadArticlesControl
 {
     private $con;
@@ -92,24 +93,48 @@ EOT;
         $comments = json_decode($commentsJson);
 
         $html = "";
-        if ($comments != null){
 
+        if ($comments != null){
              if (count($comments) > 0){
                 foreach ($comments as $item){
-                    $html .= $this->renderArticleComment($item->forename,$item->createdOn,$item->feedback);
+                    $canEdit = false;
+                    $canRemove = false;
+                    if (isset($_SESSION['admin'])){
+                        //Admin Logged In; Can Remove
+                        $canRemove = true;
+                    }
+                    if (isset($_SESSION['userId'])){
+                        if ($item->userId == $_SESSION['userId']){
+                            //it's his comment; Can Edit
+                            $canEdit = true;
+                        }
+                    }
+                    $html .= $this->renderArticleComment($item->forename,$item->createdOn,$item->feedback,$canEdit,$canRemove);
                 }
             }
         }
         return $html;
     }
-    private function renderArticleComment($name,$date,$comment){
-$comment = <<<EOT
+    private function renderArticleComment($name,$date,$comment,$canEdit,$canRemove){
+        $edit = "disabled";
+        $remove ="disabled";
+        $test1 =json_encode($canEdit);
+        $test2 =json_encode($canRemove);
+
+        if ($canEdit == true){
+            $edit = "";
+        }
+        if ($canRemove == true){
+            $remove = "";
+        }
+
+        $comment = <<<EOT
  <div id="userComment" class="border my-1 mx-1">
                 <div class="row">
                     <div class="col text-info">{$name} - {$date}</div>
                 </div>
-                <button class="btn btn-info p-1">Edit</button>
-                <button class="btn btn-info p-1">Remove</button>
+                <button class="btn btn-info p-1" {$edit}>Edit  {$test1}</button>
+                <button class="btn btn-info p-1" {$remove}>Remove  {$test2}</button>
                 <div class="row">
                     <div class="col-12">{$comment}</div>
                 </div>
