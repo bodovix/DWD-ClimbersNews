@@ -183,7 +183,7 @@ EOT;
             return "Only Admin can remove comments.";
         }
         //remove comment
-        $deleted =  json_decode($this->feedbackModel->deleteComment($commentId));
+        $deleted =  json_decode($this->feedbackModel->toggleShowOnSite($commentId,false));
         if ($deleted > 0){
             //Success
             return "";

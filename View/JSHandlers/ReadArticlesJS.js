@@ -80,7 +80,7 @@ $(function() {
         $(this).nextAll().css({"color":""});
     });
     //click
-    
+
     //================GLOBAL VARIABLES============
     var feedbackSizeLimit = 150;
     //=================METHODS====================

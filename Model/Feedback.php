@@ -94,7 +94,20 @@ class Feedback
             return json_encode(false);
         }
     }
+    public  function toggleShowOnSite($commentId,$showOnSite){
+        $query = $this->con-> prepare("UPDATE feedback SET showOnSite = :showOnSite WHERE id =:commentId;");
+        $success = $query -> execute([
+            'commentId' =>  $commentId,
+            'showOnSite' => $showOnSite
 
+        ]);
+        if ($success && $query -> rowCount() > 0){
+            $json = json_encode(1);
+            return $json;
+        }else{
+            return json_encode(0);
+        }
+    }
     public  function deleteComment($id){
         $query = $this->con-> prepare("delete from feedback where id = :commentId;");
         $success = $query -> execute([
