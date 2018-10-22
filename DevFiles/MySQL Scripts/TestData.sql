@@ -17,7 +17,8 @@ DO SLEEP(0.1);
 #=================
 insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,secondaryText,secondaryMediaUrl,secondaryMediaType,secondaryMediaCaption,statusCode,author,createdOn) 
 		values('Welcome To Climbing News!!!','1','New site for all your Climbing News','Its the new climbing news website, aiming to bring climbign news to the uk','uploads/articles/images/welcome.jpg','uploads/articles/images/welcome.jpg','none','Secondary meda sound text, isnt it amazin','uploads/articles/audio/SoundTest.wav','audio','Its a sound Test','active','1','2016-09-01');
-
+insert into feedback(createdOn,feedback,showOnSite,userId,article) 
+		values("2016-09-01","its another test comment",true,1,1);
 insert into article (headline,category,description,primaryText,coverImage,primaryMediaUrl,primaryMediaType,primaryMediaCaption,secondaryText,secondaryMediaUrl,secondaryMediaType,secondaryMediaCaption,conclusionText,conclusionMediaUrl,conclusionMediaType,conclusionMediaCaption,statusCode,author,createdOn) 
 		values(
 /*headline*/        		'IFSC World Combined Championships Innsbruck: Report'

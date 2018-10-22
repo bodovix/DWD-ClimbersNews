@@ -1,14 +1,17 @@
 <?php
     include_once 'Model/Article.php';
+    include_once 'Model/Feedback.php';
 class ReadArticlesControl
 {
     private $con;
     private $articleModel;
+    private $feedbackModel;
 
     public function __construct()
     {
         $this->con = ConnectionSingleton::Instance()->GetCon();
         $this->articleModel = new Article();
+        $this->feedbackModel = new Feedback();
     }
 
 
@@ -84,8 +87,20 @@ EOT;
     }
 
     //TODO:Implement Comments
-    public  function displayCommentsForArticle(){
+    public  function displayCommentsForArticle($articleID){
+        $commentsJson = $this->feedbackModel->getActiveFeedbackForArticle($articleID);
+        $comments = json_decode($commentsJson);
 
+        $html = "";
+        if ($comments != null){
+
+             if (count($comments) > 0){
+                foreach ($comments as $item){
+                    $html .= $this->renderArticleComment($item->forename,$item->createdOn,$item->feedback);
+                }
+            }
+        }
+        return $html;
     }
     private function renderArticleComment($name,$date,$comment){
 $comment = <<<EOT

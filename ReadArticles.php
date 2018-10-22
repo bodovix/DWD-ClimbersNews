@@ -30,6 +30,7 @@ include_once 'View/Includes/Header.php';
                 <button>Add Comment</button>
                 <div class="col-3 font-weight-bold">****</div>
             </div>
+            <?php echo $relatedArticlesControl->displayCommentsForArticle($urlQueries['article']) ?>
             <div id="userComment" class="border my-1 mx-1">
                 <div class="row">
                     <div class="col text-info">John - 19/12/2018</div>
