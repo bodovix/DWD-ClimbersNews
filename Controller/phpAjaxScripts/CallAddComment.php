@@ -30,6 +30,6 @@ if(!isset($_POST['article'])){
 }
 
 $feedbackControl = new ReadArticlesControl();
-return  $feedbackControl->addComment($_POST['feedback'],true,$_SESSION['userId'],$_POST['article']);
+echo  $feedbackControl->addComment($_POST['feedback'],true,$_SESSION['userId'],$_POST['article']);
 
 

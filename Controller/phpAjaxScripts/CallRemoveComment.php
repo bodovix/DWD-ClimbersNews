@@ -17,10 +17,12 @@ require_once '../../config/config.php';
 require_once '../ReadArticlesControl.php';
 include_once '../../global/ConnectionSingleton.php';
 
-
-if (!isset($_POST['id]'])){
-    return "failed to remove Comment";
+if (!isset($_POST['commentId'])){
+    echo "failed to remove Comment";
+    return;
 }
+$id = $_POST['commentId'];
 
 $feedbackControl = new ReadArticlesControl();
-return  $feedbackControl->removeComment($_POST['id']);
+
+echo  $feedbackControl->removeComment($id);

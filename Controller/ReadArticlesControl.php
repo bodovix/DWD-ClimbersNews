@@ -146,15 +146,14 @@ EOT;
                 <div class="row">
                     <div class="col text-info">{$name} - {$date}</div>
                 </div>
-                <button class="btn btn-info p-1" {$edit}>Edit</button>
-                <button class="btn btn-info p-1" {$remove}>Remove</button>
+                <button class="editCommentBtn btn btn-info p-1" {$edit}>Edit</button>
+                <button class="removeCommentBtn btn btn-info p-1" {$remove}>Remove</button>
                 <input class="commentId" type="text" value="{$commentId}" hidden/>
                 <div class="row">
                     <div class="col-12">{$comment}</div>
                 </div>
             </div>
 EOT;
-        echo $commentHtml;
     return $commentHtml;
     }
 
@@ -176,6 +175,21 @@ EOT;
         }else{
             //Error
             return "";
+        }
+    }
+    public  function  removeComment($commentId){
+        //check is admin
+        if (!isset($_SESSION['admin'])){
+            return "Only Admin can remove comments.";
+        }
+        //remove comment
+        $deleted =  json_decode($this->feedbackModel->deleteComment($commentId));
+        if ($deleted > 0){
+            //Success
+            return "";
+        }else{
+            //Error
+            return "Error removing comment. Please contact support";
         }
     }
 }

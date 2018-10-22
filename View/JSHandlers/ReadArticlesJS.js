@@ -28,7 +28,7 @@ $(function() {
                         $('#articleDisplayContainer').prepend(data);
                     } else{
                         //error
-                        showErrorMsg("Failed to save comment. please try again or contact support");
+                        showErrorMsg(allertBox,"Failed to save comment. please try again or contact support");
                         return;
                     }
                 },
@@ -37,8 +37,35 @@ $(function() {
                 }
             });
         }
+    });
+    //Remove Comment
+    $(document).on('click','.removeCommentBtn',function () {
+        var commentBtn = $(this);
+        var commentId = commentBtn.siblings('.commentId').val();
+        var commentSection = commentBtn.parent();
+        var alertBox = $('#addCommentAlert');
+        hideMessageBox(alertBox);
 
-
+        $.ajax({
+            type: "POST",
+            data: {commentId: commentId },
+            url: 'Controller/phpAjaxScripts/CallRemoveComment.php',
+            //  dataType: "html",
+            //  async: true,
+            success: function(data) {
+                if (data === ""){
+                    //success
+                    commentSection.fadeOut().remove();
+                } else{
+                    //error
+                    showErrorMsg(alertBox,data);
+                    return;
+                }
+            },
+            error: (error) => {
+                console.log(JSON.stringify(error));
+            }
+        });
     });
     //================GLOBAL VARIABLES============
     var feedbackSizeLimit = 150;

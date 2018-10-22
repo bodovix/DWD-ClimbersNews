@@ -94,4 +94,18 @@ class Feedback
             return json_encode(false);
         }
     }
+
+    public  function deleteComment($id){
+        $query = $this->con-> prepare("delete from feedback where id = :commentId;");
+        $success = $query -> execute([
+            'commentId' =>  $id
+        ]);
+
+        if ($success && $query -> rowCount() > 0){
+            $json = json_encode(1);
+            return $json;
+        }else{
+            return json_encode(0);
+        }
+    }
 }
