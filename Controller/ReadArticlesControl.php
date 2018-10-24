@@ -114,31 +114,20 @@ EOT;
         if ($comments != null){
              if (count($comments) > 0){
                 foreach ($comments as $item){
-                    $canEdit = false;
                     $canRemove = false;
                     if (isset($_SESSION['admin'])){
                         //Admin Logged In; Can Remove
                         $canRemove = true;
                     }
-                    if (isset($_SESSION['userId'])){
-                        if ($item->userId == $_SESSION['userId']){
-                            //it's his comment; Can Edit
-                            $canEdit = true;
-                        }
-                    }
-                    $html .= $this->renderArticleComment($item->id,$item->forename,$item->createdOn,$item->feedback,$canEdit,$canRemove);
+                    $html .= $this->renderArticleComment($item->id,$item->forename,$item->createdOn,$item->feedback,$canRemove);
                 }
             }
         }
         return $html;
     }
-    private function renderArticleComment($commentId,$name,$date,$comment,$canEdit,$canRemove){
-        $edit = "disabled";
+    private function renderArticleComment($commentId,$name,$date,$comment,$canRemove){
         $remove ="disabled";
 
-        if ($canEdit === true){
-            $edit = "";
-        }
         if ($canRemove === true){
             $remove = "";
         }
@@ -148,7 +137,6 @@ EOT;
                 <div class="row">
                     <div class="col text-info">{$name} - {$date}</div>
                 </div>
-                <button class="editCommentBtn btn btn-info p-1" {$edit}>Edit</button>
                 <button class="removeCommentBtn btn btn-info p-1" {$remove}>Remove</button>
                 <input class="commentId" type="text" value="{$commentId}" hidden/>
                 <div class="row">
