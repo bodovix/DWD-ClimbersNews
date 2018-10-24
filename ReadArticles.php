@@ -3,10 +3,10 @@
 require_once  'global/ConnectionSingleton.php';
 require_once 'Controller/ReadArticlesControl.php';
 require_once  'config/config.php';
-include_once 'Model/Article.php';
-include_once 'Model/User.php';
-include_once 'Model/Rating.php';
-include_once 'Model/Feedback.php';
+require_once 'Model/Article.php';
+require_once 'Model/User.php';
+require_once 'Model/Rating.php';
+require_once 'Model/Feedback.php';
 
 $urlQueries = array();
 parse_str($_SERVER['QUERY_STRING'], $urlQueries);
