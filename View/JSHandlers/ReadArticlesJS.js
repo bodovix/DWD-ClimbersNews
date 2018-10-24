@@ -106,7 +106,7 @@ $(function() {
                     return;
                 } else{
                     //success
-                    updateRatingDisplay(score);
+                    updateRatingDisplay(data);
                 }
             },
             error: (error) => {
