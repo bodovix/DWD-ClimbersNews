@@ -18,7 +18,7 @@ include_once 'View/Includes/Header.php';
 
 ?>
 <script src="View/JSHandlers/ReadArticlesJS.js"></script>
-
+<link rel="stylesheet" type="text/css" href="Resources/css/customStyles.css"/>
 <div class="container">
        <div id="articleDisplayArea" class="col-12 mx-auto">
            <input id="articleID" hidden value="<?php echo $urlQueries['article']; ?>" />

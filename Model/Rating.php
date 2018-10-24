@@ -15,7 +15,7 @@ class Rating
         $this->con = ConnectionSingleton::Instance()->GetCon();
     }
     public  function getAverageRatingForArticle($articleId){
-        $query = $this->con-> prepare("select avg(rating) from rating where article = :articleId");
+        $query = $this->con-> prepare("select avg(rating) as score from rating where article = :articleId");
         $success = $query -> execute(['articleId' => $articleId]);
 
         if ($success && $query -> rowCount() > 0){

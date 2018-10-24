@@ -100,13 +100,14 @@ $(function() {
             //  dataType: "html",
             //  async: true,
             success: function(data) {
-                if (data === ""){
-                    //success
-                    alert("vote placed");
-                } else{
+                if (data === "Error"){
                     //error
-                    showErrorMsg(alertBox,data);
+                    showErrorMsg(alertBox,"Error; please contact support");
                     return;
+                } else{
+                    //success
+                    alert(score);
+                    updateRatingDisplay(score);
                 }
             },
             error: (error) => {
@@ -130,13 +131,11 @@ $(function() {
         alertMsgBox.removeClass('alert-danger');
         alertMsgBox.text(successMessage);
     }
-
     function hideMessageBox(alertMsgBox) {
         alertMsgBox.addClass('d-none');
         alertMsgBox.removeClass('alert-danger');
         alertMsgBox.html("");
     }
-
     function validateAddComment() {
         var txtBox = $('#feedbackTxt');
         var isValid = true;
@@ -154,5 +153,37 @@ $(function() {
 
         }
         return !isValid ? { error: true, msg: msg } : { error: false, msg: msg } ;
+    }
+    function updateRatingDisplay(averageScore) {
+        var five = $('#fiveStarRating');
+        var four = $('#fourStarRating');
+        var three = $('#threeStarRating');
+        var two = $('#twoStarRating');
+        var one = $('#oneStarRating');
+
+        if (averageScore >= 4.5){
+            five.addClass('rated');
+            four.addClass('rated');
+            three.addClass('rated');
+            two.addClass('rated');
+            one.addClass('rated');
+        }
+        else if (averageScore >= 3.5){
+            four.addClass('rated');
+            three.addClass('rated');
+            two.addClass('rated');
+            one.addClass('rated');
+        }
+        else if(averageScore >=2.5){
+            three.addClass('rated');
+            two.addClass('rated');
+            one.addClass('rated');
+        }
+        else if (averageScore >=1.5){
+            two.addClass('rated');
+            one.addClass('rated');
+        }else if(averageScore >=0.5){
+            one.addClass('rated');
+        }
     }
 });

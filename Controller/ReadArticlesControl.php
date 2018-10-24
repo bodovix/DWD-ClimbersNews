@@ -216,11 +216,11 @@ EOT;
         }
         //vote
         $created = json_decode($this->ratingModel->createRating($rating,$userId,$articleId));
-        echo $created;
         if ($created > 0){
-            return "";
+            $newAverage = json_decode($this->ratingModel->getAverageRatingForArticle($articleId));
+            return json_encode($newAverage);
         }else{
-            return "Failed to Vote. Please try again or contact Support";
+            return json_encode("Error");
         }
     }
 }
