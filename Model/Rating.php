@@ -14,7 +14,22 @@ class Rating
     {
         $this->con = ConnectionSingleton::Instance()->GetCon();
     }
+    public  function getAverageRatingForArticle($articleId){
+        $query = $this->con-> prepare("select avg(rating) from rating where article = :articleId");
+        $success = $query -> execute(['articleId' => $articleId]);
 
+        if ($success && $query -> rowCount() > 0){
+            $result = $query -> fetch(PDO::FETCH_OBJ);
+            if (!is_null($result)){
+                $json = json_encode($result);
+                return $json;
+            }else{
+                return json_encode(0);
+            }
+        }else{
+            return json_encode(0);
+        }
+    }
     public function checkRatingAlreadyPlaced($articleId,$userId){
         $query = $this->con-> prepare("select id from rating where userId = :userId and article = :articleId;");
         $success = $query -> execute([
