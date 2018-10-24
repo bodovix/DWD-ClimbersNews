@@ -31,13 +31,7 @@ include_once 'View/Includes/Header.php';
         <div id="articleCommentsArea" class="col-12 border ">
             <div class="row">
                 <div class="col font-weight-bold">comments</div>
-                <div id="articleRatingSystem" class="col font-weight-bold h3">
-                    <span id="oneStarRating" class="starRatingIcon" data-value="1">&#x2605;</span>
-                    <span id="twoStarRating" class="starRatingIcon" data-value="2">&#x2605;</span>
-                    <span id="threeStarRating" class="starRatingIcon" data-value="3">&#x2605;</span>
-                    <span id="fourStarRating" class="starRatingIcon" data-value="4">&#x2605;</span>
-                    <span id="fiveStarRating" class="starRatingIcon" data-value="5">&#x2605;</span>
-                </div>
+                <?php echo  $relatedArticlesControl->displayArticleRating($urlQueries['article']);?>
             </div>
 
             <div class="addComment border my-1 mx-1">

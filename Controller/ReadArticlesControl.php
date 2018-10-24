@@ -218,9 +218,53 @@ EOT;
         $created = json_decode($this->ratingModel->createRating($rating,$userId,$articleId));
         if ($created > 0){
             $newAverage = json_decode($this->ratingModel->getAverageRatingForArticle($articleId));
-            return json_encode($newAverage);
+            return $newAverage;
         }else{
-            return json_encode("Error");
+            return "Error; please contact support";
         }
+    }
+    public function displayArticleRating($articleId){
+        $average = json_decode($this->ratingModel->getAverageRatingForArticle($articleId));
+
+            $five ="";
+            $four = "";
+            $three = "";
+            $two = "";
+            $one = "";
+        if ($average >= 4.5){
+            $five = "rated";
+            $four = "rated";
+            $three = "rated";
+            $two = "rated";
+            $one = "rated";
+        }
+        else if ($average >= 3.5){
+            $four = "rated";
+            $three = "rated";
+            $two = "rated";
+            $one = "rated";
+        }
+        else if($average >=2.5){
+            $three = "rated";
+            $two = "rated";
+            $one = "rated";
+        }
+        else if ($average >=1.5){
+            $two = "rated";
+            $one = "rated";
+        }else if($average >=0.5){
+            $one = "rated";
+        }
+
+        $ratingDisplay = <<<EOT
+<div id="articleRatingSystem" class="col font-weight-bold h3">
+                    <span id="oneStarRating" class="starRatingIcon {$one}" data-value="1">&#x2605;</span>
+                    <span id="twoStarRating" class="starRatingIcon {$two}" data-value="2">&#x2605;</span>
+                    <span id="threeStarRating" class="starRatingIcon {$three}" data-value="3">&#x2605;</span>
+                    <span id="fourStarRating" class="starRatingIcon {$four}" data-value="4">&#x2605;</span>
+                    <span id="fiveStarRating" class="starRatingIcon {$five}" data-value="5">&#x2605;</span>
+                </div>
+EOT;
+        return $ratingDisplay;
     }
 }

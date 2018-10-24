@@ -21,7 +21,7 @@ class Rating
         if ($success && $query -> rowCount() > 0){
             $result = $query -> fetch(PDO::FETCH_OBJ);
             if (!is_null($result)){
-                $json = json_encode($result);
+                $json = json_encode($result->score);
                 return $json;
             }else{
                 return json_encode(0);

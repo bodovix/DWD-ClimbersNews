@@ -100,13 +100,12 @@ $(function() {
             //  dataType: "html",
             //  async: true,
             success: function(data) {
-                if (data === "Error"){
+                if (isNaN(data)){
                     //error
-                    showErrorMsg(alertBox,"Error; please contact support");
+                    showErrorMsg(alertBox,data);
                     return;
                 } else{
                     //success
-                    alert(score);
                     updateRatingDisplay(score);
                 }
             },
