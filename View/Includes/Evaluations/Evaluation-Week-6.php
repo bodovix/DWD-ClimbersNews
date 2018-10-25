@@ -11,14 +11,10 @@ require_once 'config/config.php';
 
     <h2>MVC Explained</h2>
     <p class="text-justify">
-        There are several commonly used frameworks and patterns to choose form when developing such as MVC, Layered, or MVVM. The framework I have chosen to implement in my website is MVC.
-    </p>
-
-    <p class="text-justify">
         MVC splits your project into 3 functional parts. The Model, the View and the Controller. The code in the View is responsible for the display of the website. No business logic or Database connections are performed form this part.
     </p>
     <p>
-        The Model is the part of the application where all the data connections and structures are stored. The Model queries the websites data source and should be built in such a way that it returns the data in a format that is easily read by the View and will not need changing if the websites data source changes. For my site I have set all returned data to be sent in Json format. Json stand for JavaScript Object Notation and is a wildly used and human readable way to send data between environments.
+        The Model is the part of the application where all the data connections and structures are stored. The Model queries the websites data source and should be built in such a way that it returns the data in a format that is easily read by the View and will not need changing if the websites data source changes. The Websites Model is setup for all return  data to be sent in Json format. Json stand for JavaScript Object Notation and is a wildly used and human readable way to send data between environments. This has the benefit of further separating the model from the view.
     </p>
 
     <p class="text-justify">
@@ -32,9 +28,12 @@ require_once 'config/config.php';
         MVC also allows multiple developers to work on different parts of the application simultaneously without effecting each others development. It is possible for someone to develop the Controller while another developer makes changes to the view and another makes changes to the Model without interrupting the other developers work.
     </p>
     <p class="text-justify">
-        Because MVC splits your project into 3 distinct parts it also helps to make your code more readable; If a developer wants to change a part of the website they are only presented with logic for that part. This means that developers can easily find and make the change they need without affecting other parts.
+        Because MVC splits your project into 3 distinct parts it also helps to make the code more readable; If a developer wants to change a part of the website they are only presented with logic for that part. This means that developers can easily find and make the change they need without affecting other parts.
     </p>
     <p class="text-justify">
         MVC also helps developers follow the DRY principle: “Don’t Repeat Yourself”.  This principle is all about minimising the amount of duplicated code a developer has to wright and then maintain.  As code from the model or view can be accessed throughout the site by the controller.
     </p>
+    <br/>
+    <br/>
+    <br/>
 </div>
