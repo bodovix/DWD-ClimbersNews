@@ -1,11 +1,6 @@
-<?php
-require_once 'config/config.php';
-?>
-
-
 <div class="container">
     <div class="container">
-        <h1 class="text-center">Week 3</h1>
+        <h1 class="text-center mb-3 mt-3">Week 3 - The API</h1>
     </div>
 
     <div class="container">
@@ -19,17 +14,16 @@ require_once 'config/config.php';
     <h2>How API was Implemented</h2>
 
     <p class="text-justify">
-        The websites Articles functionality had been implemented and tested. however, all the code for getting articles from the Database and rendering them on screen had been place in the same files such as the read article code seen above.
-    </p>
-    <p class="text-justify">
-        This was making the code harder to read and maintain since its display and data logic are tightly coupled throughout the website. It was wise to implement a solution to this problem before any further development was carried out, making the problem larger harder to refactor. An API needed to be put in place to separate the websites logical parts and make the database logic more reusable throughout the site.
+        The above code sample is an example of a website that does not implement a good API for its data layer.
+        <br>
+        This code is hard to read and maintain since its display and data logic are tightly coupled throughout the website. The solution to this problem is to implement an effective API to keep the logical parts of your website separate and make the database logic more reusable throughout the site.
         <br>
         <br>
-        To Implement the improved structure and API I split the websites  logic into two parts, Data and Display. The Article date logic was moved into a separate Folder and Class: ‘Model/Article.php’ which left my Display Code in files only relating to Display code e.g. ‘View/pageNameControl.php’:
+        To Implement the improved application structure and API I split the websites  logic into two parts; Data and Display. All the websites data logic such as sql Scripts and connections was moved into a separate Folder and Class: eg ‘Model/Article.php’. The websites display code has all been moved into the View part of the api in files only relating to Display logic e.g. ‘View/Includes/Footer.php’:
     </p>
     <img class="mx-auto d-block mb-3" src="uploads/Evaluations/Week-3/newFileStructure.jpg">
      <p>
-         The New Article Class was setup to only return Article data in JSON format (JavaScript Object Notation) this way my Display code was totally decoupled from the Article classes implementation. The display would receive the data in JSON format, deserialize it then do whatever it needed with the data
+         The New Article Class was setup to only return Article data in JSON format (JavaScript Object Notation) this way the websites Display code is kept decoupled from the Article classes implementation. The View would receive the data in JSON format, deserialize it then do whatever it needed with the data
      </p>
     <div class="thumbnail mb-3">
         <img class="mx-auto d-block mb-0"  src="uploads/Evaluations/Week-3/newArticleModelAPI.jpg" alt="Image not found." >
@@ -46,14 +40,15 @@ require_once 'config/config.php';
 
     <h2>Benefits of using an API</h2>
     <p class="text-justify">
-        Using an API structure in your website is a good idea and there are many benefits of using a structure such as this in your websites. It makes your code much more readable and will make future development easier.
+        Using an API structure in your website is a good idea and there are many benefits of using one in your websites. It makes your code much more readable and will make future development easier as it helps your websites code follow the single responsibility principle by giving each part of the api a specific purpose.
     </p>
     <p class="text-justify">
-        An API model like this also helps keep the logical parts of your website separate. By separating the display and data logic we make it easy for multiple developers to potentially work on the website at the same time. Someone can build the front end whilst another works on the backend. Because both developers are working on an agreed API integrating their work once complete will be much easier.
+        An API model like this also helps keep the logical parts of your website separate. By separating the display and data logic it is easy for multiple developers to potentially work on the website at the same time. Someone can build the front end whilst another works on the backend. Because both developers are working on an agreed API integrating their work once complete will be much easier.
     </p>
     <p class="text-justify">
-        Another benefit of using this API is that it keeps your display and data logic loosely coupled. The Data logic sends all its data to the display in JSON format, The Display code knows nothing about the implementation of the Data logic. The data logic could be updated to use TSQL, a remote webservice or any other method of retrieving data without the display code needing to be changed. This helps make the website more modular and maintainable.
+        Another benefit of using this API is that it keeps your display and data logic loosely coupled. The Data logic sends all its data to the display in JSON format, The Display code knows nothing about the implementation of the Data logic and vice versa. The data logic could be updated to use TSQL, a remote webservice or any other method of retrieving data without the display code needing to be changed. This helps make the website much more modular and maintainable.
     </p>
-
+<br>
+<br>
 </div>
 </html>
