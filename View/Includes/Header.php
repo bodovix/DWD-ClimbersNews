@@ -70,6 +70,9 @@ EOT;
                     }
                     echo $link;
                 ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo 'IOT.php'; ?>">IOT</a>
+                </li>
             </ul>
         </div>
     </div>
