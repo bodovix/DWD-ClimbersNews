@@ -70,3 +70,12 @@ CREATE TABLE IF NOT EXISTS feedback(
     
     primary key(id)
 );
+
+CREATE TABLE IF NOT EXISTS iot_data(
+	id int auto_increment,
+    dataJson varchar(500), 
+    createdOn TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    
+    primary key(id)
+	
+);
