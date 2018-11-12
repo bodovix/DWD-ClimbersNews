@@ -36,5 +36,21 @@ class ElectricImpSensors
             return null;
         }
     }
+    public  function GetReadingByID($id){
+        $query = $this->con->prepare("SELECT * FROM iot_data WHERE id = :id");
+        $success = $query->execute([
+            'id' =>  $id
+        ]);
+        if ($success) {
+            if ($query->rowCount() > 0) {
+                $result =  $query->fetch(PDO::FETCH_OBJ);
+                return json_encode($result);
+            } else {
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
 
 }
