@@ -22,8 +22,6 @@ include_once 'View/Includes/SearchBar.php';
         <div data-role="main">
             <h3>Recent Readings</h3>
             <ul data-role="listview" id="recentReadingsUL">
-                <li>Load 10 most recent readings</li>
-                <li>Date Time - Device</li>
 
             </ul>
         </div>

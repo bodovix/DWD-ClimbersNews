@@ -16,10 +16,11 @@ class ElectricImpControl
         $this->con = ConnectionSingleton::Instance()->GetCon();
         $this->impModel = new ElectricImpSensors();
     }
-    public function DisplayRecentReadings($numberToDisplay){
+    public function DisplayRecentReadings(){
         //get readings
-        $readingsJson = $this->impModel->GetMostRecentReadings($numberToDisplay);
+        $readingsJson = $this->impModel->GetMostRecentReadings();
         $readings = json_decode($readingsJson);
+
         $html = "";
         if (count($readings) != 0){
             //readings found, Display them

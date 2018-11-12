@@ -11,8 +11,8 @@ error_reporting(E_ALL);
 require_once '../../Model/ElectricImpSensors.php';
 require_once '../../config/config.php';
 require_once '../ElectricImpControl.php';
-
+require_once  '../../global/ConnectionSingleton.php';
 
 $impControl = new ElectricImpControl();
 
-echo $impControl->DisplayRecentReadings(10);
+echo $impControl->DisplayRecentReadings();

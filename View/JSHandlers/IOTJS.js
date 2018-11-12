@@ -1,10 +1,9 @@
 $(function() {
-    alert("test");
     RefreshDataReadings();
 });
 function RefreshDataReadings() {
     $.ajax({
-        type: "GET",
+        type: "POST",
         //data: null,
         url: 'Controller/phpAjaxScripts/CallElectricImpGetRecent.php',
         //  dataType: "html",
@@ -13,15 +12,13 @@ function RefreshDataReadings() {
         processData: false,
         contentType: false,
         success: function(data) {
-            if (data == ""){
-                alert(data);
+            if (data === "" || data === null){
 
                 //Error
-                $('#recentReadingsUL').append("No Readings Found");
+                $('#recentReadingsUL').append("No Readings Found  ");
 
                 return;
             } else{
-                alert(data);
                 $('#recentReadingsUL').append(data);
             }
         },
