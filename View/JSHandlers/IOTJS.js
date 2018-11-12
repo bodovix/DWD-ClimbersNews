@@ -1,10 +1,10 @@
 $(function() {
     RefreshDataReadings();
-    // setInterval(function() {
-    //     if ($('#recentReadingsUL').is(':visible')){
-    //         RefreshDataReadings()
-    //     }
-    // }, 1000);
+    setInterval(function() {
+        if ($('#recentReadingsUL').is(':visible')){
+            RefreshDataReadings()
+        }
+    }, 1000);
 });
 function RefreshDataReadings() {
     $.ajax({
