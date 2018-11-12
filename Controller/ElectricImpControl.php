@@ -25,12 +25,17 @@ class ElectricImpControl
         if (count($readings) != 0){
             //readings found, Display them
             foreach($readings as $record){
-                $html .= "<li>".$record->createdOn."</li>";
+                $html .= <<<EOT
+                    <li id="{$record->id}"class="ui-li-static ui-body-inherit ui-btn GSListItem">
+                        <a href="View/Includes/GetDataReading.php?readingNumber={$record->id}">
+                            {$record->createdOn}
+                        </a>
+                    </li>
+EOT;
             }
             return $html;
         }else{
             return null;
         }
-        //display them
     }
 }

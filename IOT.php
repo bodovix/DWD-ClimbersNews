@@ -8,34 +8,36 @@ $indexControl = new IndexControl();
 ?>
 <?php
 include_once 'View/Includes/Header.php';
-include_once 'View/Includes/SearchBar.php';
 ?>
 <script src="View/JSHandlers/IOTJS.js"></script>
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<body>
+
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
     <div data-role="page">
         <div data-role="header">
-            <h1>Electric Imp</h1>
+
         </div>
         <div data-role="main">
             <h3>Recent Readings</h3>
-            <ul data-role="listview" id="recentReadingsUL">
-
+            <ul data-role="listview" id="recentReadingsUL" data-theme="c" data-inset="true" class="ui-listview">
             </ul>
         </div>
         <div data-role="footer">
-            <?php
-            $pathToPage = URLROOT.'Evaluation.php?week=9';
-            include 'View/Includes/Footer.php';
-            ?>
+            <div class="row bg-secondary" >
+                <div class=" col ">
+                    <p class="mb-0">Gwydion Saxelby</p>
+                    <p class="mb-0">1701267@uad.ac.uk</p>
+                </div>
+
+                <div class=" bg-secondary col offset-md-6 offset-sm-0">
+                    <a class="btn btn-primary "  href="Evaluation.php?week=9" data-ajax="false">Evaluation</a>
+                </div>
+            </div>
         </div>
     </div>
-</body>
-
-
 <?php
-$pathToPage = URLROOT.'Evaluation.php?week=9';
-include 'View/Includes/Footer.php';
-?>
+//$pathToPage = URLROOT.'Evaluation.php?week=9';
+//include 'View/Includes/Footer.php';
+//?>

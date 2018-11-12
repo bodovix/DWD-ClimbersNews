@@ -1,5 +1,6 @@
 $(function() {
     RefreshDataReadings();
+
 });
 function RefreshDataReadings() {
     $.ajax({
@@ -16,8 +17,6 @@ function RefreshDataReadings() {
 
                 //Error
                 $('#recentReadingsUL').append("No Readings Found  ");
-
-                return;
             } else{
                 $('#recentReadingsUL').append(data);
             }
