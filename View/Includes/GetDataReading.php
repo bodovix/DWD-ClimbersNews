@@ -44,15 +44,14 @@ if (!isset($urlQueries["readingNumber"])){
 
 
         <div data-role="header">
-            <nav class="navbar navbar-expand-sm  navbar-dark bg-primary ">
-                <div class="container">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link rel="external" data-ajax='true'" href="<?php echo '../../IOT.php'; ?>">Return To Results</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a class="nav-link rel="external" data-ajax='false'" href="<?php echo '../../IOT.php'; ?>">Return To Results</a>
+                    </li>
+                </ul>
+            </div>
+
             <h1>Date: <?php echo $result->createdOn ?>
                 <br>
                 Device: <?php echo $result->data->device; ?></h1>
