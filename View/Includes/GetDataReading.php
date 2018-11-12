@@ -5,6 +5,15 @@
  * Date: 11/12/2018
  * Time: 12:50 PM
  */
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once  '../../global/ConnectionSingleton.php';
+require_once '../../Controller/ElectricImpControl.php';
+require_once  '../../config/config.php';
+require_once '../../Model/ElectricImpSensors.php';
+$impControl = new ElectricImpControl();
 
 
 $urlQueries = array();

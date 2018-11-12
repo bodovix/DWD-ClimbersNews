@@ -1,9 +1,13 @@
 <?php
-require_once  'global/ConnectionSingleton.php';
-require_once 'Controller/IndexControl.php';
-require_once  'config/config.php';
 
-$indexControl = new IndexControl();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once  'global/ConnectionSingleton.php';
+require_once 'Controller/ElectricImpControl.php';
+require_once  'config/config.php';
+require_once 'Model/ElectricImpSensors.php';
 
 ?>
 <?php
@@ -37,7 +41,3 @@ include_once 'View/Includes/Header.php';
             </div>
         </div>
     </div>
-<?php
-//$pathToPage = URLROOT.'Evaluation.php?week=9';
-//include 'View/Includes/Footer.php';
-//?>
