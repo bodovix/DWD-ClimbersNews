@@ -11,29 +11,33 @@ include_once 'View/Includes/Header.php';
 include_once 'View/Includes/SearchBar.php';
 ?>
 <script src="View/JSHandlers/IOTJS.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <body>
-<div class="row">
-    <div class="col-6">
-        <div> Week 7 Electric Imp LED controll pannel</div>
-        <input id="redOff" type="button" class="btn mx-4" value="Red Off" />
-        <input id="redOn" type="button" class="btn mx-4" value="Red On" />
-        <input id="greenOff" type="button" class="btn mx-4" value="Green Off" />
-        <input id="greenOn" type="button" class="btn mx-4" value="Green On" />
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Electric Imp</h1>
+        </div>
+        <div data-role="main">
+            <h3>Recent Readings</h3>
+            <ul data-role="listview" id="recentReadingsUL">
+                <li>Load 10 most recent readings</li>
+                <li>Date Time - Device</li>
+
+            </ul>
+        </div>
+        <div data-role="footer">
+            <?php
+            $pathToPage = URLROOT.'Evaluation.php?week=9';
+            include 'View/Includes/Footer.php';
+            ?>
+        </div>
     </div>
-    <div class="col-6">
-
-    </div>
-
-</div>
-<a href=" https://agent.electricimp.com/Dt8DLEVLvk8W?state=0">Switch Red off</a>
-<a href=" https://agent.electricimp.com/Dt8DLEVLvk8W?state=1">Switch Red on</a>
-<a href=" https://agent.electricimp.com/Dt8DLEVLvk8W?state=2">Switch Green off</a>
-<a href=" https://agent.electricimp.com/Dt8DLEVLvk8W?state=3">Switch Green on</a>
-
 </body>
 
 
 <?php
-$pathToPage = URLROOT.'Evaluation.php?week=1';
+$pathToPage = URLROOT.'Evaluation.php?week=9';
 include 'View/Includes/Footer.php';
 ?>

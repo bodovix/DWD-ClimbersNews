@@ -1,27 +1,32 @@
 $(function() {
-  $(document).on('click','#redOff',function () {
-      $.ajax({
-          type: "POST",
-          url: 'https://agent.electricimp.com/Dt8DLEVLvk8W?state=0'
-      });
-  });
-  $(document).on('click','#redOn',function () {
-      $.ajax({
-          type: "POST",
-          url: 'https://agent.electricimp.com/Dt8DLEVLvk8W?state=1'
-      });
-  });
-  $(document).on('click','#greenOff',function () {
-      $.ajax({
-          type: "POST",
-          url: 'https://agent.electricimp.com/Dt8DLEVLvk8W?state=2'
-      });
-  });
-  $(document).on('click','#greenOn',function () {
-      $.ajax({
-          type: "POST",
-          url: 'https://agent.electricimp.com/Dt8DLEVLvk8W?state=3'
-      });
-  });
-
+    alert("test");
+    RefreshDataReadings();
 });
+function RefreshDataReadings() {
+    $.ajax({
+        type: "GET",
+        //data: null,
+        url: 'Controller/phpAjaxScripts/CallElectricImpGetRecent.php',
+        //  dataType: "html",
+        //  async: true,
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+            if (data == ""){
+                alert(data);
+
+                //Error
+                $('#recentReadingsUL').append("No Readings Found");
+
+                return;
+            } else{
+                alert(data);
+                $('#recentReadingsUL').append(data);
+            }
+        },
+        error: (error) => {
+            console.log(JSON.stringify(error));
+        }
+    });
+}
