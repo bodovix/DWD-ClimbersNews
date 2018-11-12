@@ -21,7 +21,15 @@ include_once 'View/Includes/Header.php';
 
     <div data-role="page">
         <div data-role="header">
-
+            <nav class="navbar navbar-expand-sm  navbar-dark bg-primary ">
+                <div class="container">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link rel="external" data-ajax='false'" href="<?php echo 'Index.php'; ?>">Return To Main Site</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
         <div data-role="main">
             <h3>Recent Readings</h3>

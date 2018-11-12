@@ -25,33 +25,55 @@ if (!isset($urlQueries["readingNumber"])){
     //Get Details
     //Display Success
     $test = "test click";
+
+   $result = $impControl->GetResultByID($urlQueries["readingNumber"]);
 }
 ?>
 <div data-role="page">
+
+    <!--    JQuery 3.3.1  to power custom JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous">
+
+<!--JQuery Mobile-->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
         <div data-role="header">
-            <h1>Reading For <?php echo $test; ?> </h1>
+            <nav class="navbar navbar-expand-sm  navbar-dark bg-primary ">
+                <div class="container">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link rel="external" data-ajax='true'" href="<?php echo '../../IOT.php'; ?>">Return To Results</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <h1>Date: <?php echo $result->createdOn ?>
+                <br>
+                Device: <?php echo $result->data->device; ?></h1>
         </div>
         <div data-role="main">
             <div class="container">
                 <div class="row">
-                    <p>Device - </p>
-                    <p>Value</p>
+                    <p>External Temp:</p>
+                    <p><?php echo $result->data->external; ?> &#x2103;</p>
                 </div>
                 <div class="row">
-                    <p>External Temp - </p>
-                    <p>Value</p>
+                    <p>Internal Temp: </p>
+                    <p><?php echo $result->data->internal; ?> &#x2103;</p>
                 </div>
                 <div class="row">
-                    <p>Internal Temp - </p>
-                    <p>Value</p>
+                    <p>Voltage: </p>
+                    <p><?php echo $result->data->voltage; ?> V</p>
                 </div>
                 <div class="row">
-                    <p>Voltage - </p>
-                    <p>Value</p>
-                </div>
-                <div class="row">
-                    <p>Light Level - </p>
-                    <p>Value</p>
+                    <p>Light Level: </p>
+                    <p><?php echo $result->data->lightLevel; ?> </p>
                 </div>
             </div>
 

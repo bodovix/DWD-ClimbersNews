@@ -38,4 +38,22 @@ EOT;
             return null;
         }
     }
+    public function GetResultByID($id){
+        $json = $this->impModel->GetReadingByID($id);
+        $result = json_decode($json);
+        if ($result != null){
+            //return  $result->id;
+            //return $result->createdOn;
+            //return $result->dataJson;
+
+            $data = (object) [
+                'id' => $result->id,
+                'createdOn' =>  $result->createdOn,
+                'data' => json_decode($result->dataJson)
+            ];
+            return $data;
+        }else{
+            return null;
+        }
+    }
 }
