@@ -10,9 +10,13 @@ require_once  'config/config.php';
 require_once 'Model/ElectricImpSensors.php';
 
 ?>
-<?php
-include_once 'View/Includes/Header.php';
-?>
+<!--    JQuery 3.3.1  to power custom JS-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../JSHandlers/GetDataReadingJS.js"></script>
+<!--Bootstrap-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous">
+
 <script src="View/JSHandlers/IOTJS.js"></script>
 
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />

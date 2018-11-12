@@ -1,6 +1,10 @@
 $(function() {
     RefreshDataReadings();
-
+    // setInterval(function() {
+    //     if ($('#recentReadingsUL').is(':visible')){
+    //         RefreshDataReadings()
+    //     }
+    // }, 1000);
 });
 function RefreshDataReadings() {
     $.ajax({
@@ -16,9 +20,9 @@ function RefreshDataReadings() {
             if (data === "" || data === null){
 
                 //Error
-                $('#recentReadingsUL').append("No Readings Found  ");
+                $('#recentReadingsUL').html("No Readings Found  ");
             } else{
-                $('#recentReadingsUL').append(data);
+                $('#recentReadingsUL').html(data);
             }
         },
         error: (error) => {

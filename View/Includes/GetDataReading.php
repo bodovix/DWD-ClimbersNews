@@ -23,16 +23,16 @@ if (!isset($urlQueries["readingNumber"])){
     $test =  "not set";
 }else {
     //Get Details
-    //Display Success
-    $test = "test click";
-
    $result = $impControl->GetResultByID($urlQueries["readingNumber"]);
+    //Display Success
+
 }
 ?>
 <div data-role="page">
 
     <!--    JQuery 3.3.1  to power custom JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../JSHandlers/GetDataReadingJS.js"></script>
 <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
           crossorigin="anonymous">
@@ -59,21 +59,22 @@ if (!isset($urlQueries["readingNumber"])){
         </div>
         <div data-role="main">
             <div class="container">
-                <div class="row">
-                    <p>External Temp:</p>
-                    <p><?php echo $result->data->external; ?> &#x2103;</p>
+                <div class="row alert mt-3">
+                   <p data-role="content">External Temp:</p>
+                   <div id="externalTemp"  data-role="content" data-reading="<?php echo $result->data->external; ?>"><?php echo $result->data->external; ?> &#x2103;</div>
                 </div>
-                <div class="row">
-                    <p>Internal Temp: </p>
-                    <p><?php echo $result->data->internal; ?> &#x2103;</p>
+
+                <div class="row  alert">
+                    <p data-role="content">Internal Temp: </p>
+                    <p id="internalTemp" data-role="content" data-reading="<?php echo $result->data->internal; ?>"><?php echo $result->data->internal; ?> &#x2103;</p>
                 </div>
-                <div class="row">
-                    <p>Voltage: </p>
-                    <p><?php echo $result->data->voltage; ?> V</p>
+                <div class="row  alert">
+                    <p data-role="content">Voltage Level: </p>
+                    <p id="voltage" data-role="content" data-reading="<?php echo $result->data->voltage; ?>"><?php echo $result->data->voltage; ?> V</p>
                 </div>
-                <div class="row">
-                    <p>Light Level: </p>
-                    <p><?php echo $result->data->lightLevel; ?> </p>
+                <div class="row alert">
+                    <p data-role="content">Light Level:   </p>
+                    <p id="lightLevel" data-role="content" <?php echo $result->data->lightLevel; ?>"><?php echo $result->data->lightLevel; ?> </p>
                 </div>
             </div>
 
