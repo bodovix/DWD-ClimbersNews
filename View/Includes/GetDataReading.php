@@ -59,35 +59,29 @@ if (!isset($urlQueries["readingNumber"])){
         <div data-role="main">
             <div class="container">
                 <div class="row alert mt-3">
-                   <p data-role="content">External Temp:</p>
-                   <div id="externalTemp"  data-role="content" data-reading="<?php echo $result->data->external; ?>"><?php echo $result->data->external; ?> &#x2103;</div>
+                   <p id="externalTemp" data-role="content" data-reading="<?php echo $result->data->external; ?>">External Temp:      <?php echo $result->data->external; ?> &#x2103;</p>
+                   <div   data-role="content" ></div>
                 </div>
 
                 <div class="row  alert">
-                    <p data-role="content">Internal Temp: </p>
-                    <p id="internalTemp" data-role="content" data-reading="<?php echo $result->data->internal; ?>"><?php echo $result->data->internal; ?> &#x2103;</p>
+                    <p id="internalTemp" data-role="content" data-reading="<?php echo $result->data->internal; ?>">Internal Temp:      <?php echo $result->data->internal; ?> &#x2103;</p>
                 </div>
                 <div class="row  alert">
-                    <p data-role="content">Voltage Level: </p>
-                    <p id="voltage" data-role="content" data-reading="<?php echo $result->data->voltage; ?>"><?php echo $result->data->voltage; ?> V</p>
+                    <p data-role="content" id="voltage" data-reading="<?php echo $result->data->voltage; ?>">Voltage Level:        <?php echo $result->data->voltage; ?> V</p>
                 </div>
                 <div class="row alert">
-                    <p data-role="content">Light Level:   </p>
-                    <p id="lightLevel" data-role="content" <?php echo $result->data->lightLevel; ?>"><?php echo $result->data->lightLevel; ?> </p>
+                    <p data-role="content" id="lightLevel" data-reading="<?php echo $result->data->lightLevel; ?>">Light Level:        <?php echo $result->data->lightLevel; ?></p>
                 </div>
             </div>
 
         </div>
-        <div data-role="footer">
-            <div class="row bg-secondary" >
-                <div class=" col ">
-                    <p class="mb-0">Gwydion Saxelby</p>
-                    <p class="mb-0">1701267@uad.ac.uk</p>
-                </div>
-
-                <div class=" bg-secondary col offset-md-6 offset-sm-0">
-                    <a class="btn btn-primary "  href="../../Evaluation.php?week=9" data-ajax="false">Evaluation</a>
+        <div data-role="footer" data-type="horizontal" class="ui-bar ui-footer ui-bar-a" role="contentinfo">
+            <div>
+                <div>
+                    <a   href="../../Evaluation.php?week=9" data-ajax="false">
+                        <span>Gwydion Saxelby   -   </span>
+                        <span >1701267@uad.ac.uk   -   </span>
+                        <span>Evaluation</span>
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
