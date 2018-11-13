@@ -93,6 +93,7 @@ EOT;
             return null;
         }
     }
+    //TODO: in javascrip add ajax to update the list dynamically
         private  function ValidateDataReedings($external,$internal,$voltage,$lightLevel,&$outExternalDisplay,&$outInternalDisplay,&$outVoltage,&$outLight){
         //External
 
