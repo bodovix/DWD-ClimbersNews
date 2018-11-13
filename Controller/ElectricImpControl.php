@@ -53,15 +53,20 @@ EOT;
                     'createdOn' =>  $record->createdOn,
                     'data' => json_decode($record->dataJson)
                 ];
+                $outExternal ="";
+                $outInternal = "";
+                $outVoltage ="";
+                $outLight = "";
+                $this->ValidateDataReedings($data->data->external,$data->data->internal,$data->data->voltage,$data->data->lightLevel,$outExternal,$outInternal,$outVoltage,$outLight);
 
                 $html .= <<<EOT
                 <div data-role="collapsible" id="recentReadingsUL">
                     <h1>{$data->createdOn}</h1>
-                        <p>Device:   {$data->data->device}</p>
-                        <p>External:   {$data->data->external}</p>
-                        <p>Light Level:   {$data->data->lightLevel}</p>
-                        <p>Internal:   {$data->data->internal}</p>
-                        <p>Voltage:   {$data->data->voltage}</p>
+                        <p class="gsAlertSuccess">Device:   {$data->data->device}</p>
+                        <p class="{$outExternal}">External:   {$data->data->external}</p>
+                        <p class="{$outLight}">Light Level:   {$data->data->lightLevel}</p>
+                        <p class="{$outInternal}">Internal:   {$data->data->internal}</p>
+                        <p class="{$outVoltage}">Voltage:   {$data->data->voltage}</p>
                 </div>
 EOT;
             }
@@ -86,6 +91,44 @@ EOT;
             return $data;
         }else{
             return null;
+        }
+    }
+        private  function ValidateDataReedings($external,$internal,$voltage,$lightLevel,&$outExternalDisplay,&$outInternalDisplay,&$outVoltage,&$outLight){
+        //External
+
+        if($external < 26.5){
+            //low
+            $outExternalDisplay = "gsAlertDanger";
+        }else{
+            //normal
+            $outExternalDisplay = "gsAlertSuccess";
+
+        }
+        //Internal
+        if($internal < 26.5){
+            //low
+            $outInternalDisplay = "gsAlertDanger";
+        }else{
+            //normal
+            $outInternalDisplay = "gsAlertSuccess";
+
+        }
+        //Voltage
+        if($voltage < 3.2){
+            //low
+            $outVoltage = "gsAlertDanger";
+        }else{
+            //normal
+            $outVoltage = "gsAlertSuccess";
+
+        }
+        //Light Level
+        if($lightLevel < 50000){
+            //low
+            $outLight = "gsAlertDanger";
+        }else{
+            //normal
+            $outLight = "gsAlertSuccess";
         }
     }
 }

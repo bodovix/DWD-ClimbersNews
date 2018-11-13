@@ -39,6 +39,5 @@ $(function() {
     }else{
         //normal
         lightLevel.parent().addClass('alert-success');
-
     }
 });
