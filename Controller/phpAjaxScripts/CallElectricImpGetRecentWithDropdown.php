@@ -15,4 +15,4 @@ require_once  '../../global/ConnectionSingleton.php';
 
 $impControl = new ElectricImpControl();
 
-echo $impControl->DisplayRecentReadings();
+echo $impControl->DisplayRecentReadingsWithDropdown();
