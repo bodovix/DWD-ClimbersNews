@@ -22,7 +22,7 @@ class ElectricImpSensors
         }
     }
     public  function GetMostRecentReadings(){
-        $query = $this->con->prepare("SELECT * FROM iot_data LIMIT 10");
+        $query = $this->con->prepare("SELECT * FROM iot_data ORDER BY createdOn desc LIMIT 10");
         $success = $query->execute([]);
         if ($success) {
             if ($query->rowCount() > 0) {
@@ -53,4 +53,20 @@ class ElectricImpSensors
         }
     }
 
+    public  function GetReadingByID($id){
+        $query = $this->con-> prepare("select * from iot_data where id = :resultId");
+        $success = $query -> execute(['resultId' => $id]);
+
+        if ($success && $query -> rowCount() > 0){
+            $result = $query -> fetch(PDO::FETCH_OBJ);
+            if (!is_null($result)){
+                $json = json_encode($result);
+                return $json;
+            }else{
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
 }
