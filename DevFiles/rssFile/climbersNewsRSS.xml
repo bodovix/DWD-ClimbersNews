@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rss version="2.0">
+    <channel>
+        <title>Climbers News Articles</title>
+        <link>https://mayar.abertay.ac.uk/~1701267/sites/ClimbersNews/Index.php</link>
+        <description>RSS Feed</description>
+        <language>en-us</language>
+        <copyright>Copyright (C) 2018 https://mayar.abertay.ac.uk</copyright>
+        <item>
+            <headline>IFSC World Combined Championships Innsbruck: Report</headline>
+            <category>Events</category>
+			<description>Dumb: Comp climbing<description>
+			<createdOn>2017-09-01</createdOn>
+			<author>BillWrights@cn.com</author>
+        </item>
+		<item>
+            <headline>DESTINATION GUIDE: Hodge Close Quarry</headline>
+            <category>Destinations</category>
+			<description>falling into water<description>
+			<createdOn>2017-09-01</createdOn>
+			<author>BillWrights@cn.com</author>
+        </item>
+		<item>
+            <headline>Obsession Fatale E8 6c by somebody</headline>
+            <category>News</category>
+			<description>It was a verry bold climb<description>
+			<createdOn>2017-09-01</createdOn>
+			<author>BillWrights@cn.com</author>
+        </item>
+		<item>
+            <headline>New Stacks discovered on Northern Islands</headline>
+            <category>First Assent</category>
+			<description>Chossy Stack climbed in Shetland!<description>
+			<createdOn>2018-10-01</createdOn>
+			<author>BillWrights@cn.com</author>
+        </item>
+		<item>
+            <headline>New Guidebook for Outer Hebridies</headline>
+            <category>Destinations</category>
+			<description>New Guidebook Published Today<description>
+			<createdOn>2018-3-01</createdOn>
+			<author>BillWrights@cn.com</author>
+        </item>
+		<item>
+            <headline>Visit Gogarth!</headline>
+            <category>Destinations</category>
+			<description>Impressive North Wales Sea Clifs<description>
+			<createdOn>2018-11-01</createdOn>
+			<author>BillWrights@cn.com</author>
+        </item>
+    </channel>
+</rss>
