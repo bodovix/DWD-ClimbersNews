@@ -7,9 +7,6 @@ error_reporting(E_ALL);
 echo 'List of Articles.<br/>' ;
 $xml = simplexml_load_file('Resources/rss/CNRss.txt');
 
-
-echo count($xml->channel->item);
-
 for($i=0; $i < sizeof($xml->channel->item); $i++) {
     $current = $xml ->channel-> item[$i] ;
 

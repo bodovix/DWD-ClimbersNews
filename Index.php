@@ -11,6 +11,7 @@ $indexControl = new IndexControl();
     include_once 'View/Includes/Header.php';
     include_once 'View/Includes/SearchBar.php';
 ?>
+
 <script src="View/JSHandlers/IndexJS.js"></script>
 
 <body class="" >

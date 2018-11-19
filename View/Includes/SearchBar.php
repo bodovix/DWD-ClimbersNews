@@ -21,6 +21,9 @@ $searchBar = new SearchBarControl();
                 </li>
             </ul>
         </div>
+        <a href="Resources/rss/CNRss.txt">
+            <img src="Resources/Images/pic_rss.gif" height="20px"/>
+        </a>
     </div>
 </nav>
 <div class="row" id="noResultsFoundWarning" style="display: none;">
