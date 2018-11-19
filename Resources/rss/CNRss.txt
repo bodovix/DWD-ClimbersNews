@@ -12,6 +12,7 @@
 			<description>Impressive North Wales Sea Clifs</description>
 			<createdOn>2018-11-01</createdOn>
 			<author>BillWrights@cn.com</author>
+			<link>https://mayar.abertay.ac.uk/~1701267/sites/ClimbersNews/ReadArticles.php?article=7</link>
         </item>
         <item>
             <headline>New Guidebook for Outer Hebridies</headline>
@@ -19,6 +20,7 @@
 			<description>New Guidebook Published Today</description>
 			<createdOn>2018-3-01</createdOn>
 			<author>BillWrights@cn.com</author>
+			<link>https://mayar.abertay.ac.uk/~1701267/sites/ClimbersNews/ReadArticles.php?article=6</link>
         </item>
         <item>
             <headline>New Stacks discovered on Northern Islands</headline>
@@ -26,6 +28,7 @@
 			<description>Chossy Stack climbed in Shetland!</description>
 			<createdOn>2018-10-01</createdOn>
 			<author>BillWrights@cn.com</author>
+			<link>https://mayar.abertay.ac.uk/~1701267/sites/ClimbersNews/ReadArticles.php?article=5</link>
         </item>
         <item>
             <headline>Obsession Fatale E8 6c by somebody</headline>
@@ -33,6 +36,7 @@
 			<description>It was a verry bold climb</description>
 			<createdOn>2017-09-01</createdOn>
 			<author>BillWrights@cn.com</author>
+			<link>https://mayar.abertay.ac.uk/~1701267/sites/ClimbersNews/ReadArticles.php?article=4</link>
         </item>
         <item>
             <headline>DESTINATION GUIDE: Hodge Close Quarry</headline>
@@ -40,6 +44,7 @@
 			<description>falling into water</description>
 			<createdOn>2017-09-01</createdOn>
 			<author>BillWrights@cn.com</author>
+			<link>https://mayar.abertay.ac.uk/~1701267/sites/ClimbersNews/ReadArticles.php?article=3</link>
         </item>
         <item>
             <headline>IFSC World Combined Championships Innsbruck: Report</headline>
@@ -47,6 +52,7 @@
 			<description>Dumb: Comp climbing</description>
 			<createdOn>2017-09-01</createdOn>
 			<author>BillWrights@cn.com</author>
+			<link>https://mayar.abertay.ac.uk/~1701267/sites/ClimbersNews/ReadArticles.php?article=2</link>
         </item>
     </channel>
 </rss>
