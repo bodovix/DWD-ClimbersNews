@@ -24,22 +24,8 @@ for($i=0; $i < sizeof($xml->channel->item); $i++) {
     echo "Author " ;
     echo  $current->author;
     echo '<br/>' ;
+    echo "Link: ";
+    echo "<a href='".$current->link."'>Link</a>";
     echo '<br/>' ;
     echo '<br/>' ;
 }
-
-////============
-//echo "<br>";
-//echo "<br>";
-//echo "<br>";
-//echo 'List of Books.<br/>' ;
-//$xml = simplexml_load_file('Resources/rss/rssexample.txt');
-//echo sizeof($xml->item);
-//for($i=0; $i < sizeof($xml->item); $i++) {
-//    $current = $xml -> item[$i] ;
-//    echo $current -> title ;
-//    echo " link " ;
-//    echo  $current -> link ;
-//    echo '<br/>' ;
-//}
-
