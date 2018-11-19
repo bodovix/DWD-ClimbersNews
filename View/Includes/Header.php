@@ -73,6 +73,13 @@ EOT;
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo 'IOT2.php'; ?>">IOT</a>
                 </li>
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">RSS</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="Resources/rss/CNRss.txt">RSS File</a>
+                        <a class="dropdown-item" href="rssReader.php">CNN Reader</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

@@ -4,8 +4,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-echo 'List of Articles.<br/>' ;
-$xml = simplexml_load_file('Resources/rss/CNRss.txt');
+echo '<h1>List of Articles.</h1><br/>' ;
+//$xml = simplexml_load_file('Resources/rss/CNRss.txt');
+$content = file_get_contents('Resources/rss/CNRss.txt');
+$xml = new SimpleXmlElement($content);
+
 
 for($i=0; $i < sizeof($xml->channel->item); $i++) {
     $current = $xml ->channel-> item[$i] ;
