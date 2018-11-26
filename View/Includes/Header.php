@@ -77,7 +77,8 @@ EOT;
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">RSS</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="Resources/rss/CNRss.txt">RSS File</a>
-                        <a class="dropdown-item" href="rssReader.php">CNN Reader</a>
+                        <a class="dropdown-item" href="rssReader.php">CN Reader</a>
+                        <a class="dropdown-item" href="UkcRss.php">UKC Reader</a>
                     </div>
                 </li>
             </ul>

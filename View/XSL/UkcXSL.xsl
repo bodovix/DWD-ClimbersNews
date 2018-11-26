@@ -8,12 +8,10 @@
 
     <xsl:template match="item">
 
-        <xsl:apply-templates select="link" />
+
         <html>
             <body>
                 <h2><xsl:apply-templates select="title" /></h2>
-                        <a href="">Link</a>
-
                 <xsl:element name="a">
                     <xsl:attribute name="href">
                         <xsl:value-of select="link"/>
