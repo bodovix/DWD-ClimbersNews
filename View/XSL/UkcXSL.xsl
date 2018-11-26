@@ -7,8 +7,6 @@
     </xsl:template>
 
     <xsl:template match="item">
-
-
         <html>
             <body>
                 <h2><xsl:apply-templates select="title" /></h2>
@@ -26,6 +24,5 @@
             <br/>
         </html>
     </xsl:template>
-
 </xsl:stylesheet>
 
