@@ -3,23 +3,31 @@
     <xsl:output method="xml" version="1.0" omit-xml-declaration="yes" indent="yes" media-type="text/html"/>
 
     <xsl:template match="/">
-        <xsl:apply-templates select="rss/channel/item/title" />
-        <xsl:apply-templates select="rss/channel/item/link" />
-        <!-- ><xsl:apply-templates select="catalog/cd[6]/title" />  -->
-        <!-- ><xsl:apply-templates select="catalog/cd[price>10]/title" /> -->
-        <!-- ><xsl:apply-templates select="/catalog/cd[country='UK']/artist" /> -->
+        <xsl:apply-templates select="rss/channel/item" />
     </xsl:template>
 
-    <xsl:template match="title">
-        <xsl:value-of select="." /><br/>
+    <xsl:template match="item">
+
+        <xsl:apply-templates select="link" />
+        <html>
+            <body>
+                <h2><xsl:apply-templates select="title" /></h2>
+                        <a href="">Link</a>
+
+                <xsl:element name="a">
+                    <xsl:attribute name="href">
+                        <xsl:value-of select="link"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="target">
+                       "_blank"
+                    </xsl:attribute>
+                    Go To Article
+                </xsl:element>
+            </body>
+            <br/>
+            <br/>
+        </html>
     </xsl:template>
-
-       <xsl:template match="link">
-        <xsl:value-of select="." /><br/>
-    </xsl:template>
-
-   
-
 
 </xsl:stylesheet>
 
