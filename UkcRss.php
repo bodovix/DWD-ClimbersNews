@@ -10,17 +10,7 @@ error_reporting(E_ALL);
 
 
 $xml = simplexml_load_file('https://www.ukclimbing.com/articles/rss.php') ;
-//var_dump($xml) ;
-//$result = $xml -> xpath("/item/title") ;
-//$result = $xml -> xpath("/catalog/cd[6]/title") ;
-//$result = $xml -> xpath("/catalog/cd[price>10]/title") ;
-//$result = $xml -> xpath("/catalog/cd[country='UK']/artist") ;
 
-/////$result = $xml -> xpath("channel/item/title") ;
-//$result = $xml -> xpath("/catalog/cd[6]/title") ;
-//$result = $xml -> xpath("/catalog/cd[price>10]/title") ;
-//$result = $xml -> xpath("/catalog/cd[country='UK']/artist") ;
-//var_dump($result) ;
 echo "<br>";
 echo "<br>";
 
@@ -31,14 +21,7 @@ $proc->importStyleSheet($xsl);
 $result = $proc->transformtoXML($xml) ;
 echo $result;
 
-//for($i=0; $i < sizeof($xml->channel->item); $i++) {
-//$current = $xml ->channel-> item[$i] ;
-//
-//echo $current->title;
-//echo '<br/>' ;
-//echo "Category " ;
-//
-//}
+
 ?>
 
 </body>
