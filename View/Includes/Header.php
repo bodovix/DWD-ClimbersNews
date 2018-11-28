@@ -42,6 +42,7 @@ error_reporting(E_ALL);
                         <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=5'?>">Week 5</a>
                         <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=6'?>">Week 6</a>
                         <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=7'?>">Week 7</a>
+                        <a class="dropdown-item" href="<?php echo 'Evaluation.php?week=8'?>">Week 8</a>
                     </div>
                 </li>
 
