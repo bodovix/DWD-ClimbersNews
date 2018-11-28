@@ -85,6 +85,15 @@ switch($urlQueries["week"]){
             echo 'File Not found';
         }
         break;
+    case '9':
+        if(file_exists(APPROOT.'/View/Includes/Evaluations/Evaluation-Week-9.php'))
+        {
+            include_once('View/Includes/Evaluations/Evaluation-Week-9.php');
+            $pathToPage = URLROOT.'IOT2.php';
+        }else{
+            echo 'File Not found';
+        }
+        break;
 
     default:
         echo 'No evaluation found for week: ' . $urlQueries["week"];
