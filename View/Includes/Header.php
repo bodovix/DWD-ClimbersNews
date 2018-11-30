@@ -19,7 +19,7 @@ error_reporting(E_ALL);
 
 <div>
     <div id="banner" class="col-12 bg-dark" style="height: 100px">
-        <p class="align-middle text-danger h1" id="title">Climbers News</p>
+        <a href="Index.php"><p class="align-middle text-danger h1" id="title">Climbers News</p></a>
     </div>
 </div>
 <nav class="navbar navbar-expand-sm  navbar-dark bg-primary ">
