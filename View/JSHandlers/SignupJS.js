@@ -96,7 +96,7 @@ $(function() {
     //Logout
     $(document).on('click','#LogoutLink',function () {
         $.post('Controller/phpAjaxScripts/CallLogout.php');
-        location.reload();
+        window.location.href("Index.php");
     });
 
 
