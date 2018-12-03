@@ -1,6 +1,7 @@
 $(function() {
     $(document).on('click', '#searchBtn', function () {
         var searchBar = $('#searchInput');
+        var errorMsgBox = $('#errorMessage');
         var searchBarVal = searchBar.val();
         var location = $('#locationTxt');
 
@@ -19,8 +20,9 @@ $(function() {
             success: function (data) {
                 if (data === null || data === "") {
                     //Error
-                    alert("no Data Returned TODO")
+                    showErrorMsg(errorMsgBox,"Failed To Connect To AccueWeather");
                 } else {
+                    hideMessageBox(errorMsgBox);
                     //Success
                     var result = data[0];
 
@@ -41,3 +43,16 @@ $(function() {
         });
     });
 });
+
+function showErrorMsg(alertBox,errorMessage) {
+    alertBox.removeClass('d-none');
+    alertBox.removeClass('alert-success');
+    alertBox.addClass('alert-danger');
+    alertBox.html(errorMessage);
+}
+
+function hideMessageBox(alertMsgBox) {
+    alertMsgBox.addClass('d-none');
+    alertMsgBox.removeClass('alert-danger');
+    alertMsgBox.html("");
+}

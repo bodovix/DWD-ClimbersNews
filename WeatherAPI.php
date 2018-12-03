@@ -28,7 +28,7 @@ require_once  'global/ConnectionSingleton.php';
         </div>
         <div id="Results">
             <div class="row">
-                <div class="alert alert-danger">Failed To Connect To AccueWeather</div>
+                <div id="errorMessage" class="alert d-none"></div>
             </div>
             <div class="row">
             <table class="table">
