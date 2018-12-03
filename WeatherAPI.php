@@ -15,7 +15,7 @@ require_once  'global/ConnectionSingleton.php';
 
 <body>
     <div class="container">
-        <div id="SearchBar">
+        <div id="SearchBar" >
             <div class="row">
                 <select id="searchInput" class="p-1">
                     <option value="328328">London</option>
