@@ -86,6 +86,9 @@ EOT;
                         <a class="dropdown-item" href="UkcRss.php">UKC Reader</a>
                     </div>
                 </li>
+                <li>
+                    <a class="nav-link" href="WeatherAPI.php">Weather</a>
+                </li>
             </ul>
         </div>
     </div>
