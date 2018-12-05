@@ -104,7 +104,6 @@ EOT;
         }
     }
 
-    //TODO:Implement Comments & Ratings
     public  function displayCommentsForArticle($articleID){
         $commentsJson = $this->feedbackModel->getActiveFeedbackForArticle($articleID);
         $comments = json_decode($commentsJson);

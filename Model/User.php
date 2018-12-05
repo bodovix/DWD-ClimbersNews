@@ -83,7 +83,4 @@ class User
             return json_encode(false);
         }
     }
-    //TODO: Update User
-
-    //TODO: delete User
 }

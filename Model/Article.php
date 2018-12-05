@@ -104,11 +104,7 @@ class Article
             return json_encode(false);
         }
     }
-    //TODO: delete
-    //TODO: update
 
-
-    //TODO: not sure about filtered methods, feel like  api should be kept simple only have the 4 crud's. maybe this should be a string query to filter GetAll
     public function findArticleByDateCreated ($createdOn){
 
         if (is_null($createdOn) || !isset($createdOn)){
