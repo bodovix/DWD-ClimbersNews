@@ -93,11 +93,11 @@ $(function() {
         }
     });
 
-    //Logout
-    $(document).on('click','#LogoutLink',function () {
-        $.post('Controller/phpAjaxScripts/CallLogout.php');
-        window.location.href("Index.php");
-    });
+    //Logout - now done with href link
+    // $(document).on('click','#LogoutLink',function () {
+    //     $.post('Controller/phpAjaxScripts/CallLogout.php');
+    //     window.location.href("Index.php");
+    // });
 
 
 //============================================================

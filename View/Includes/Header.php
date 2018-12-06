@@ -68,8 +68,11 @@ EOT;
 EOT;
                     }else{
                         $link = <<<EOT
+                        <!--<li id="LogoutLink" class="nav-item" >-->
+                            <!--<p class="nav-link mb-0 text-warning" id="logoutMenuBtn" >Logout</p>-->
+                        <!--</li>-->
                         <li id="LogoutLink" class="nav-item" >
-                            <p class="nav-link mb-0 text-warning" id="logoutMenuBtn" >Logout</p>
+                            <a href="Controller/phpAjaxScripts/CallLogout.php" class="nav-link mb-0 text-warning" id="logoutMenuBtn" >Logout</a>
                         </li>
 EOT;
                     }
