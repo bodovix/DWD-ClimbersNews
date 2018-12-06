@@ -112,6 +112,15 @@ switch($urlQueries["week"]){
             echo 'File Not found';
         }
         break;
+    case '12':
+        if(file_exists(APPROOT.'/View/Includes/Evaluations/Evaluation-Week-12.php'))
+        {
+            include_once('View/Includes/Evaluations/Evaluation-Week-12.php');
+            $pathToPage = URLROOT.'WeatherAPI.php';
+        }else{
+            echo 'File Not found';
+        }
+        break;
 
     default:
         echo 'No evaluation found for week: ' . $urlQueries["week"];
