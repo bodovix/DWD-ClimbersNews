@@ -11,7 +11,7 @@ require_once 'config/config.php';
 
     <h2>Stripped tags to prevent SSX attacks</h2>
     <p class="text-justify">
-        The Websites login and Registration functionality was made secure by stripping all code Tags from the user’s inputs. This helps protect the website from Cross Site Scripting (XSS) attacks. A XSS attack is when someone injects harmful code into your website, usually thorough the websites forms and users’ inputs.
+        The Websites login and Registration functionality was made as secure as possible by stripping all code Tags from the user’s inputs. This helps protect the website from Cross Site Scripting (XSS) attacks. A XSS attack is when someone injects harmful code into your website, usually thorough the websites forms and users’ inputs.
         <br>
         With user inputs stripped of tags if the user was to attempt to enter some harmful Script into one of the inputs it wouldn’t run as code when sent back to the display potently harming other users experience or stealing data.
     </p>
@@ -29,11 +29,11 @@ require_once 'config/config.php';
         A combination of Client side and server-side validation has been used to validate the user’s registration inputs before storing in the database. This validation helps ensure that the required information is populated before being sent to the Database and ensures that data is sent in a format that the database can store.
         <br>
         <br>
-        Client-side validation provides the user with a fast and user-friendly response to their form inputs. However, it is easy for a malicious user to exploit or circumnavigate this validation. Server-side validation has also been implemented to back up the Client side. This validation is not as dynamic since it must travel across the network but will acts as final safety check on the user’s inputs.
+        Client-side validation provides the user with a fast and user-friendly response to their form inputs. However, it is easy for a malicious user to exploit or circumnavigate this validation. Server-side validation has also been implemented to back up the Client side. This validation is not as dynamic since it must travel across the network but will acts as final safety check on the user’s inputs as it cannot be easily circumnavigated by an attacker.
     </p>
     <h2>Session Variables</h2>
     <p class="text-justify">
-        Once logged in the users State is stored using PHPs SESSION variables and not Cookies. Cookies would store the state information on the client’s computer and have a higher risk of being tampered with whereas sessions are stored securely on the server.
+        Once logged in the users State is stored using PHPs SESSION variables and not Cookies. Cookies would store the state information on the client’s computer and have a higher risk of being tampered with whereas sessions are stored securely on the server and are disposed of automatically after a period of inactivity by the user.
     </p>
 
 </div>

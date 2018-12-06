@@ -7,7 +7,7 @@
     <img class="mx-auto d-block" src="uploads/Evaluations/Week-2/uml.JPG">
     <br>
     <p class="text-justify">
-        The websites database is split into 6 tables; a User table that will store basic details about users and their roles within the site. An article table that will be used to store all the details the website needs to sort and render articles for the users. An ‘ArticleCategories’ table that will be used to store the general groups that articles can be ‘categorized’ into for better searching/ finding related topics. Only users with an Administrative role on the site will be able to maintain the categories table. The user will have the ability to give feedback through comments and place ratings on articles. This information has been stored inside the Rating and Feedback tables.
+        The websites database is split into 6 tables; a User table that will store basic details about users and their roles within the site. An article table that will be used to store all the details the website needs to sort and render articles for the users. An ‘ArticleCategories’ table that will be used to store the general groups that articles can be ‘categorized’ into for better searching/ finding related topics. Only users with the appropriate roles will be able to Create new articles. The user will have the ability to give feedback through comments and place ratings on articles. This information has been stored inside the Rating and Feedback tables.
     </p>
 
     <h2>Normalisation</h2>
@@ -20,7 +20,7 @@
 
     <h2>Article Summary Design </h2>
     <p class="text-justify">
-        Bootstraps built in Card classes were used to display summary lists of articles and their content as tile icons. Cards give the user a clear and easily clickable means of summarizing articles and providing links to them that help the user decide what article to read.
+        Bootstraps built in Card classes were used to display summary lists of articles and their content as tile icons. Cards give the user a clear and easily clickable means of summarizing articles and providing informative links to them that help the user decide what article to read.
         Pagination and search functionality has been setup to allow the user to filter down the loaded articles and to display them in user friendly groups of 6 at a time. Without pagination or search the user could be presented with 1000s of articles at once making the site hard to navigate and hurting the user experience.
     </p>
 </div>

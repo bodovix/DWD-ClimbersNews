@@ -16,7 +16,7 @@
     <div class="container text-center">
         <img src="uploads/Evaluations/Week-1/Bootstrap-dropdown-Nav.png">
     </div>
-    <p class="text-justify">The downside of Bootstraps quick and easy navigation menus is, whilst fast to setup they can look quite similar as native bootstrap only provides a limited number of options for colour. Additional Styling will be required after functional development to keep the website unique. </p>
+    <p class="text-justify">The downside of Bootstraps quick and easy navigation menus is, whilst fast to setup they can look quite similar as native bootstrap only provides a limited number of options for colour. Additional Styling will be required after functional development to give the website a unique style. </p>
 
     <h2></h2>
     <p class="text-justify"></p>
@@ -24,7 +24,7 @@
     <h2>Analysis of other useful features of bootstrap</h2>
     <p>Bootstrap has many other useful features here’s a brief overview of some of the more common ones:
         Bootstrap provides us with standardized forms and Input groups. This allows us to quickly setup professional looking input forms that are fully mobile responsive.
-        Bootstrap also offers out-the-box professional responsive styling for HTML tables and table pagination. However, the pagination it offers is purely front end we must power it manually with other scripting languages.
+        Bootstrap also offers out-the-box professional responsive styling for HTML tables and table pagination. However, the pagination it offers is purely front end. Developers must power its functionality with other scripting languages.
         Bootstrap provides us with the concept of Cards. These are basically responsive Tile icons that can be customized to display the websites content.
         Another useful feature of bootstrap is its Alerts. Bootstrap has 8 standard alert styles to fit any return message scenario the user might face whilst visiting our website.
     </p>
@@ -33,7 +33,7 @@
     </div>
     <br>
     <br>
-    <p>Bootstrap offers developers the ability to create professional dynamic progress bars that could be used to indicate the progress through any number of tasks the user may have to carry out or the state of any Ajax calls the website is making. Unfortunately, as with the pagination these progress bars must be manually powered by the developer’s using JavaScript or another language as seen in the Register form, bootstrap is predominantly a CSS framework.</p>
+    <p>Bootstrap offers developers the ability to create professional dynamic progress bars that could be used to indicate the progress through any number of tasks the user may have to carry out or the state of any Ajax calls the website is making. Unfortunately, as with the pagination these progress bars must be manually powered by the developer’s using JavaScript or another language as seen in the Climbers News Websites Register form, bootstrap is predominantly a CSS framework. with only a small amount of built in JavaScript functionality however this could be extended with other plugins.</p>
 
     <div class="container text-center">
         <img src="uploads/Evaluations/Week-1/passwordStrength.JPG"/>

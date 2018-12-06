@@ -11,7 +11,7 @@
             </div>
         </div>
     </div>
-    <h2>How API was Implemented</h2>
+    <h2>API Implementation</h2>
 
     <p class="text-justify">
         The above code sample is an example of a website that does not implement a good API for its data layer.
@@ -40,7 +40,7 @@
 
     <h2>Benefits of using an API</h2>
     <p class="text-justify">
-        Using an API structure in your website is a good idea and there are many benefits of using one in your websites. It makes your code much more readable and will make future development easier as it helps your websites code follow the single responsibility principle by giving each part of the api a specific purpose.
+        Using an API structure in your website is a good idea and there are many benefits of using one in your websites. It makes your code much more readable and will make future development and changes easier as it helps keeps your websites code loosely coupled and makes it more coherent as functionality is split into logical parts.
     </p>
     <p class="text-justify">
         An API model like this also helps keep the logical parts of your website separate. By separating the display and data logic it is easy for multiple developers to potentially work on the website at the same time. Someone can build the front end whilst another works on the backend. Because both developers are working on an agreed API integrating their work once complete will be much easier.

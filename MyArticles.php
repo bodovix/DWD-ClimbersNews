@@ -1,14 +1,14 @@
 <html>
 <?php
+session_start();
+include_once 'Controller/AuthorCheck.php';
+
 require_once  'global/ConnectionSingleton.php';
 require_once  'config/config.php';
 
-?>
-<?php
 include_once 'View/Includes/Header.php';
 include_once 'View/Includes/MyArticlesNav.php';
 
-include_once 'Controller/AuthorCheck.php';
 ?>
 
 <script src="View/JSHandlers/MyArticlesJS.js"></script>
