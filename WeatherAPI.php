@@ -41,11 +41,11 @@ require_once  'global/ConnectionSingleton.php';
                     <td><p id="locationTxt"></p></td>
                 </tr>
                 <tr>
-                    <td>Time:</td>
+                    <td>Time of Reading:</td>
                     <td><p id="timeTxt"></p></td>
                 </tr>
                 <tr>
-                    <td>Summary:</td>
+                    <td>Weather Summary:</td>
                     <td><p id="summaryTxt"></p></td>
                 </tr>
                 <tr>
