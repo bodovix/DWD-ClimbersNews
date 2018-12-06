@@ -11,10 +11,10 @@ require_once 'config/config.php';
 
     <h2>UKC External RSS Feed </h2>
     <p class="text-justify">
-        The Website now implements one of the UKC Websites RSS Feeds. The UKCs recent article feed has been taken and processed by the CN website. UKC are another well-established Climbing News Website. They regularly update their websites content with new news, reviews and articles relating to the climbing community.
+        The Website now implements one of the UKC Websites RSS Feeds. The UKCs recent article feed has been taken and processed by the CN website. UKC are another well-established Climbing News Website. They regularly update their websites content with new news, reviews and other articles relating to the climbing community.
     </p>
     <p  class="text-justify">
-        Adding content from UKCs most recent articles too the CN website will help provide CNs visitors with new dynamically loaded content on top of that already provided by Climbers News. This will help keep the site feeling dynamic as new content will be presented to its visitors frequently as they will now see changes made by the CN Authors as well as the UKC Authors.
+        Adding content from UKCs most recent articles too the CN website will help provide CNs visitors with new dynamically loaded content on top of that already provided by Climbers News. This will help keep the site feeling dynamic as new content will be presented to its visitors frequently as they will now see content made by the CN Authors as well as the UKC Authors.
     </p>
 
     <h2>XSLT</h2>

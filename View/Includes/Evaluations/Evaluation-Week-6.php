@@ -22,7 +22,7 @@ require_once 'config/config.php';
     </p>
     <h2>Benefits of MVC </h2>
     <p class="text-justify">
-        MVC is a well-known framework that many developers are familiar with. This means that if a new developer was to start working on our project they would have a much easier time understanding the architecture and would be able to continue developing the site using this framework much quicker than if they were having to learn a new/ unfamiliar framework.
+        MVC is a well-known framework that many developers are familiar with. This means that if a new developer was to start working on our project they would have a much easier time understanding the architecture and would be able to continue developing the site using this framework much quicker than if they were having to learn a new/ unfamiliar framework or no framework atall.
     </p>
     <p class="text-justify">
         MVC also allows multiple developers to work on different parts of the application simultaneously without effecting each others development. It is possible for someone to develop the Controller while another developer makes changes to the view and another makes changes to the Model without interrupting the other developers work.

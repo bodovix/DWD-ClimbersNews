@@ -18,14 +18,14 @@ require_once 'config/config.php';
     </p>
 
     <p class="text-justify">
-        The “Agent” is the terminology used for the remote server that hosts the Electric imp’s services online. It is where the imp’s data is first sent to and where the imps data is processed and sent to the end users Website or Mobile Application.
+        The “Agent” is the terminology used for the remote server that hosts the Electric imp’s services online. It is where the imp’s data is first sent to and where the imps data is processed processed before being sent on to the end users Website or Mobile Application to be displayed to the user.
     </p>
     <h2>Reading Sensors</h2>
     <p class="text-justify">
         The Electric Imp has been setup with physical sensors that allow it to read the rooms Imps External Temperature, the Internal Temperature and voltage of the device as well as the current light level of the room.
     </p>
     <p class="text-justify">
-        Code has been developed through the Electric Imps agent and then published to the device. This code tells the Imp to send the current External Temperature, Internal Temporiser voltage and current light level to the Agent a couple times a minute. These readings are then out putted to the Agents Log window.
+        Code has been developed through the Electric Imps agent and then published to the device. This code tells the Imp to read the current External Temperature, Internal Temporiser voltage and current light level several times a minute. once a reading is received the Imp has been programed to post this data up to the Agent. These readings are then out putted to the Agents Log window.
     </p>
     <br/>
     <br/>
