@@ -31,18 +31,19 @@ function GetResults() {
     var link = $('#linkTxt');
 
     $.ajax({
-        type: "GET",
-        data: {},
-        url: "https://dataservice.accuweather.com/currentconditions/v1/"+searchBarVal+"?apikey=UUTQ4AGUNDyPIBqv2fROxiopPy5aAGA9",
+        type: "POST",
+        data: {searchBarValue: searchBarVal},
+        url: "Controller/phpAjaxScripts/CallAccuWeatherAPI.php",
         //  dataType: "html",
         //  async: true,
-        success: function (data) {
-            if (data === null || data === "") {
+        success: function (dataJSon) {
+            if (dataJSon === null || dataJSon === "") {
                 //Error
                 showErrorMsg(errorMsgBox,"Failed To Connect To AccueWeather");
             } else {
                 hideMessageBox(errorMsgBox);
                 //Success
+                var data = JSON.parse(dataJSon);
                 var result = data[0];
 
                 var timeResult = result["LocalObservationDateTime"];
