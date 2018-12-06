@@ -63,10 +63,10 @@ EOT;
                 <div data-role="collapsible" id="recentReadingsUL">
                     <h1>{$data->createdOn}</h1>
                         <p class="gsAlertSuccess">Device:   {$data->data->device}</p>
-                        <p class="{$outExternal}">External:   {$data->data->external}</p>
-                        <p class="{$outLight}">Light Level:   {$data->data->lightLevel}</p>
-                        <p class="{$outInternal}">Internal:   {$data->data->internal}</p>
-                        <p class="{$outVoltage}">Voltage:   {$data->data->voltage}</p>
+                        <p class="{$outLight}">Light Level:   {$data->data->lightLevel} lx</p>
+                        <p class="{$outExternal}">External:   {$data->data->external} C</p>
+                        <p class="{$outInternal}">Internal:   {$data->data->internal} C</p>
+                        <p class="{$outVoltage}">Voltage:   {$data->data->voltage} V</p>
                 </div>
 EOT;
             }
