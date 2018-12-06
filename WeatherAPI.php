@@ -7,6 +7,9 @@
  */
 ?>
 <?php
+require_once  'global/ConnectionSingleton.php';
+require_once  'config/config.php';
+
 include_once 'View/Includes/Header.php';
 require_once  'global/ConnectionSingleton.php';
 ?>
@@ -59,3 +62,7 @@ require_once  'global/ConnectionSingleton.php';
         </div>
     </div>
 </body>
+<?php
+$pathToPage = URLROOT.'Evaluation.php?week=12';
+include 'View/Includes/Footer.php';
+?>
