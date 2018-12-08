@@ -20,6 +20,22 @@ if (!isset($_POST['emailLogin'])){
 if (!isset($_POST['passwordLogin'])){
     return;
 }
+if(!isset($_POST['captcha'])){
+    echo "Captcha POST Error";
+    return;
+}
+
+$secret="6LfBAHQUAAAAAKWXpl8u1pD0fYIrcKvKfEPaxJID";
+$response=$_POST["captcha"];
+
+$verify=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}");
+$captcha_success=json_decode($verify);
+if ($captcha_success->success==false) {
+  //This user was not verified by recaptcha.
+    echo "Capatcha Not Validated";
+    return;
+}
+
 $email = strip_tags($_POST['emailLogin']) ;
 $password = strip_tags($_POST['passwordLogin']) ;
 

@@ -6,7 +6,9 @@
  * Time: 10:48 AM
  */
 ?>
-<link
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 <div id="registerForm" class="container border-danger ">
     <form name="loginForm" id="loginForm" class="form col-md-4 mx-auto my-4">
         <div class="form-group">
@@ -27,6 +29,7 @@
             </div>
             <div class="ml-auto d-inline">
                 <p class="p-0 small font-italic text-muted mb-0" >Don't Have an Account? </p>
+                <div class="g-recaptcha" data-sitekey="6LfBAHQUAAAAAHyibz-tlCxR3KWWvAH2myyZ39E-"></div>
                 <input id="openRegisterForm" type="button" class="btn btn-info " value="Register"/>
             </div>
 

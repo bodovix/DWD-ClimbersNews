@@ -70,10 +70,10 @@ $(function() {
             hideMessageBox(alertMsgBox);
 
             var formData = $('form#loginForm').serialize();
-
+            var responce = grecaptcha.getResponse();
             $.ajax({
                 type: "POST",
-                data: formData,
+                data:  formData+"&captcha="+responce,
                 url: 'Controller/phpAjaxScripts/CallLogin.php',
                 //  dataType: "html",
                 //  async: true,
