@@ -1,6 +1,6 @@
 $(function() {
     GetResults();
-    $(document).on('click', '#searchBtn', function () {
+    $(document).on('change', '#searchInput', function () {
         GetResults();
     });
 });

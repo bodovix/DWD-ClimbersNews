@@ -26,7 +26,6 @@ require_once  'global/ConnectionSingleton.php';
                     <option value="328226">Glasgow</option>
                     <option value="532">Inverness</option>
                 </select>
-                <button id="searchBtn">Search</button>
             </div>
         </div>
         <div id="Results">
