@@ -80,6 +80,7 @@ $(function() {
                 success: function(data) {
                     if (data !== ""){
                         //Error
+                        grecaptcha.reset();
                         showErrorMsg(alertMsgBox,data);
                         return;
                     } else{
