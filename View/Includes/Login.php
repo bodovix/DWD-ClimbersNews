@@ -22,13 +22,15 @@
         <div class="form-group">
             <input name="passwordLogin" id="passwordLogin" class="form-control"  placeholder="Password" required type="password" />
         </div>
-
+        <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6LfBAHQUAAAAAHyibz-tlCxR3KWWvAH2myyZ39E-"></div>
+        </div>
         <div class="form-group ">
             <div class=" d-inline">
                 <input id="loginBtn" type="button" class="btn btn-primary d-inline" value="Login"/>
             </div>
             <div class="ml-auto d-inline">
-                <div class="g-recaptcha" data-sitekey="6LfBAHQUAAAAAHyibz-tlCxR3KWWvAH2myyZ39E-"></div>
+
                 <p class="p-0 small font-italic text-muted mb-0" >Don't Have an Account? </p>
                 <input id="openRegisterForm" type="button" class="btn btn-info " value="Register"/>
             </div>
