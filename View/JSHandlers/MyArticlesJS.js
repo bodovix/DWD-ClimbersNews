@@ -279,7 +279,7 @@ $(function(){
             var audioSize = sectionFile.prop("files")[0].size;
             if (audioSize > maxAudioSizeBytes){
                 isValid = false;
-                var inkb2 = Math.ceil(size /bytesToKb );
+                var inkb2 = Math.ceil(audioSize /bytesToKb );
                 msg = sectionName+": File to big("+ inkb2 +" Kb). file cannot exceed "+(maxAudioSizeBytes / bytesToKb)+" Kb";
             }
         }
@@ -294,16 +294,16 @@ $(function(){
             var videoSize = sectionFile.prop("files")[0].size;
             if (videoSize > maxVideoSizeBytes){
                 isValid = false;
-                var inkb3 = Math.ceil(size /bytesToKb );
+                var inkb3 = Math.ceil(videoSize /bytesToKb );
 
-                msg = sectionName+": File to big("+ inkb3 +" Kb). file cannot exceed "+(maxVideoSizeBytes /bytesToKb)+" Bytes";
+                msg = sectionName+": File to big("+ inkb3 +" Kb). file cannot exceed "+(maxVideoSizeBytes /bytesToKb)+" Kb";
             }
         }
 
         //Size limits per type
         if (sectionText.val().length > textLengthLimit){
             isValid = false;
-            msg = sectionName+": Text Too long ( "+sectionText.length+" ). cannot exceed "+textLengthLimit+" characters.";
+            msg = sectionName+": Text Too long ( "+sectionText.val().length+" ). cannot exceed "+textLengthLimit+" characters.";
         }
         if (sectionMediaCaption.val().length > mediaCaptionLengthLimit){
             isValid = false;

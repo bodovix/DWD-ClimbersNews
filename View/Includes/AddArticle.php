@@ -71,7 +71,7 @@ $myArtCtr = new MyArticlesControl();
                     <div class="row">
                         <div class="form-group">
                             <label for="addPrimaryText">Initial Text</label>
-                            <input name="addPrimaryText" id="addPrimaryText" class="form-control" type="text"/>
+                            <textarea rows="5" cols="50" name="addPrimaryText" id="addPrimaryText" class="form-control" type="text"></textarea>
                         </div>
                     </div>
                     <div class="row">
@@ -105,7 +105,7 @@ $myArtCtr = new MyArticlesControl();
                     <div class="row">
                         <div class="form-group">
                             <label for="addSecondaryText">Secondary Text</label>
-                            <input name="addSecondaryText" id="addSecondaryText" class="form-control" type="text"/>
+                            <textarea rows="5" cols="50" name="addSecondaryText" id="addSecondaryText" class="form-control" type="text"></textarea>
                         </div>
                     </div>
                     <div class="row">
@@ -139,7 +139,7 @@ $myArtCtr = new MyArticlesControl();
                     <div class="row">
                         <div class="form-group">
                             <label for="addConclusionText">Conclusion Text</label>
-                            <input name="addConclusionText" id="addConclusionText" class="form-control" type="text"/>
+                            <textarea rows="5" cols="50" name="addConclusionText" id="addConclusionText" class="form-control" type="text"></textarea>
                         </div>
                     </div>
                     <div class="row">
