@@ -61,7 +61,12 @@ require_once  'global/ConnectionSingleton.php';
         </div>
     </div>
 </body>
-<?php
-$pathToPage = URLROOT.'Evaluation.php?week=12';
-include 'View/Includes/Footer.php';
-?>
+<br>
+<br>
+<br>
+<div class="fixed-bottom">
+    <?php
+    $pathToPage = URLROOT.'Evaluation.php?week=12';
+    include 'View/Includes/Footer.php';
+    ?>
+</div>

@@ -34,7 +34,12 @@ echo  $alreadyLoggedIn;
     }
     ?>
 </div>
-
-<?php
-$pathToPage = URLROOT.'Evaluation.php?week=4';
-include_once 'View/Includes/Footer.php';?>
+<br>
+<br>
+<br>
+<div class="fixed-bottom">
+    <?php
+    $pathToPage = URLROOT.'Evaluation.php?week=4';
+    include_once 'View/Includes/Footer.php';
+    ?>
+</div>
