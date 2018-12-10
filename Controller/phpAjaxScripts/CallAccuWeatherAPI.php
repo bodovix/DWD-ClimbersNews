@@ -15,7 +15,7 @@ if(isset($_POST['searchBarValue'])){
     $search = $_POST['searchBarValue'];
 
     $url = "https://dataservice.accuweather.com/currentconditions/v1/";
-    $key = "?apikey=UUTQ4AGUNDyPIBqv2fROxiopPy5aAGA9";
+    $key = "?apikey=3gNVfD6ZaGHbdAwi1Nb8UgmIj6Il9UwY";
 
     $responseJSon = file_get_contents($url.$search.$key);
 
